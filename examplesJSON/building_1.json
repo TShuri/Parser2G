@@ -1,0 +1,316 @@
+{
+    "meta": {
+        "api_version": "3.0.18421",
+        "code": 200,
+        "issue_date": "20241213"
+    },
+    "result": {
+        "items": [
+            {
+                "address": {
+                    "building_id": "1548748027107257",
+                    "components": [
+                        {
+                            "number": "267/3",
+                            "street": "улица Лермонтова",
+                            "street_id": "1548851106283557",
+                            "type": "street_number"
+                        }
+                    ],
+                    "postcode": "664033"
+                },
+                "address_name": "улица Лермонтова, 267/3",
+                "adm_div": [
+                    {
+                        "id": "1",
+                        "name": "Россия",
+                        "type": "country"
+                    },
+                    {
+                        "id": "1267655302447152",
+                        "name": "Иркутская область",
+                        "type": "region"
+                    },
+                    {
+                        "id": "70030076118167127",
+                        "name": "Иркутск городской округ",
+                        "type": "district_area"
+                    },
+                    {
+                        "city_alias": "irkutsk",
+                        "flags": {
+                            "is_default": true,
+                            "is_district_area_center": true,
+                            "is_region_center": true
+                        },
+                        "id": "1548735142166607",
+                        "is_default": true,
+                        "name": "Иркутск",
+                        "type": "city"
+                    },
+                    {
+                        "id": "70030076242262287",
+                        "name": "Свердловский район",
+                        "type": "district"
+                    },
+                    {
+                        "detailed_subtype": "microdistrict",
+                        "id": "1548773796872200",
+                        "name": "Академгородок м-н",
+                        "type": "living_area"
+                    }
+                ],
+                "city_alias": "irkutsk",
+                "context": {},
+                "external_content": [
+                    {
+                        "count": 2,
+                        "main_photo_url": "https://i1.photo.2gis.com/main/geo/11/1548748027107257/view",
+                        "subtype": "view",
+                        "type": "photo_album"
+                    }
+                ],
+                "flags": {
+                    "photos": true
+                },
+                "floors": {
+                    "ground_count": 12
+                },
+                "full_name": "Иркутск, улица Лермонтова, 267/3",
+                "geometry": {
+                    "centroid": "POINT(104.26943 52.248154)",
+                    "selection": "POINT(104.26943 52.248154)"
+                },
+                "has_ads_model": false,
+                "has_apartments_info": true,
+                "has_realty": true,
+                "id": "1548748027107257",
+                "links": {
+                    "branches": {
+                        "count": 3
+                    },
+                    "database_entrances": [
+                        {
+                            "geometry": {
+                                "normals": [
+                                    "LINESTRING(104.851993 51.435284,104.269396 52.248045)"
+                                ],
+                                "points": [
+                                    "POINT(104.26939583792421 52.248044966307233)"
+                                ],
+                                "vectors": [
+                                    "LINESTRING(104.269455 52.247963,104.269396 52.248045)"
+                                ]
+                            },
+                            "id": "70030076801190610",
+                            "is_primary": false
+                        },
+                        {
+                            "geometry": {
+                                "normals": [
+                                    "LINESTRING(104.852462 51.435557,104.269537 52.248083)"
+                                ],
+                                "points": [
+                                    "POINT(104.26953669376074 52.248083011358062)"
+                                ],
+                                "vectors": [
+                                    "LINESTRING(104.269596 52.248001,104.269537 52.248083)"
+                                ]
+                            },
+                            "id": "1549156048968574",
+                            "is_primary": false
+                        },
+                        {
+                            "geometry": {
+                                "normals": [
+                                    "LINESTRING(104.852637 51.43572,104.269454 52.248061)"
+                                ],
+                                "points": [
+                                    "POINT(104.26945359959696 52.2480605702958)"
+                                ],
+                                "vectors": [
+                                    "LINESTRING(104.269513 52.247978,104.269454 52.248061)"
+                                ]
+                            },
+                            "id": "1549156048968575",
+                            "is_primary": false
+                        },
+                        {
+                            "entity_name": "1 подъезд",
+                            "entity_number": "1",
+                            "geometry": {
+                                "normals": [
+                                    "LINESTRING(103.686801 53.061002,104.269401 52.248243)"
+                                ],
+                                "points": [
+                                    "POINT(104.2694005989952 52.248242745075949)"
+                                ],
+                                "vectors": [
+                                    "LINESTRING(104.269342 52.248325,104.269401 52.248243)"
+                                ]
+                            },
+                            "has_poi": true,
+                            "id": "70030076160606316",
+                            "is_primary": false,
+                            "is_visible_in_ui": true,
+                            "is_visible_on_map": true,
+                            "name": "1"
+                        }
+                    ],
+                    "nearest_parking": [
+                        {
+                            "id": "1549168969470249"
+                        },
+                        {
+                            "id": "70030076170223272"
+                        },
+                        {
+                            "id": "70030076170223087"
+                        },
+                        {
+                            "id": "70030076244096745"
+                        },
+                        {
+                            "id": "70030076170196288"
+                        },
+                        {
+                            "id": "1549168961809182"
+                        },
+                        {
+                            "id": "70030076244096309"
+                        },
+                        {
+                            "id": "70030076244094689"
+                        },
+                        {
+                            "id": "70030076244094318"
+                        },
+                        {
+                            "id": "70030076170222158"
+                        },
+                        {
+                            "id": "70030076244371349"
+                        },
+                        {
+                            "id": "70030076170197950"
+                        },
+                        {
+                            "id": "70030076673666257"
+                        },
+                        {
+                            "id": "70030076244250616"
+                        },
+                        {
+                            "id": "70030076170369492"
+                        },
+                        {
+                            "id": "70030076241880742"
+                        },
+                        {
+                            "id": "70030076170219826"
+                        }
+                    ],
+                    "nearest_stations": [
+                        {
+                            "distance": 280,
+                            "id": "1548898350923869",
+                            "name": "Госуниверситет",
+                            "route_types": [
+                                "bus",
+                                "trolleybus",
+                                "shuttle_bus"
+                            ]
+                        }
+                    ],
+                    "providers": {
+                        "count": 24
+                    },
+                    "servicing": {
+                        "count": 5,
+                        "items": [
+                            {
+                                "additional_info": "Жилищно-коммунальные услуги",
+                                "id": "70000001033387785_7greBq8624G2J81301I1GGGG5jznjk47G6G4648969597A96udcn566A5J144G6GG30JIJ0Jsyspuv764403102265H1H3JH3H46",
+                                "name": "Прогресс, группа компаний",
+                                "org_id": "70000001021549046"
+                            },
+                            {
+                                "additional_info": "Жилищно-коммунальные услуги",
+                                "contacts": [
+                                    {
+                                        "code": "70000001040681671",
+                                        "text": "+7‒901‒640‒16‒00",
+                                        "type": "phone",
+                                        "value": "+79016401600"
+                                    },
+                                    {
+                                        "code": "70000001040681672",
+                                        "type": "email",
+                                        "value": "mail@tsj-progress.ru"
+                                    }
+                                ],
+                                "id": "70000001040681670_7greBq8624G2J81301I1GGGG5jznjk47G6G4648969891981udcn566A5J144G6GG30JIJ0Jsyspuv764403102272H2H3JH3Hc3",
+                                "name": "Прогресс, ТСЖ",
+                                "org_id": "70000001040681669"
+                            },
+                            {
+                                "additional_info": "Почта",
+                                "contacts": [
+                                    {
+                                        "code": "70000001012520011",
+                                        "text": "+7 (3952) 42‒76‒58",
+                                        "type": "phone",
+                                        "value": "+73952427658"
+                                    },
+                                    {
+                                        "code": "70000001012520012",
+                                        "text": "+7 (3952) 42‒45‒86",
+                                        "type": "phone",
+                                        "value": "+73952424586"
+                                    }
+                                ],
+                                "id": "1548640652898302_7greBq8624G2J267873GGGG25jznjk47G6G4648969B9333Hudcn566A5J144G6GG3GJI3GJsyspuv76440350775A3H1JJ1H54",
+                                "name": "Почта России, АО",
+                                "org_id": "70000001051048209"
+                            }
+                        ]
+                    }
+                },
+                "locale": "ru_RU",
+                "name": "улица Лермонтова, 267/3",
+                "point": {
+                    "lat": 52.248154,
+                    "lon": 104.26943
+                },
+                "purpose_code": 42,
+                "purpose_name": "Жилой дом",
+                "region_id": "11",
+                "reviews": {
+                    "general_rating": 5,
+                    "general_review_count": 1,
+                    "general_review_count_with_stars": 1,
+                    "items": [
+                        {
+                            "is_reviewable": true,
+                            "tag": "2gis_reviews"
+                        }
+                    ]
+                },
+                "segment_id": "0",
+                "stat": {
+                    "adst": 1607931900
+                },
+                "structure_info": {
+                    "elevators_count": 1,
+                    "floor_type": "Железобетонные",
+                    "gas_type": "Отсутствует",
+                    "is_in_emergency_state": false,
+                    "material": "Монолит",
+                    "year_of_construction": 2011
+                },
+                "type": "building"
+            }
+        ],
+        "total": 1
+    }
+}

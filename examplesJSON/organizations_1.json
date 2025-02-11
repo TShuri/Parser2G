@@ -1,0 +1,1145 @@
+{
+    "meta": {
+        "api_version": "2.0.18421",
+        "code": 200,
+        "issue_date": "20241213"
+    },
+    "result": {
+        "ad": {
+            "gta": {
+                "banners": [
+                    {
+                        "name_ex": {
+                            "extension": "салон цветов",
+                            "primary": "Ника",
+                            "short_name": "Ника"
+                        },
+                        "segment_id": "0",
+                        "region_id": "11",
+                        "hash": "hsibzj8624G2J26787I0GGGG1yqjAz47G6G4648998695B4Hudcn56998J147G6GG49J2J1JDtf4uv7644035177661H1J69HH2Jg6",
+                        "ad_attributes": {
+                            "algorithm_id": 14,
+                            "auction_id": "0c987f85-e76d-4d72-9f3b-b8645846047f",
+                            "branch_id": "1548641653448583",
+                            "content": {
+                                "options": {
+                                    "actions": [
+                                        {
+                                            "caption": "Позвонить Флористу",
+                                            "name": "Позвонить Флористу",
+                                            "platforms": [
+                                                "ios",
+                                                "android",
+                                                "online"
+                                            ],
+                                            "type": "phone",
+                                            "value": "+79646552937"
+                                        }
+                                    ],
+                                    "color": "#F0B68F",
+                                    "erid": [
+                                        "2RanynBpQmw"
+                                    ],
+                                    "images": [
+                                        {
+                                            "url": "https://ams2-cdn.2gis.com/previews/1064652641000226816/f4687f89-ecf6-4e98-95e3-0c091afb8764/3/ru/"
+                                        }
+                                    ],
+                                    "legal_name": "Индивидуальный предприниматель НИКИФОРОВА НАТАЛЬЯ ВИКТОРОВНА",
+                                    "logo": {
+                                        "img_url": "https://ams2-cdn.2gis.com/previews/1064652641000226816/f4687f89-ecf6-4e98-95e3-0c091afb8764/1/ru/image.png"
+                                    }
+                                },
+                                "text": "Композиции в коробке от 1150 тысячи рублей",
+                                "text_warning": "Композиции, букеты, комплименты по любому поводу"
+                            },
+                            "erid": [
+                                "2RanynBpQmw"
+                            ],
+                            "is_ads": true,
+                            "legal_name": "Индивидуальный предприниматель НИКИФОРОВА НАТАЛЬЯ ВИКТОРОВНА",
+                            "project_id": 11,
+                            "rubric_id": 389
+                        },
+                        "main_rubric_id": 389,
+                        "org": {
+                            "branch_count": 1,
+                            "id": "1548650343178079",
+                            "name": "Ника, салон цветов"
+                        }
+                    }
+                ]
+            }
+        },
+        "items": [
+            {
+                "timezone_offset": 480,
+                "flags": {
+                    "photos": true
+                },
+                "stat": {
+                    "adst": 1607931900,
+                    "is_advertised": true,
+                    "match_type": 4,
+                    "rubr": "275",
+                    "source_type": 2
+                },
+                "rubrics": [
+                    {
+                        "name": "Агентства недвижимости",
+                        "parent_id": "9",
+                        "short_id": 275,
+                        "alias": "agentstva_nedvizhimosti",
+                        "id": "275",
+                        "kind": "primary"
+                    }
+                ],
+                "region_id": "11",
+                "adm_div": [
+                    {
+                        "id": "1",
+                        "name": "Россия",
+                        "type": "country"
+                    },
+                    {
+                        "id": "1267655302447152",
+                        "name": "Иркутская область",
+                        "type": "region"
+                    },
+                    {
+                        "id": "70030076118167127",
+                        "name": "Иркутск городской округ",
+                        "type": "district_area"
+                    },
+                    {
+                        "name": "Иркутск",
+                        "is_default": true,
+                        "flags": {
+                            "is_default": true,
+                            "is_district_area_center": true,
+                            "is_region_center": true
+                        },
+                        "id": "1548735142166607",
+                        "type": "city",
+                        "city_alias": "irkutsk"
+                    },
+                    {
+                        "id": "70030076242262287",
+                        "name": "Свердловский район",
+                        "type": "district"
+                    },
+                    {
+                        "detailed_subtype": "microdistrict",
+                        "id": "1548773796872200",
+                        "name": "Академгородок м-н",
+                        "type": "living_area"
+                    }
+                ],
+                "locale": "ru_RU",
+                "links": {
+                    "database_entrances": [
+                        {
+                            "geometry": {
+                                "normals": [
+                                    "LINESTRING(104.851993 51.435284,104.269396 52.248045)"
+                                ],
+                                "points": [
+                                    "POINT(104.26939583792421 52.248044966307233)"
+                                ],
+                                "vectors": [
+                                    "LINESTRING(104.269455 52.247963,104.269396 52.248045)"
+                                ]
+                            },
+                            "id": "70030076801190610",
+                            "is_primary": false,
+                            "is_visible_on_map": true
+                        }
+                    ],
+                    "entrances": [
+                        {
+                            "geometry": {
+                                "normals": [
+                                    "LINESTRING(104.851993 51.435284,104.269396 52.248045)"
+                                ],
+                                "points": [
+                                    "POINT(104.26939583792421 52.248044966307233)"
+                                ],
+                                "vectors": [
+                                    "LINESTRING(104.269455 52.247963,104.269396 52.248045)"
+                                ]
+                            },
+                            "id": "70030076801190610",
+                            "is_primary": false,
+                            "is_visible_on_map": true
+                        }
+                    ],
+                    "nearest_parking": [
+                        {
+                            "id": "1549168969470249"
+                        },
+                        {
+                            "id": "70030076170223087"
+                        },
+                        {
+                            "id": "1549168961809182"
+                        },
+                        {
+                            "id": "70030076244096745"
+                        },
+                        {
+                            "id": "70030076170223272"
+                        },
+                        {
+                            "id": "70030076244096309"
+                        },
+                        {
+                            "id": "70030076170196288"
+                        },
+                        {
+                            "id": "70030076244371349"
+                        },
+                        {
+                            "id": "70030076170222158"
+                        },
+                        {
+                            "id": "70030076244250616"
+                        },
+                        {
+                            "id": "70030076673666257"
+                        }
+                    ],
+                    "nearest_stations": [
+                        {
+                            "distance": 180,
+                            "id": "1548898350923870",
+                            "name": "Больница Академгородка",
+                            "route_types": [
+                                "bus",
+                                "trolleybus",
+                                "shuttle_bus"
+                            ]
+                        }
+                    ]
+                },
+                "address_comment": "1 этаж",
+                "reviews": {
+                    "org_review_count_with_stars": 625,
+                    "is_reviewable_on_flamp": true,
+                    "general_rating": 4.7,
+                    "items": [
+                        {
+                            "is_reviewable": true,
+                            "tag": "2gis_reviews"
+                        },
+                        {
+                            "is_reviewable": true,
+                            "tag": "flamp"
+                        }
+                    ],
+                    "general_review_count_with_stars": 15,
+                    "org_review_count": 582,
+                    "org_rating": 4.1,
+                    "general_review_count": 14,
+                    "is_reviewable": true
+                },
+                "address": {
+                    "building_id": "1548748027107257",
+                    "components": [
+                        {
+                            "number": "267/3",
+                            "street": "улица Лермонтова",
+                            "street_id": "1548851106283557",
+                            "type": "street_number"
+                        }
+                    ],
+                    "postcode": "664033"
+                },
+                "address_name": "улица Лермонтова, 267/3",
+                "group": null,
+                "name": "Самолет Плюс, агентство недвижимости",
+                "point": {
+                    "lat": 52.248053,
+                    "lon": 104.26939
+                },
+                "name_ex": {
+                    "extension": "агентство недвижимости",
+                    "primary": "Самолет Плюс",
+                    "short_name": "Самолет Плюс"
+                },
+                "external_content": [
+                    {
+                        "count": 3,
+                        "main_photo_url": "https://i0.photo.2gis.com/main/branch/11/70000001083302674/common",
+                        "subtype": "common",
+                        "type": "photo_album"
+                    },
+                    {
+                        "count": 2,
+                        "main_photo_url": "https://i1.photo.2gis.com/main/geo/11/1548748027107257/view",
+                        "subtype": "view",
+                        "type": "photo_album"
+                    }
+                ],
+                "segment_id": "0",
+                "is_deleted": false,
+                "id": "70000001083302674_lkA13p8624G23H8301IG0GGGDjwo6547G6G4648998540578udcn56998J147G6G1J2A7J3Jirikuv76440310133A5H1J4HHHG4He6",
+                "ads": {
+                    "article": "«Самолет плюс» — это сервис, который создаёт удобные цифровые продукты и многофункциональные офисы в пешей доступности для решения квартирных вопросов.<br><br>Мы понимаем, что покупка, продажа и аренда недвижимости — это сложный и большой шаг, поэтому предлагаем всё необходимое в одном месте: от приобретения квартиры или дома до выбора дизайн-проекта и подключения интернета.<br>Наша миссия — менять качество жизни людей во всей стране. Можете быть уверены: благодаря «Самолет плюс» вы получите решение любой задачи.",
+                    "link": {
+                        "text": "Подробнее",
+                        "value": "http://link.2gis.ru/1.2/50D9EDC6/online/20241201/project11/70000001083302674/null/lkA13p8624G24H8301IG23GGDjwo6547G6G4648998540578udcn56998J147G6G1J2A7J3Jirikuv76440310133A5H1J4HHHGJ2G2g?https://samoletplus.ru/?utm_source=2gis_spec&utm_medium=fix&utm_campaign=russia_b2c_2gis_spec010124000000&utm_content=campid:2gis_spec010124000000%7Cplace:2gis_spec%7Cchannel:maps%7Cstream:b2c%7Cdirection:imidj%7Ccity:russia"
+                    },
+                    "options": {
+                        "actions": [
+                            {
+                                "caption": "Подробнее",
+                                "name": "Подробнее",
+                                "platforms": [
+                                    "ios",
+                                    "android",
+                                    "online"
+                                ],
+                                "type": "link",
+                                "value": "http://link.2gis.ru/1.2/50D9EDC6/online/20241201/project11/70000001083302674/null/lkA13p8624G24H8301IG23GGDjwo6547G6G4648998540578udcn56998J147G6G1J2A7J3Jirikuv76440310133A5H1J4HHHGJ2G2g?https://samoletplus.ru/?utm_source=2gis_spec&utm_medium=fix&utm_campaign=russia_b2c_2gis_spec010124000000&utm_content=campid:2gis_spec010124000000%7Cplace:2gis_spec%7Cchannel:maps%7Cstream:b2c%7Cdirection:imidj%7Ccity:russia"
+                            }
+                        ],
+                        "branded_advertiser": true,
+                        "buy_here": [
+                            {
+                                "actions": [
+                                    {
+                                        "caption": "Смотреть вакансии на hh.ru",
+                                        "name": "Смотреть вакансии на hh.ru",
+                                        "platforms": [
+                                            "ios",
+                                            "android",
+                                            "online"
+                                        ],
+                                        "type": "link",
+                                        "value": "http://link.2gis.ru/1.2/62DA6BD4/online/20241201/project11/70000001021026229/null/kA13pir27644035323653435886HDjwo65lG48624G6GG4J8178I6GJIn5647G6489987G301102203112A4ikuvudc998J146AH1H4J323G7011HHII5Hdc?https://irkutsk.hh.ru/employer/10477195?utm_campaign=marcom-digital_media-main_b2c-rf-2gis-awar-banner-partner-cross-socdem_job_search-1-restage&utm_medium=cpm&utm_source=2gis"
+                                    }
+                                ],
+                                "ads_id": "1206193342626247427",
+                                "ads_texts": {
+                                    "text": "",
+                                    "text_warning": "ООО «Хэдхантер»."
+                                },
+                                "branch_id": "70000001021026229",
+                                "custom_title": "",
+                                "hash": "kA13pir2764403532365387JIHIHDjwo65lG48624G6GG4J810JIJ0J9n5647G6489987G30110220B43247ikuvudc998J146AH1H4JH00000123H2h",
+                                "is_primary": false,
+                                "logo": {
+                                    "img_url": "https://ams2-cdn.2gis.com/previews/1206069082592378880/5c3291a8-b5b9-423e-8149-824354795e10/1/ru/image.png"
+                                },
+                                "org_id": "70000001021026228",
+                                "owned_rubric_id": "1206193342626247427",
+                                "title": "hh.ru, сайт объявлений"
+                            }
+                        ],
+                        "color": "#007BFC",
+                        "discount": true,
+                        "erid": [
+                            "2Ranyo8pWJC"
+                        ],
+                        "fmcg_owner": [
+                            {
+                                "ads_id": "1183223375054777859",
+                                "control_title": "Вас может заинтересовать",
+                                "erid": [
+                                    "2RanynLrDbe"
+                                ],
+                                "legal_name": "Общество с Ограниченной Ответственностью \"Самолет Плюс\""
+                            }
+                        ],
+                        "images": [
+                            {
+                                "url": "https://ams2-cdn.2gis.com/previews/1183329329220681731/51a883de-d060-4d4a-a86f-43b66c124199/3/ru/"
+                            }
+                        ],
+                        "legal_name": "Общество с Ограниченной Ответственностью \"Самолет Плюс\"",
+                        "logo": {
+                            "img_url": "https://ams2-cdn.2gis.com/previews/1183329329220681731/51a883de-d060-4d4a-a86f-43b66c124199/1/ru/image.png"
+                        },
+                        "marker_logo": {
+                            "url": "https://ams2-cdn.2gis.com/previews/1183329329220681731/51a883de-d060-4d4a-a86f-43b66c124199/7/ru/image.png"
+                        },
+                        "poi": {
+                            "erid": [
+                                "2RanymVvdJG"
+                            ],
+                            "is_premium": true,
+                            "legal_name": "Общество с Ограниченной Ответственностью \"Самолет Плюс\""
+                        },
+                        "review": true
+                    },
+                    "text": "Сервис квартирных решений от сделки до отделки"
+                },
+                "poi_category": "blue",
+                "schedule": {
+                    "Thu": {
+                        "working_hours": [
+                            {
+                                "from": "09:00",
+                                "to": "18:00"
+                            }
+                        ]
+                    },
+                    "Tue": {
+                        "working_hours": [
+                            {
+                                "from": "09:00",
+                                "to": "18:00"
+                            }
+                        ]
+                    },
+                    "Mon": {
+                        "working_hours": [
+                            {
+                                "from": "09:00",
+                                "to": "18:00"
+                            }
+                        ]
+                    },
+                    "Wed": {
+                        "working_hours": [
+                            {
+                                "from": "09:00",
+                                "to": "18:00"
+                            }
+                        ]
+                    },
+                    "Fri": {
+                        "working_hours": [
+                            {
+                                "from": "09:00",
+                                "to": "18:00"
+                            }
+                        ]
+                    }
+                },
+                "type": "branch",
+                "org": {
+                    "branch_count": 22,
+                    "id": "70000001047932854",
+                    "name": "Самолет Плюс, агентство недвижимости"
+                },
+                "city_alias": "irkutsk",
+                "has_discount": false
+            },
+            {
+                "timezone_offset": 480,
+                "flags": {
+                    "photos": true
+                },
+                "stat": {
+                    "adst": 1607931900,
+                    "is_advertised": true,
+                    "match_type": 4,
+                    "rubr": "356",
+                    "source_type": 2
+                },
+                "rubrics": [
+                    {
+                        "name": "Обувные магазины",
+                        "parent_id": "1035",
+                        "short_id": 356,
+                        "alias": "obuvnye_magaziny",
+                        "id": "356",
+                        "kind": "primary"
+                    },
+                    {
+                        "name": "Сумки / Кожгалантерея",
+                        "parent_id": "1035",
+                        "short_id": 526,
+                        "alias": "sumki_kozhgalantereya",
+                        "id": "526",
+                        "kind": "additional"
+                    }
+                ],
+                "region_id": "11",
+                "adm_div": [
+                    {
+                        "id": "1",
+                        "name": "Россия",
+                        "type": "country"
+                    },
+                    {
+                        "id": "1267655302447152",
+                        "name": "Иркутская область",
+                        "type": "region"
+                    },
+                    {
+                        "id": "70030076118167127",
+                        "name": "Иркутск городской округ",
+                        "type": "district_area"
+                    },
+                    {
+                        "name": "Иркутск",
+                        "is_default": true,
+                        "flags": {
+                            "is_default": true,
+                            "is_district_area_center": true,
+                            "is_region_center": true
+                        },
+                        "id": "1548735142166607",
+                        "type": "city",
+                        "city_alias": "irkutsk"
+                    },
+                    {
+                        "id": "70030076242262287",
+                        "name": "Свердловский район",
+                        "type": "district"
+                    },
+                    {
+                        "detailed_subtype": "microdistrict",
+                        "id": "1548773796872200",
+                        "name": "Академгородок м-н",
+                        "type": "living_area"
+                    }
+                ],
+                "locale": "ru_RU",
+                "links": {
+                    "database_entrances": [
+                        {
+                            "geometry": {
+                                "normals": [
+                                    "LINESTRING(104.852462 51.435557,104.269537 52.248083)"
+                                ],
+                                "points": [
+                                    "POINT(104.26953669376074 52.248083011358062)"
+                                ],
+                                "vectors": [
+                                    "LINESTRING(104.269596 52.248001,104.269537 52.248083)"
+                                ]
+                            },
+                            "id": "1549156048968574",
+                            "is_primary": false,
+                            "is_visible_on_map": true
+                        }
+                    ],
+                    "entrances": [
+                        {
+                            "geometry": {
+                                "normals": [
+                                    "LINESTRING(104.852462 51.435557,104.269537 52.248083)"
+                                ],
+                                "points": [
+                                    "POINT(104.26953669376074 52.248083011358062)"
+                                ],
+                                "vectors": [
+                                    "LINESTRING(104.269596 52.248001,104.269537 52.248083)"
+                                ]
+                            },
+                            "id": "1549156048968574",
+                            "is_primary": false,
+                            "is_visible_on_map": true
+                        }
+                    ],
+                    "nearest_parking": [
+                        {
+                            "id": "1549168969470249"
+                        },
+                        {
+                            "id": "70030076170223087"
+                        },
+                        {
+                            "id": "1549168961809182"
+                        },
+                        {
+                            "id": "70030076244096745"
+                        },
+                        {
+                            "id": "70030076170223272"
+                        },
+                        {
+                            "id": "70030076244096309"
+                        },
+                        {
+                            "id": "70030076244371349"
+                        },
+                        {
+                            "id": "70030076170222158"
+                        },
+                        {
+                            "id": "70030076170196288"
+                        },
+                        {
+                            "id": "70030076244250616"
+                        },
+                        {
+                            "id": "70030076673666257"
+                        }
+                    ],
+                    "nearest_stations": [
+                        {
+                            "distance": 190,
+                            "id": "1548898350923870",
+                            "name": "Больница Академгородка",
+                            "route_types": [
+                                "bus",
+                                "trolleybus",
+                                "shuttle_bus"
+                            ]
+                        }
+                    ]
+                },
+                "address_comment": "1 этаж",
+                "reviews": {
+                    "org_review_count_with_stars": 143,
+                    "is_reviewable_on_flamp": true,
+                    "general_rating": 4.3,
+                    "items": [
+                        {
+                            "is_reviewable": true,
+                            "tag": "2gis_reviews"
+                        },
+                        {
+                            "is_reviewable": true,
+                            "tag": "flamp"
+                        }
+                    ],
+                    "general_review_count_with_stars": 20,
+                    "org_review_count": 114,
+                    "org_rating": 4.3,
+                    "general_review_count": 15,
+                    "is_reviewable": true
+                },
+                "address": {
+                    "building_id": "1548748027107257",
+                    "components": [
+                        {
+                            "number": "267/3",
+                            "street": "улица Лермонтова",
+                            "street_id": "1548851106283557",
+                            "type": "street_number"
+                        }
+                    ],
+                    "postcode": "664033"
+                },
+                "address_name": "улица Лермонтова, 267/3",
+                "group": null,
+                "name": "FLYBOOTS, сеть салонов обуви",
+                "point": {
+                    "lat": 52.248091,
+                    "lon": 104.269531
+                },
+                "name_ex": {
+                    "extension": "сеть салонов обуви",
+                    "primary": "FLYBOOTS",
+                    "short_name": "Flyboots"
+                },
+                "external_content": [
+                    {
+                        "count": 18,
+                        "main_photo_url": "https://i7.photo.2gis.com/main/branch/11/1548640653377438/common",
+                        "subtype": "common",
+                        "type": "photo_album"
+                    },
+                    {
+                        "count": 2,
+                        "main_photo_url": "https://i1.photo.2gis.com/main/geo/11/1548748027107257/view",
+                        "subtype": "view",
+                        "type": "photo_album"
+                    }
+                ],
+                "segment_id": "0",
+                "is_deleted": false,
+                "id": "1548640653377438_lkA13p8624G23H2849I0GGGGDjwo6547G6G4648998587749udcn56998J147G6G1J59I6GJirikuv764403741885H2H4J4HH1J73",
+                "ads": {
+                    "article": "Салоны обуви «ФЛАЙБУТС» — это брендовая обувь из Европы, Азии и России.<br><br>В наших магазинах и интернет-каталоге представлено более тысячи моделей качественной мужской и женской обуви от ведущих мировых производителей.<br><br>В интернет-магазине вы найдёте сезонные новинки и горячие распродажи прошлого сезона. Оформляя заказ на сайте, вы получаете скидку 15% на новую коллекцию.<br><br>В магазине на Литвинова, 2 действует скидка от 20%, в том числе на новую коллекцию обуви и аксессуары.<br><br>«ФЛАЙБУТС» — ваша обувь! Ждём вас!<br><br>Подробности по телефону 8 (3952) 925-800.",
+                    "article_warning": "ИП Ринас С. Э., ОГРНИП 304381233700180.",
+                    "link": {
+                        "text": "Выбрать на сайте",
+                        "value": "http://link.2gis.ru/1.2/97EF8792/online/20241201/project11/1548640653377438/null/lkA13p8624G24H2849I23GGGDjwo6547G6G4648998587749udcn56998J147G6G1J59I6GJirikuv764403741885H2H4J4HHG4H8A?https://flyboots.ru/catalog/"
+                    },
+                    "options": {
+                        "actions": [
+                            {
+                                "caption": "Выбрать на сайте",
+                                "name": "Выбрать на сайте",
+                                "platforms": [
+                                    "ios",
+                                    "android",
+                                    "online"
+                                ],
+                                "type": "link",
+                                "value": "http://link.2gis.ru/1.2/C7CDB2BA/online/20241201/project11/1548640653377438/null/lkA13p8624G24H2849I23GGGDjwo6547G6G4648998587749udcn56998J147G6G1J59I6GJirikuv764403741885H2H4J4HHG4H8A?https://flyboots.ru/"
+                            }
+                        ],
+                        "branded_advertiser": true,
+                        "color": "#CBB5C7",
+                        "discount": true,
+                        "erid": [
+                            "2Ranyn5hBx4"
+                        ],
+                        "legal_name": "ИП Ринас Сергей Эргольтович",
+                        "logo": {
+                            "img_url": "https://ams2-cdn.2gis.com/previews/1028650075603075247/06c52f25-0209-470b-adb7-6c3bfd971aab/1/ru/image.png"
+                        },
+                        "marker_logo": {
+                            "url": "https://ams2-cdn.2gis.com/previews/1028650075603075247/06c52f25-0209-470b-adb7-6c3bfd971aab/7/ru/image.png"
+                        },
+                        "review": true
+                    },
+                    "text": "Бесплатная доставка. При заказе на сайте скидка",
+                    "text_warning": "ИП Ринас С. Э., ОГРНИП 304381233700180.",
+                    "warning": "ИП Ринас С. Э., ОГРНИП 304381233700180."
+                },
+                "poi_category": "common_store",
+                "schedule": {
+                    "Thu": {
+                        "working_hours": [
+                            {
+                                "from": "10:00",
+                                "to": "20:00"
+                            }
+                        ]
+                    },
+                    "Sat": {
+                        "working_hours": [
+                            {
+                                "from": "10:00",
+                                "to": "20:00"
+                            }
+                        ]
+                    },
+                    "Tue": {
+                        "working_hours": [
+                            {
+                                "from": "10:00",
+                                "to": "20:00"
+                            }
+                        ]
+                    },
+                    "Sun": {
+                        "working_hours": [
+                            {
+                                "from": "10:00",
+                                "to": "20:00"
+                            }
+                        ]
+                    },
+                    "Mon": {
+                        "working_hours": [
+                            {
+                                "from": "10:00",
+                                "to": "20:00"
+                            }
+                        ]
+                    },
+                    "Wed": {
+                        "working_hours": [
+                            {
+                                "from": "10:00",
+                                "to": "20:00"
+                            }
+                        ]
+                    },
+                    "Fri": {
+                        "working_hours": [
+                            {
+                                "from": "10:00",
+                                "to": "20:00"
+                            }
+                        ]
+                    }
+                },
+                "type": "branch",
+                "org": {
+                    "branch_count": 7,
+                    "id": "1548649243092204",
+                    "name": "FLYBOOTS, сеть салонов обуви"
+                },
+                "city_alias": "irkutsk",
+                "has_discount": false
+            },
+            {
+                "timezone_offset": 480,
+                "flags": {
+                    "photos": true
+                },
+                "context": {
+                    "stop_factors": [
+                        {
+                            "name": "Средний чек 350 ₽",
+                            "tag": "food_service_avg_price",
+                            "type": "attribute"
+                        },
+                        {
+                            "name": "Бизнес-ланч от 299 ₽",
+                            "tag": "food_service_lunch_cost",
+                            "type": "attribute"
+                        },
+                        {
+                            "name": "Пицца",
+                            "tag": "food_service_assortment_assortment_pizza",
+                            "type": "attribute"
+                        },
+                        {
+                            "name": "Бургеры",
+                            "tag": "food_service_assortment_assortment_hamburgers",
+                            "type": "attribute"
+                        },
+                        {
+                            "name": "Картофель-фри",
+                            "tag": "food_service_assortment_assortment_frenchfries",
+                            "type": "attribute"
+                        },
+                        {
+                            "name": "Сэндвичи",
+                            "tag": "food_service_assortment_assortment_sandwich",
+                            "type": "attribute"
+                        },
+                        {
+                            "name": "Супы",
+                            "tag": "food_service_assortment_assortment_soups",
+                            "type": "attribute"
+                        },
+                        {
+                            "name": "Наггетсы",
+                            "tag": "food_service_assortment_assortment_nuggets",
+                            "type": "attribute"
+                        },
+                        {
+                            "name": "Плов",
+                            "tag": "food_service_assortment_assortment_pilaf",
+                            "type": "attribute"
+                        },
+                        {
+                            "name": "Кофе с собой",
+                            "tag": "cocktail_bars_types_coffee_take_away",
+                            "type": "attribute"
+                        },
+                        {
+                            "name": "Молочные коктейли",
+                            "tag": "cocktail_bars_types_milk_shake",
+                            "type": "attribute"
+                        }
+                    ]
+                },
+                "stat": {
+                    "adst": 1607931900,
+                    "is_advertised": false,
+                    "match_type": 5,
+                    "source_type": 32
+                },
+                "rubrics": [
+                    {
+                        "name": "Быстрое питание",
+                        "parent_id": "2",
+                        "short_id": 165,
+                        "alias": "bystroe_pitanie",
+                        "id": "165",
+                        "kind": "primary"
+                    }
+                ],
+                "region_id": "11",
+                "adm_div": [
+                    {
+                        "id": "1",
+                        "name": "Россия",
+                        "type": "country"
+                    },
+                    {
+                        "id": "1267655302447152",
+                        "name": "Иркутская область",
+                        "type": "region"
+                    },
+                    {
+                        "id": "70030076118167127",
+                        "name": "Иркутск городской округ",
+                        "type": "district_area"
+                    },
+                    {
+                        "name": "Иркутск",
+                        "is_default": true,
+                        "flags": {
+                            "is_default": true,
+                            "is_district_area_center": true,
+                            "is_region_center": true
+                        },
+                        "id": "1548735142166607",
+                        "type": "city",
+                        "city_alias": "irkutsk"
+                    },
+                    {
+                        "id": "70030076242262287",
+                        "name": "Свердловский район",
+                        "type": "district"
+                    },
+                    {
+                        "detailed_subtype": "microdistrict",
+                        "id": "1548773796872200",
+                        "name": "Академгородок м-н",
+                        "type": "living_area"
+                    }
+                ],
+                "locale": "ru_RU",
+                "links": {
+                    "database_entrances": [
+                        {
+                            "geometry": {
+                                "normals": [
+                                    "LINESTRING(104.852637 51.43572,104.269454 52.248061)"
+                                ],
+                                "points": [
+                                    "POINT(104.26945359959696 52.2480605702958)"
+                                ],
+                                "vectors": [
+                                    "LINESTRING(104.269513 52.247978,104.269454 52.248061)"
+                                ]
+                            },
+                            "id": "1549156048968575",
+                            "is_primary": false,
+                            "is_visible_on_map": true
+                        }
+                    ],
+                    "entrances": [
+                        {
+                            "geometry": {
+                                "normals": [
+                                    "LINESTRING(104.852637 51.43572,104.269454 52.248061)"
+                                ],
+                                "points": [
+                                    "POINT(104.26945359959696 52.2480605702958)"
+                                ],
+                                "vectors": [
+                                    "LINESTRING(104.269513 52.247978,104.269454 52.248061)"
+                                ]
+                            },
+                            "id": "1549156048968575",
+                            "is_primary": false,
+                            "is_visible_on_map": true
+                        }
+                    ],
+                    "nearest_parking": [
+                        {
+                            "id": "1549168969470249"
+                        },
+                        {
+                            "id": "70030076170223087"
+                        },
+                        {
+                            "id": "1549168961809182"
+                        },
+                        {
+                            "id": "70030076244096745"
+                        },
+                        {
+                            "id": "70030076170223272"
+                        },
+                        {
+                            "id": "70030076244096309"
+                        },
+                        {
+                            "id": "70030076170196288"
+                        },
+                        {
+                            "id": "70030076244371349"
+                        },
+                        {
+                            "id": "70030076170222158"
+                        },
+                        {
+                            "id": "70030076244250616"
+                        },
+                        {
+                            "id": "70030076673666257"
+                        }
+                    ],
+                    "nearest_stations": [
+                        {
+                            "distance": 190,
+                            "id": "1548898350923870",
+                            "name": "Больница Академгородка",
+                            "route_types": [
+                                "bus",
+                                "trolleybus",
+                                "shuttle_bus"
+                            ]
+                        }
+                    ]
+                },
+                "id": "70000001065637953_lkA13p8624G23H8301IGGGGGDjwo6547G6G4648998773AA6udcn56998J147G6G1JG6IJG3irikuv7644031013384H3J3H1He4",
+                "address_comment": "1 этаж",
+                "reviews": {
+                    "org_review_count_with_stars": 104,
+                    "is_reviewable_on_flamp": true,
+                    "general_rating": 3.3,
+                    "items": [
+                        {
+                            "is_reviewable": true,
+                            "tag": "2gis_reviews"
+                        },
+                        {
+                            "is_reviewable": true,
+                            "tag": "flamp"
+                        }
+                    ],
+                    "general_review_count_with_stars": 104,
+                    "org_review_count": 91,
+                    "org_rating": 3.3,
+                    "general_review_count": 91,
+                    "is_reviewable": true
+                },
+                "address": {
+                    "building_id": "1548748027107257",
+                    "components": [
+                        {
+                            "number": "267/3",
+                            "street": "улица Лермонтова",
+                            "street_id": "1548851106283557",
+                            "type": "street_number"
+                        }
+                    ],
+                    "postcode": "664033"
+                },
+                "address_name": "улица Лермонтова, 267/3",
+                "group": null,
+                "name": "Вкусно-Сытно, кафе быстрого питания",
+                "point": {
+                    "lat": 52.248069,
+                    "lon": 104.269448
+                },
+                "name_ex": {
+                    "extension": "кафе быстрого питания",
+                    "primary": "Вкусно-Сытно",
+                    "short_name": "Вкусно-Сытно"
+                },
+                "external_content": [
+                    {
+                        "count": 16,
+                        "main_photo_url": "https://i1.photo.2gis.com/main/branch/11/70000001065637953/common",
+                        "subtype": "common",
+                        "type": "photo_album"
+                    },
+                    {
+                        "count": 2,
+                        "main_photo_url": "https://i1.photo.2gis.com/main/geo/11/1548748027107257/view",
+                        "subtype": "view",
+                        "type": "photo_album"
+                    }
+                ],
+                "segment_id": "0",
+                "is_deleted": false,
+                "poi_category": "food_service",
+                "schedule": {
+                    "Thu": {
+                        "working_hours": [
+                            {
+                                "from": "08:00",
+                                "to": "21:30"
+                            }
+                        ]
+                    },
+                    "Sat": {
+                        "working_hours": [
+                            {
+                                "from": "08:00",
+                                "to": "21:30"
+                            }
+                        ]
+                    },
+                    "Tue": {
+                        "working_hours": [
+                            {
+                                "from": "08:00",
+                                "to": "21:30"
+                            }
+                        ]
+                    },
+                    "Sun": {
+                        "working_hours": [
+                            {
+                                "from": "08:00",
+                                "to": "21:30"
+                            }
+                        ]
+                    },
+                    "Mon": {
+                        "working_hours": [
+                            {
+                                "from": "08:00",
+                                "to": "21:30"
+                            }
+                        ]
+                    },
+                    "Wed": {
+                        "working_hours": [
+                            {
+                                "from": "08:00",
+                                "to": "21:30"
+                            }
+                        ]
+                    },
+                    "Fri": {
+                        "working_hours": [
+                            {
+                                "from": "08:00",
+                                "to": "21:30"
+                            }
+                        ]
+                    }
+                },
+                "type": "branch",
+                "org": {
+                    "branch_count": 1,
+                    "id": "70000001065637952",
+                    "name": "Вкусно-Сытно, кафе быстрого питания"
+                },
+                "city_alias": "irkutsk",
+                "has_discount": false
+            }
+        ],
+        "request_type": "discovery",
+        "search_attributes": {
+            "context_rubrics": [],
+            "dgis_project_id": "11",
+            "drag_bound": [
+                {
+                    "latitude": 52.302142756950616,
+                    "longitude": 104.18069266249341
+                },
+                {
+                    "latitude": 52.19398227591297,
+                    "longitude": 104.18069266249341
+                },
+                {
+                    "latitude": 52.19398227591297,
+                    "longitude": 104.3567627114642
+                },
+                {
+                    "latitude": 52.302142756950616,
+                    "longitude": 104.3567627114642
+                }
+            ],
+            "geo_restriction": false,
+            "is_partial": false,
+            "out_viewport": [
+                {
+                    "latitude": 52.24846126133364,
+                    "longitude": 104.26773672730255
+                },
+                {
+                    "latitude": 52.24766377152995,
+                    "longitude": 104.26773672730255
+                },
+                {
+                    "latitude": 52.24766377152995,
+                    "longitude": 104.26971864665506
+                },
+                {
+                    "latitude": 52.24846126133364,
+                    "longitude": 104.26971864665506
+                }
+            ],
+            "query_with_parameters": "-- 15000 aar dbs list l {_RU} seg {11} d {gis.v4} sft {branch} s {ExpandingSearcher} obj {building 1548748027107257} V 104.26773673,52.24846126,104.26971865,52.24766377",
+            "stat": {
+                "adst": 1607931900,
+                "lang": "ru_RU"
+            }
+        },
+        "search_type": 2,
+        "total": 3
+    }
+}
