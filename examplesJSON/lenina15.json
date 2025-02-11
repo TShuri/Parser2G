@@ -1,0 +1,396 @@
+{
+    "meta": {
+        "api_version": "3.0.18581",
+        "code": 200,
+        "issue_date": "20250211"
+    },
+    "result": {
+        "items": [
+            {
+                "address": {
+                    "building_id": "1548748027077653",
+                    "components": [
+                        {
+                            "number": "15",
+                            "street": "улица Ленина",
+                            "street_id": "1548851106283643",
+                            "type": "street_number"
+                        }
+                    ],
+                    "postcode": "664003"
+                },
+                "address_name": "улица Ленина, 15",
+                "adm_div": [
+                    {
+                        "id": "1",
+                        "name": "Россия",
+                        "type": "country"
+                    },
+                    {
+                        "id": "1267655302447152",
+                        "name": "Иркутская область",
+                        "type": "region"
+                    },
+                    {
+                        "id": "70030076118167127",
+                        "name": "Иркутск городской округ",
+                        "type": "district_area"
+                    },
+                    {
+                        "city_alias": "irkutsk",
+                        "flags": {
+                            "is_default": true,
+                            "is_district_area_center": true,
+                            "is_region_center": true
+                        },
+                        "id": "1548735142166607",
+                        "is_default": true,
+                        "name": "Иркутск",
+                        "type": "city"
+                    },
+                    {
+                        "id": "70030076319811653",
+                        "name": "Кировский район",
+                        "type": "district"
+                    }
+                ],
+                "city_alias": "irkutsk",
+                "context": {},
+                "external_content": [
+                    {
+                        "count": 21,
+                        "main_photo_url": "https://i3.photo.2gis.com/main/geo/11/1548748027077653/view",
+                        "subtype": "view",
+                        "type": "photo_album"
+                    }
+                ],
+                "flags": {
+                    "photos": true
+                },
+                "floors": {
+                    "ground_count": 4
+                },
+                "full_name": "Иркутск, улица Ленина, 15",
+                "geometry": {
+                    "centroid": "POINT(104.28365 52.279186)",
+                    "selection": "POINT(104.28365 52.279186)"
+                },
+                "has_ads_model": false,
+                "has_apartments_info": true,
+                "has_realty": false,
+                "id": "1548748027077653_mxudhp8784G2J26788IG86GGywe2eb47G6G4133A2498684Hudcn56753J152G6GG39CBCG3vimquv76957C5814A2AAACCAH1GJHGII3HC7",
+                "links": {
+                    "attractions": [
+                        {
+                            "dates": "Установлен 2011г.",
+                            "id": "70030076249958394",
+                            "name": "Декоративное сооружение \"Денежная зарядка\"",
+                            "subtype_name": "декоративный объект"
+                        },
+                        {
+                            "id": "70030076249957793",
+                            "name": "Барельеф \"Вид на старый Иркутск\"",
+                            "subtype_name": "стрит-арт"
+                        },
+                        {
+                            "id": "70030076249957907",
+                            "name": "Барельеф \"Вид на старый Иркутск\"",
+                            "subtype_name": "стрит-арт"
+                        },
+                        {
+                            "description": "Надпись на мемориальной доске: \"В этом доме с 1969 по 1984 гг. жил Степан Трифонович Крошук (07.01.1923-17.04.1984) участник Великой Отечественной войны, заместитель председателя Иркутского облисполкома по вопросам сельского хозяйства, кавалер орденов Ленина, Трудового Красного Знамени, Знак Почета, делегат XXII съезда КПСС\".",
+                            "id": "70030076193948433",
+                            "name": "Мемориальная доска С.Т. Крощуку",
+                            "subtype_name": "памятная доска"
+                        }
+                    ],
+                    "branches": {
+                        "count": 5
+                    },
+                    "database_entrances": [
+                        {
+                            "geometry": {
+                                "normals": [
+                                    "LINESTRING(103.605189 53.014432,104.283287 52.279461)"
+                                ],
+                                "points": [
+                                    "POINT(104.28328747530936 52.279460605255231)"
+                                ],
+                                "vectors": [
+                                    "LINESTRING(104.283215 52.279539,104.283287 52.279461)"
+                                ]
+                            },
+                            "id": "1549156048979897",
+                            "is_primary": false
+                        },
+                        {
+                            "geometry": {
+                                "normals": [
+                                    "LINESTRING(103.338957 51.950543,104.283343 52.27938)"
+                                ],
+                                "points": [
+                                    "POINT(104.28334337746946 52.2793804313102)"
+                                ],
+                                "vectors": [
+                                    "LINESTRING(104.283216 52.279336,104.283343 52.27938)"
+                                ]
+                            },
+                            "id": "70030076282752270",
+                            "is_primary": false
+                        },
+                        {
+                            "geometry": {
+                                "normals": [
+                                    "LINESTRING(103.338938 51.950919,104.283522 52.279187)"
+                                ],
+                                "points": [
+                                    "POINT(104.28352238475615 52.2791867096081)"
+                                ],
+                                "vectors": [
+                                    "LINESTRING(104.283395 52.279142,104.283522 52.279187)"
+                                ]
+                            },
+                            "id": "70030076578885338",
+                            "is_primary": false
+                        },
+                        {
+                            "geometry": {
+                                "normals": [
+                                    "LINESTRING(105.228141 52.607635,104.283556 52.279369)"
+                                ],
+                                "points": [
+                                    "POINT(104.28355634107388 52.279368811007416)"
+                                ],
+                                "vectors": [
+                                    "LINESTRING(104.283684 52.279413,104.283556 52.279369)"
+                                ]
+                            },
+                            "id": "1549156048973860",
+                            "is_primary": false
+                        },
+                        {
+                            "geometry": {
+                                "normals": [
+                                    "LINESTRING(104.962172 51.544547,104.283621 52.279101)"
+                                ],
+                                "points": [
+                                    "POINT(104.28362146893197 52.279101306272196)"
+                                ],
+                                "vectors": [
+                                    "LINESTRING(104.283694 52.279023,104.283621 52.279101)"
+                                ]
+                            },
+                            "id": "1549156048973861",
+                            "is_primary": false
+                        },
+                        {
+                            "entity_name": "1 подъезд",
+                            "entity_number": "1",
+                            "geometry": {
+                                "normals": [
+                                    "LINESTRING(105.228041 52.607744,104.283456 52.279478)"
+                                ],
+                                "points": [
+                                    "POINT(104.28345572976204 52.279477685796451)"
+                                ],
+                                "vectors": [
+                                    "LINESTRING(104.283583 52.279522,104.283456 52.279478)"
+                                ]
+                            },
+                            "has_poi": true,
+                            "id": "70030076163278342",
+                            "is_primary": false,
+                            "is_visible_in_ui": true,
+                            "is_visible_on_map": true,
+                            "name": "1"
+                        },
+                        {
+                            "entity_name": "2 подъезд",
+                            "entity_number": "2",
+                            "geometry": {
+                                "normals": [
+                                    "LINESTRING(105.228051 52.607961,104.283592 52.27933)"
+                                ],
+                                "points": [
+                                    "POINT(104.28359227368524 52.279329856247848)"
+                                ],
+                                "vectors": [
+                                    "LINESTRING(104.28372 52.279374,104.283592 52.27933)"
+                                ]
+                            },
+                            "has_poi": true,
+                            "id": "70030076163278304",
+                            "is_primary": false,
+                            "is_visible_in_ui": true,
+                            "is_visible_on_map": true,
+                            "name": "2"
+                        },
+                        {
+                            "entity_name": "3 подъезд",
+                            "entity_number": "3",
+                            "geometry": {
+                                "normals": [
+                                    "LINESTRING(105.228389 52.607294,104.283733 52.279232)"
+                                ],
+                                "points": [
+                                    "POINT(104.28373277019568 52.279232386550163)"
+                                ],
+                                "vectors": [
+                                    "LINESTRING(104.28386 52.279277,104.283733 52.279232)"
+                                ]
+                            },
+                            "has_poi": true,
+                            "id": "70030076163278250",
+                            "is_primary": false,
+                            "is_visible_in_ui": true,
+                            "is_visible_on_map": true,
+                            "name": "3"
+                        }
+                    ],
+                    "nearest_parking": [
+                        {
+                            "id": "70030076175936536"
+                        },
+                        {
+                            "id": "70030076249951218"
+                        },
+                        {
+                            "id": "70030076163277668"
+                        },
+                        {
+                            "id": "70030076838377403"
+                        },
+                        {
+                            "id": "70030076163281687"
+                        },
+                        {
+                            "id": "70030076686685807"
+                        },
+                        {
+                            "id": "70030076193993809"
+                        },
+                        {
+                            "id": "70030076163277422"
+                        },
+                        {
+                            "id": "70030076686685809"
+                        },
+                        {
+                            "id": "70030076159816849"
+                        },
+                        {
+                            "id": "70030076163276395"
+                        },
+                        {
+                            "id": "70030076284439677"
+                        },
+                        {
+                            "id": "70030076388957647"
+                        },
+                        {
+                            "id": "70030076284434022"
+                        },
+                        {
+                            "id": "70030076163537689"
+                        },
+                        {
+                            "id": "70030076268345982"
+                        },
+                        {
+                            "id": "70030076462917429"
+                        },
+                        {
+                            "id": "70030076251090637"
+                        },
+                        {
+                            "id": "70030076193484396"
+                        },
+                        {
+                            "id": "70030076689413408"
+                        }
+                    ],
+                    "nearest_stations": [
+                        {
+                            "distance": 200,
+                            "id": "1548898350923886",
+                            "name": "Филармония",
+                            "route_types": [
+                                "bus",
+                                "shuttle_bus"
+                            ]
+                        }
+                    ],
+                    "providers": {
+                        "count": 28
+                    },
+                    "servicing": {
+                        "count": 5,
+                        "items": [
+                            {
+                                "additional_info": "Жилищно-коммунальные услуги",
+                                "id": "1548640652904590_mxudhp8784G2J267873GGGG2ywe2eb47G6G4133A24255C1Hudcn56754J153G6GG3GJI3GJvimquv76957C50775B1H1JJ1H4b",
+                                "name": "Восточное управление жилищно-коммунальными системами, АО",
+                                "org_id": "1548649242835087"
+                            },
+                            {
+                                "additional_info": "Почта",
+                                "contacts": [
+                                    {
+                                        "code": "70000001012512224",
+                                        "text": "+7 (3952) 34‒16‒08",
+                                        "type": "phone",
+                                        "value": "+73952341608"
+                                    }
+                                ],
+                                "id": "1548640652894468_mxudhp8784G2J267873GGGG2ywe2eb47G6G4133A24B5499Hudcn56754J153G6GG3GJI3GJvimquv76957C50775A2H1JJ1HAe",
+                                "name": "Почта России, АО",
+                                "org_id": "70000001051048209"
+                            },
+                            {
+                                "additional_info": "Детские поликлиники",
+                                "id": "1548640652888604_mxudhp8784G2J267873GGGG2ywe2eb47G6G4133A24A9635Hudcn56754J153G6GG3GJI3GJvimquv76957C50775A3H1JJ1Hcf",
+                                "name": "Детская поликлиника №3, ОГБУЗ Иркутская детская городская поликлиника №3",
+                                "org_id": "1548649242822737"
+                            }
+                        ]
+                    }
+                },
+                "locale": "ru_RU",
+                "name": "улица Ленина, 15",
+                "point": {
+                    "lat": 52.279186,
+                    "lon": 104.28365
+                },
+                "purpose_code": 45,
+                "purpose_name": "Малоэтажный жилой дом",
+                "region_id": "11",
+                "reviews": {
+                    "general_rating": 5,
+                    "general_review_count": 1,
+                    "general_review_count_with_stars": 1,
+                    "items": [
+                        {
+                            "is_reviewable": true,
+                            "tag": "2gis_reviews"
+                        }
+                    ]
+                },
+                "segment_id": "0",
+                "stat": {
+                    "adst": 1608260400,
+                    "source_type": 86
+                },
+                "structure_info": {
+                    "elevators_count": 0,
+                    "floor_type": "Железобетонные",
+                    "gas_type": "Центральное",
+                    "is_in_emergency_state": false,
+                    "material": "Кирпич",
+                    "year_of_construction": 1952
+                },
+                "type": "building"
+            }
+        ],
+        "total": 1
+    }
+}

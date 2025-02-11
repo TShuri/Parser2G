@@ -1,0 +1,1766 @@
+{
+    "meta": {
+        "api_version": "2.0.18581",
+        "code": 200,
+        "issue_date": "20250211"
+    },
+    "result": {
+        "ad": {
+            "gta": {
+                "banners": [
+                    {
+                        "name_ex": {
+                            "extension": "ресторан",
+                            "primary": "Партизан",
+                            "short_name": "Партизан"
+                        },
+                        "segment_id": "0",
+                        "region_id": "11",
+                        "hash": "hffAAq8784G2J81301IG0GGGdop5Ag47G6G4134A8A4A6782udcn563B1J150G6GG467I3G49blxuv769593102297H1H3J2HHG5H1c",
+                        "ad_attributes": {
+                            "algorithm_id": 14,
+                            "auction_id": "25d8eafc-e956-4d9d-b5d9-8714d2d620a3",
+                            "branch_id": "70000001065296471",
+                            "content": {
+                                "options": {
+                                    "actions": [
+                                        {
+                                            "caption": "Забронировать",
+                                            "name": "Забронировать",
+                                            "platforms": [
+                                                "ios",
+                                                "android",
+                                                "online"
+                                            ],
+                                            "type": "link",
+                                            "value": "http://link.2gis.ru/1.2/B80EA0D5/online/20250201/project11/70000001065296471/null/hffAAq8784G2J81301IG23GGdop5Ag47G6G4134A8A4A6782udcn563B1J150G6GG467I3G49blxuv769593102297H1H3J2HHGJ3G76?https://partizan.rest/restaurant?utm_source=2gis&utm_medium=organic#openReMarkedWidget"
+                                        }
+                                    ],
+                                    "color": "#2E524E",
+                                    "erid": [
+                                        "2Ranym7xVK7"
+                                    ],
+                                    "images": [
+                                        {
+                                            "url": "https://ams2-cdn.2gis.com/previews/1170758224186441731/3c7fc5d7-3d84-46d4-9125-e94453f9178f/3/ru/"
+                                        }
+                                    ],
+                                    "legal_name": "ИП Дмитриева Вера Михайловна",
+                                    "logo": {
+                                        "img_url": "https://ams2-cdn.2gis.com/previews/1170758224186441731/3c7fc5d7-3d84-46d4-9125-e94453f9178f/1/ru/image.png"
+                                    }
+                                },
+                                "text": "Ресторан сибирской кухни в историческом центре города!"
+                            },
+                            "erid": [
+                                "2Ranym7xVK7"
+                            ],
+                            "is_ads": true,
+                            "legal_name": "ИП Дмитриева Вера Михайловна",
+                            "project_id": 11,
+                            "rubric_id": 164
+                        },
+                        "main_rubric_id": 164,
+                        "org": {
+                            "branch_count": 1,
+                            "id": "70000001065296470",
+                            "name": "Партизан, ресторан"
+                        }
+                    }
+                ]
+            }
+        },
+        "items": [
+            {
+                "timezone_offset": 480,
+                "flags": {
+                    "photos": true
+                },
+                "context": {
+                    "stop_factors": [
+                        {
+                            "name": "Инъекционные процедуры",
+                            "tag": "beauty_treatments_service_injectable_treatments",
+                            "type": "attribute"
+                        },
+                        {
+                            "name": "Чистка лица",
+                            "tag": "beauty_treatments_service_face_cleaning",
+                            "type": "attribute"
+                        },
+                        {
+                            "name": "Пилинги",
+                            "tag": "beauty_treatments_service_peeling",
+                            "type": "attribute"
+                        },
+                        {
+                            "name": "Массаж лица",
+                            "tag": "massage_types_for_face",
+                            "type": "attribute"
+                        }
+                    ]
+                },
+                "stat": {
+                    "adst": 1608260400,
+                    "is_advertised": true,
+                    "match_type": 4,
+                    "rubr": "652",
+                    "source_type": 2
+                },
+                "rubrics": [
+                    {
+                        "name": "Косметолог",
+                        "parent_id": "5",
+                        "short_id": 652,
+                        "alias": "kosmetolog",
+                        "id": "652",
+                        "kind": "primary"
+                    }
+                ],
+                "region_id": "11",
+                "adm_div": [
+                    {
+                        "id": "1",
+                        "name": "Россия",
+                        "type": "country"
+                    },
+                    {
+                        "id": "1267655302447152",
+                        "name": "Иркутская область",
+                        "type": "region"
+                    },
+                    {
+                        "id": "70030076118167127",
+                        "name": "Иркутск городской округ",
+                        "type": "district_area"
+                    },
+                    {
+                        "name": "Иркутск",
+                        "is_default": true,
+                        "flags": {
+                            "is_default": true,
+                            "is_district_area_center": true,
+                            "is_region_center": true
+                        },
+                        "id": "1548735142166607",
+                        "type": "city",
+                        "city_alias": "irkutsk"
+                    },
+                    {
+                        "id": "70030076319811653",
+                        "name": "Кировский район",
+                        "type": "district"
+                    }
+                ],
+                "locale": "ru_RU",
+                "links": {
+                    "database_entrances": [
+                        {
+                            "geometry": {
+                                "normals": [
+                                    "LINESTRING(103.338938 51.950919,104.283522 52.279187)"
+                                ],
+                                "points": [
+                                    "POINT(104.28352238475615 52.2791867096081)"
+                                ],
+                                "vectors": [
+                                    "LINESTRING(104.283395 52.279142,104.283522 52.279187)"
+                                ]
+                            },
+                            "id": "70030076578885338",
+                            "is_primary": false,
+                            "is_visible_on_map": true
+                        }
+                    ],
+                    "entrances": [
+                        {
+                            "geometry": {
+                                "normals": [
+                                    "LINESTRING(103.338938 51.950919,104.283522 52.279187)"
+                                ],
+                                "points": [
+                                    "POINT(104.28352238475615 52.2791867096081)"
+                                ],
+                                "vectors": [
+                                    "LINESTRING(104.283395 52.279142,104.283522 52.279187)"
+                                ]
+                            },
+                            "id": "70030076578885338",
+                            "is_primary": false,
+                            "is_visible_on_map": true
+                        }
+                    ],
+                    "nearest_parking": [
+                        {
+                            "id": "70030076175936536"
+                        },
+                        {
+                            "id": "70030076249951218"
+                        },
+                        {
+                            "id": "70030076163277668"
+                        },
+                        {
+                            "id": "70030076838377403"
+                        },
+                        {
+                            "id": "70030076163277422"
+                        },
+                        {
+                            "id": "70030076163281687"
+                        },
+                        {
+                            "id": "70030076686685807"
+                        },
+                        {
+                            "id": "70030076193993809"
+                        },
+                        {
+                            "id": "70030076686685809"
+                        },
+                        {
+                            "id": "70030076159816849"
+                        },
+                        {
+                            "id": "70030076163276395"
+                        },
+                        {
+                            "id": "70030076284439677"
+                        },
+                        {
+                            "id": "70030076388957647"
+                        }
+                    ],
+                    "nearest_stations": [
+                        {
+                            "distance": 200,
+                            "id": "1548898350923886",
+                            "name": "Филармония",
+                            "route_types": [
+                                "bus",
+                                "shuttle_bus"
+                            ]
+                        }
+                    ]
+                },
+                "address_comment": "1 этаж",
+                "reviews": {
+                    "org_review_count_with_stars": 85,
+                    "is_reviewable_on_flamp": true,
+                    "general_rating": 5,
+                    "items": [
+                        {
+                            "is_reviewable": true,
+                            "tag": "2gis_reviews"
+                        },
+                        {
+                            "is_reviewable": true,
+                            "tag": "flamp"
+                        }
+                    ],
+                    "general_review_count_with_stars": 85,
+                    "org_review_count": 62,
+                    "org_rating": 5,
+                    "general_review_count": 62,
+                    "is_reviewable": true
+                },
+                "address": {
+                    "building_id": "1548748027077653",
+                    "components": [
+                        {
+                            "number": "15",
+                            "street": "улица Ленина",
+                            "street_id": "1548851106283643",
+                            "type": "street_number"
+                        }
+                    ],
+                    "postcode": "664003"
+                },
+                "address_name": "улица Ленина, 15",
+                "group": null,
+                "name": "Sondoclinic, клиника корейской косметологии",
+                "point": {
+                    "lat": 52.279191,
+                    "lon": 104.283535
+                },
+                "name_ex": {
+                    "extension": "клиника корейской косметологии",
+                    "primary": "Sondoclinic",
+                    "short_name": "Sondoclinic"
+                },
+                "external_content": [
+                    {
+                        "count": 31,
+                        "main_photo_url": "https://i8.photo.2gis.com/main/branch/11/70000001091848429/common",
+                        "subtype": "common",
+                        "type": "photo_album"
+                    },
+                    {
+                        "count": 21,
+                        "main_photo_url": "https://i3.photo.2gis.com/main/geo/11/1548748027077653/view",
+                        "subtype": "view",
+                        "type": "photo_album"
+                    }
+                ],
+                "segment_id": "0",
+                "is_deleted": false,
+                "id": "70000001091848429_D7E1k68784G23H8301IG0GGGu47tbw47G6G4134A8A394B53udcn563B1J150G6G1J684J3Jmk4yuv76959310133BAH1J4HHHG4Hf6",
+                "ads": {
+                    "link": {
+                        "text": "Записаться",
+                        "value": "http://link.2gis.ru/1.2/A0623D7A/online/20250201/project11/70000001091848429/null/D7E1k68784G24H8301IG23GGu47tbw47G6G4134A8A394B53udcn563B1J150G6G1J684J3Jmk4yuv76959310133BAH1J4HHHGJ2G75?https://api.whatsapp.com/send/?phone=+79148981818&text&type=phone_number&app_absent=0"
+                    },
+                    "options": {
+                        "actions": [
+                            {
+                                "caption": "Написать в WhatsApp",
+                                "name": "Написать в WhatsApp",
+                                "platforms": [
+                                    "ios",
+                                    "android",
+                                    "online"
+                                ],
+                                "type": "link",
+                                "value": "http://link.2gis.ru/1.2/65C15131/online/20250201/project11/70000001091848429/null/D7E1k68784G24H8301IG23GGu47tbw47G6G4134A8A394B53udcn563B1J150G6G1J684J3Jmk4yuv76959310133BAH1J4HHHGJ2G75?https://api.whatsapp.com/send/?phone=79148981818&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%0A%0A%D0%9F%D0%B8%D1%88%D1%83+%D0%B8%D0%B7+%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F+2%D0%93%D0%98%D0%A1.%0A%0A&type=phone_number&app_absent=0"
+                            }
+                        ],
+                        "branded_advertiser": true,
+                        "color": "#000000",
+                        "erid": [
+                            "2Ranymep77f"
+                        ],
+                        "images": [
+                            {
+                                "url": "https://ams2-cdn.2gis.com/previews/1212868161565622272/1b928784-e6cf-4ca0-b2ae-fcdd561be1f7/3/ru/"
+                            }
+                        ],
+                        "legal_name": "Общество с Ограниченной Ответственностью \"Кореанмед\"",
+                        "logo": {
+                            "img_url": "https://ams2-cdn.2gis.com/previews/1212868161565622272/1b928784-e6cf-4ca0-b2ae-fcdd561be1f7/1/ru/image.png"
+                        },
+                        "marker_logo": {
+                            "url": "https://ams2-cdn.2gis.com/previews/1212868161565622272/1b928784-e6cf-4ca0-b2ae-fcdd561be1f7/7/ru/image.png"
+                        },
+                        "organization_stories": true,
+                        "poi": {
+                            "erid": [
+                                "2RanyoBkMRj"
+                            ],
+                            "is_premium": true,
+                            "legal_name": "Общество с Ограниченной Ответственностью \"Кореанмед\""
+                        },
+                        "review": true
+                    },
+                    "text": "Бесплатные консультации и атмосфера 14 февраля для всех желающих!"
+                },
+                "poi_category": "green",
+                "schedule": {
+                    "Thu": {
+                        "working_hours": [
+                            {
+                                "from": "10:00",
+                                "to": "22:00"
+                            }
+                        ]
+                    },
+                    "Sat": {
+                        "working_hours": [
+                            {
+                                "from": "10:00",
+                                "to": "22:00"
+                            }
+                        ]
+                    },
+                    "Tue": {
+                        "working_hours": [
+                            {
+                                "from": "10:00",
+                                "to": "22:00"
+                            }
+                        ]
+                    },
+                    "Sun": {
+                        "working_hours": [
+                            {
+                                "from": "10:00",
+                                "to": "22:00"
+                            }
+                        ]
+                    },
+                    "Mon": {
+                        "working_hours": [
+                            {
+                                "from": "10:00",
+                                "to": "22:00"
+                            }
+                        ]
+                    },
+                    "Wed": {
+                        "working_hours": [
+                            {
+                                "from": "10:00",
+                                "to": "22:00"
+                            }
+                        ]
+                    },
+                    "Fri": {
+                        "working_hours": [
+                            {
+                                "from": "10:00",
+                                "to": "22:00"
+                            }
+                        ]
+                    },
+                    "comment": "по предварительной записи"
+                },
+                "type": "branch",
+                "org": {
+                    "branch_count": 1,
+                    "id": "70000001091848428",
+                    "name": "Sondoclinic, клиника корейской косметологии"
+                },
+                "city_alias": "irkutsk",
+                "has_discount": false
+            },
+            {
+                "timezone_offset": 480,
+                "flags": {
+                    "photos": true
+                },
+                "context": {
+                    "stop_factors": [
+                        {
+                            "name": "Средний чек 1800 ₽",
+                            "tag": "food_service_avg_price",
+                            "type": "attribute"
+                        },
+                        {
+                            "name": "Бизнес-ланч от 450 ₽",
+                            "tag": "food_service_lunch_cost",
+                            "type": "attribute"
+                        },
+                        {
+                            "name": "Итальянская кухня",
+                            "tag": "food_service_food_italian",
+                            "type": "attribute"
+                        },
+                        {
+                            "name": "Средиземноморская кухня",
+                            "tag": "food_service_food_mediterranean",
+                            "type": "attribute"
+                        },
+                        {
+                            "name": "Пицца",
+                            "tag": "food_service_assortment_assortment_pizza",
+                            "type": "attribute"
+                        },
+                        {
+                            "name": "Стейки",
+                            "tag": "food_service_assortment_assortment_steik",
+                            "type": "attribute"
+                        },
+                        {
+                            "name": "Салаты",
+                            "tag": "food_service_assortment_assortment_salads",
+                            "type": "attribute"
+                        },
+                        {
+                            "name": "Супы",
+                            "tag": "food_service_assortment_assortment_soups",
+                            "type": "attribute"
+                        },
+                        {
+                            "name": "Блюда на гриле",
+                            "tag": "food_service_assortment_assortment_grilled",
+                            "type": "attribute"
+                        },
+                        {
+                            "name": "Колбаски",
+                            "tag": "food_service_assortment_assortment_sausages",
+                            "type": "attribute"
+                        },
+                        {
+                            "name": "Кофе с собой",
+                            "tag": "cocktail_bars_types_coffee_take_away",
+                            "type": "attribute"
+                        },
+                        {
+                            "name": "Доставка",
+                            "tag": "covid_homedelivery",
+                            "type": "attribute"
+                        }
+                    ]
+                },
+                "stat": {
+                    "adst": 1608260400,
+                    "is_advertised": false,
+                    "match_type": 5,
+                    "source_type": 32
+                },
+                "rubrics": [
+                    {
+                        "name": "Рестораны",
+                        "parent_id": "2",
+                        "short_id": 164,
+                        "alias": "restorany",
+                        "id": "164",
+                        "kind": "primary"
+                    },
+                    {
+                        "name": "Доставка еды",
+                        "parent_id": "2",
+                        "short_id": 1203,
+                        "alias": "dostavka_edy",
+                        "id": "1203",
+                        "kind": "additional"
+                    }
+                ],
+                "region_id": "11",
+                "adm_div": [
+                    {
+                        "id": "1",
+                        "name": "Россия",
+                        "type": "country"
+                    },
+                    {
+                        "id": "1267655302447152",
+                        "name": "Иркутская область",
+                        "type": "region"
+                    },
+                    {
+                        "id": "70030076118167127",
+                        "name": "Иркутск городской округ",
+                        "type": "district_area"
+                    },
+                    {
+                        "name": "Иркутск",
+                        "is_default": true,
+                        "flags": {
+                            "is_default": true,
+                            "is_district_area_center": true,
+                            "is_region_center": true
+                        },
+                        "id": "1548735142166607",
+                        "type": "city",
+                        "city_alias": "irkutsk"
+                    },
+                    {
+                        "id": "70030076319811653",
+                        "name": "Кировский район",
+                        "type": "district"
+                    }
+                ],
+                "locale": "ru_RU",
+                "links": {
+                    "database_entrances": [
+                        {
+                            "geometry": {
+                                "normals": [
+                                    "LINESTRING(104.962172 51.544547,104.283621 52.279101)"
+                                ],
+                                "points": [
+                                    "POINT(104.28362146893197 52.279101306272196)"
+                                ],
+                                "vectors": [
+                                    "LINESTRING(104.283694 52.279023,104.283621 52.279101)"
+                                ]
+                            },
+                            "id": "1549156048973861",
+                            "is_primary": false,
+                            "is_visible_on_map": true
+                        }
+                    ],
+                    "entrances": [
+                        {
+                            "geometry": {
+                                "normals": [
+                                    "LINESTRING(104.962172 51.544547,104.283621 52.279101)"
+                                ],
+                                "points": [
+                                    "POINT(104.28362146893197 52.279101306272196)"
+                                ],
+                                "vectors": [
+                                    "LINESTRING(104.283694 52.279023,104.283621 52.279101)"
+                                ]
+                            },
+                            "id": "1549156048973861",
+                            "is_primary": false,
+                            "is_visible_on_map": true
+                        }
+                    ],
+                    "nearest_parking": [
+                        {
+                            "id": "70030076175936536"
+                        },
+                        {
+                            "id": "70030076249951218"
+                        },
+                        {
+                            "id": "70030076163277668"
+                        },
+                        {
+                            "id": "70030076838377403"
+                        },
+                        {
+                            "id": "70030076163277422"
+                        },
+                        {
+                            "id": "70030076163281687"
+                        },
+                        {
+                            "id": "70030076686685807"
+                        },
+                        {
+                            "id": "70030076193993809"
+                        },
+                        {
+                            "id": "70030076686685809"
+                        },
+                        {
+                            "id": "70030076163276395"
+                        },
+                        {
+                            "id": "70030076388957647"
+                        },
+                        {
+                            "id": "70030076284434022"
+                        },
+                        {
+                            "id": "70030076268345982"
+                        },
+                        {
+                            "id": "70030076462917429"
+                        },
+                        {
+                            "id": "70030076159816849"
+                        }
+                    ],
+                    "nearest_stations": [
+                        {
+                            "distance": 190,
+                            "id": "1548898350923886",
+                            "name": "Филармония",
+                            "route_types": [
+                                "bus",
+                                "shuttle_bus"
+                            ]
+                        }
+                    ]
+                },
+                "address_comment": "1 этаж",
+                "reviews": {
+                    "org_review_count_with_stars": 138,
+                    "is_reviewable_on_flamp": true,
+                    "general_rating": 4.6,
+                    "items": [
+                        {
+                            "is_reviewable": true,
+                            "tag": "2gis_reviews"
+                        },
+                        {
+                            "is_reviewable": true,
+                            "rating": 4.1,
+                            "recommendation_count": 5,
+                            "review_count": 12,
+                            "tag": "flamp"
+                        }
+                    ],
+                    "general_review_count_with_stars": 138,
+                    "org_review_count": 113,
+                    "review_count": 12,
+                    "recommendation_count": 5,
+                    "rating": 4.1,
+                    "org_rating": 4.6,
+                    "general_review_count": 113,
+                    "is_reviewable": true
+                },
+                "address": {
+                    "building_id": "1548748027077653",
+                    "components": [
+                        {
+                            "number": "15",
+                            "street": "улица Ленина",
+                            "street_id": "1548851106283643",
+                            "type": "street_number"
+                        }
+                    ],
+                    "postcode": "664003"
+                },
+                "address_name": "улица Ленина, 15",
+                "group": null,
+                "name": "Eterno, ресторан",
+                "point": {
+                    "lat": 52.279109,
+                    "lon": 104.283614
+                },
+                "name_ex": {
+                    "extension": "ресторан",
+                    "primary": "Eterno",
+                    "short_name": "Eterno"
+                },
+                "external_content": [
+                    {
+                        "count": 142,
+                        "main_photo_url": "https://i0.photo.2gis.com/main/branch/11/1548640652886833/common",
+                        "subtype": "common",
+                        "type": "photo_album"
+                    },
+                    {
+                        "count": 21,
+                        "main_photo_url": "https://i3.photo.2gis.com/main/geo/11/1548748027077653/view",
+                        "subtype": "view",
+                        "type": "photo_album"
+                    }
+                ],
+                "segment_id": "0",
+                "is_deleted": false,
+                "id": "1548640652886833_D7E1k68784G23H2849IGGGG0u47tbw47G6G4134A8AA96B44udcn563B1J150G6G1J3JIJ0Jmk4yuv769593741884H2H3JHH40",
+                "ads": {
+                    "options": {
+                        "buy_here": [
+                            {
+                                "actions": [
+                                    {
+                                        "caption": "Заказать онлайн",
+                                        "name": "Заказать онлайн",
+                                        "platforms": [
+                                            "ios",
+                                            "android",
+                                            "online"
+                                        ],
+                                        "type": "link",
+                                        "value": "http://link.2gis.ru/1.2/BCE6A58A/online/20250201/project11/70000001040750547/null/7E1k6mk2769593729608546JIHIHu47tbwDG48784G6GG4J813JIJ26In5647G634A8A0G30110226838A894yuvudc3B1J1518H1H4JH15486513Hfe?https://plms.adj.st/?adj_adgroup=feed&adj_campaign=%5BEDA%5DMX_UA-goal_Rest_RU-ALL-ALL_2gis_NU&adj_deeplink=eda.yandex%3A%2F%2Frestaurant%2Feterno&adj_deeplink_js=1&adj_fallback=https%3A%2F%2Feda.yandex.ru%2Firkutsk%2Fr%2Feterno%3Futm_campaign%3D%255BEDA%255DMX_UA-goal_Rest_RU-ALL-ALL_2gis_NU%26utm_content%3Dfeed%26utm_source%3D2gis&adj_redirect_macos=https%3A%2F%2Feda.yandex.ru%2Firkutsk%2Fr%2Feterno%3Futm_campaign%3D%255BEDA%255DMX_UA-goal_Rest_RU-ALL-ALL_2gis_NU%26utm_content%3Dfeed%26utm_source%3D2gis&adj_t=sz61f3b_dg7nteb"
+                                    }
+                                ],
+                                "ads_id": "1209258981098897664",
+                                "ads_texts": {
+                                    "text": "",
+                                    "text_warning": "ООО «Яндекс.Еда», Москва, ОГРН 1187746035730."
+                                },
+                                "branch_id": "70000001040750547",
+                                "cta_list": true,
+                                "custom_title": "",
+                                "hash": "7E1k6mk276959372960854JJIHI3u47tbwDG48784G6GG4J810JIJ0J3n5647G634A8A0G301102255988A44yuvudc3B1J1518H1H4JH5486417H7h",
+                                "is_primary": true,
+                                "logo": {
+                                    "img_url": "https://ams2-cdn.2gis.com/previews/1088574304351682563/2e74871a-2a96-4d1e-9a66-abd9ea00821d/1/image.png"
+                                },
+                                "org_id": "70000001040750546",
+                                "owned_rubric_id": "1209258981098897664",
+                                "title": "Яндекс.Еда, сервис доставки еды из ресторанов"
+                            }
+                        ]
+                    }
+                },
+                "poi_category": "food_restaurant",
+                "schedule": {
+                    "Thu": {
+                        "working_hours": [
+                            {
+                                "from": "12:00",
+                                "to": "23:00"
+                            }
+                        ]
+                    },
+                    "Sat": {
+                        "working_hours": [
+                            {
+                                "from": "12:00",
+                                "to": "23:00"
+                            }
+                        ]
+                    },
+                    "Tue": {
+                        "working_hours": [
+                            {
+                                "from": "12:00",
+                                "to": "23:00"
+                            }
+                        ]
+                    },
+                    "Wed": {
+                        "working_hours": [
+                            {
+                                "from": "12:00",
+                                "to": "23:00"
+                            }
+                        ]
+                    },
+                    "Fri": {
+                        "working_hours": [
+                            {
+                                "from": "12:00",
+                                "to": "23:00"
+                            }
+                        ]
+                    }
+                },
+                "type": "branch",
+                "org": {
+                    "branch_count": 1,
+                    "id": "1548649242821336",
+                    "name": "Eterno, ресторан"
+                },
+                "city_alias": "irkutsk",
+                "has_discount": false
+            },
+            {
+                "timezone_offset": 480,
+                "flags": {
+                    "photos": true
+                },
+                "stat": {
+                    "adst": 1608260400,
+                    "is_advertised": false,
+                    "match_type": 5,
+                    "source_type": 32
+                },
+                "rubrics": [
+                    {
+                        "name": "Общественные организации",
+                        "parent_id": "1",
+                        "short_id": 250,
+                        "alias": "obshhestvennye_organizacii",
+                        "id": "250",
+                        "kind": "primary"
+                    }
+                ],
+                "region_id": "11",
+                "adm_div": [
+                    {
+                        "id": "1",
+                        "name": "Россия",
+                        "type": "country"
+                    },
+                    {
+                        "id": "1267655302447152",
+                        "name": "Иркутская область",
+                        "type": "region"
+                    },
+                    {
+                        "id": "70030076118167127",
+                        "name": "Иркутск городской округ",
+                        "type": "district_area"
+                    },
+                    {
+                        "name": "Иркутск",
+                        "is_default": true,
+                        "flags": {
+                            "is_default": true,
+                            "is_district_area_center": true,
+                            "is_region_center": true
+                        },
+                        "id": "1548735142166607",
+                        "type": "city",
+                        "city_alias": "irkutsk"
+                    },
+                    {
+                        "id": "70030076319811653",
+                        "name": "Кировский район",
+                        "type": "district"
+                    }
+                ],
+                "locale": "ru_RU",
+                "links": {
+                    "database_entrances": [
+                        {
+                            "geometry": {
+                                "normals": [
+                                    "LINESTRING(105.228041 52.607744,104.283456 52.279478)"
+                                ],
+                                "points": [
+                                    "POINT(104.28345572976204 52.279477685796451)"
+                                ],
+                                "vectors": [
+                                    "LINESTRING(104.283583 52.279522,104.283456 52.279478)"
+                                ]
+                            },
+                            "id": "70030076163278342",
+                            "is_primary": false,
+                            "is_visible_on_map": true
+                        }
+                    ],
+                    "entrances": [
+                        {
+                            "geometry": {
+                                "normals": [
+                                    "LINESTRING(105.228041 52.607744,104.283456 52.279478)"
+                                ],
+                                "points": [
+                                    "POINT(104.28345572976204 52.279477685796451)"
+                                ],
+                                "vectors": [
+                                    "LINESTRING(104.283583 52.279522,104.283456 52.279478)"
+                                ]
+                            },
+                            "id": "70030076163278342",
+                            "is_primary": false,
+                            "is_visible_on_map": true
+                        }
+                    ],
+                    "nearest_parking": [
+                        {
+                            "id": "70030076175936536"
+                        },
+                        {
+                            "id": "70030076249951218"
+                        },
+                        {
+                            "id": "70030076163277668"
+                        },
+                        {
+                            "id": "70030076838377403"
+                        },
+                        {
+                            "id": "70030076163281687"
+                        },
+                        {
+                            "id": "70030076686685807"
+                        },
+                        {
+                            "id": "70030076193993809"
+                        },
+                        {
+                            "id": "70030076163277422"
+                        },
+                        {
+                            "id": "70030076686685809"
+                        },
+                        {
+                            "id": "70030076159816849"
+                        },
+                        {
+                            "id": "70030076163276395"
+                        },
+                        {
+                            "id": "70030076284439677"
+                        },
+                        {
+                            "id": "70030076388957647"
+                        }
+                    ],
+                    "nearest_stations": [
+                        {
+                            "distance": 250,
+                            "id": "1548898350923886",
+                            "name": "Филармония",
+                            "route_types": [
+                                "bus",
+                                "shuttle_bus"
+                            ]
+                        }
+                    ]
+                },
+                "id": "70000001007243529_D7E1k68784G23H8301IGGGGGu47tbw47G6G4134A8A934663udcn563B1J150G6G1JG6IJG3mk4yuv769593101332AH3J3H1H1g",
+                "address_comment": "1 этаж",
+                "reviews": {
+                    "org_review_count_with_stars": 12,
+                    "is_reviewable_on_flamp": true,
+                    "general_rating": 5,
+                    "items": [
+                        {
+                            "is_reviewable": true,
+                            "tag": "2gis_reviews"
+                        },
+                        {
+                            "is_reviewable": true,
+                            "tag": "flamp"
+                        }
+                    ],
+                    "general_review_count_with_stars": 12,
+                    "org_review_count": 4,
+                    "org_rating": 5,
+                    "general_review_count": 4,
+                    "is_reviewable": true
+                },
+                "address": {
+                    "building_id": "1548748027077653",
+                    "components": [
+                        {
+                            "number": "15",
+                            "street": "улица Ленина",
+                            "street_id": "1548851106283643",
+                            "type": "street_number"
+                        }
+                    ],
+                    "postcode": "664003"
+                },
+                "address_name": "улица Ленина, 15",
+                "group": null,
+                "name": "Общероссийский народный фронт, общественная организация",
+                "point": {
+                    "lat": 52.279473,
+                    "lon": 104.283443
+                },
+                "name_ex": {
+                    "extension": "общественная организация",
+                    "primary": "Общероссийский народный фронт",
+                    "short_name": "ОНФ"
+                },
+                "external_content": [
+                    {
+                        "count": 105,
+                        "main_photo_url": "https://i5.photo.2gis.com/main/branch/11/70000001007243529/common",
+                        "subtype": "common",
+                        "type": "photo_album"
+                    },
+                    {
+                        "count": 21,
+                        "main_photo_url": "https://i3.photo.2gis.com/main/geo/11/1548748027077653/view",
+                        "subtype": "view",
+                        "type": "photo_album"
+                    }
+                ],
+                "segment_id": "0",
+                "is_deleted": false,
+                "poi_category": "blue",
+                "schedule": {
+                    "Thu": {
+                        "working_hours": [
+                            {
+                                "from": "10:00",
+                                "to": "18:00"
+                            }
+                        ]
+                    },
+                    "Tue": {
+                        "working_hours": [
+                            {
+                                "from": "10:00",
+                                "to": "18:00"
+                            }
+                        ]
+                    },
+                    "Mon": {
+                        "working_hours": [
+                            {
+                                "from": "10:00",
+                                "to": "18:00"
+                            }
+                        ]
+                    },
+                    "Wed": {
+                        "working_hours": [
+                            {
+                                "from": "10:00",
+                                "to": "18:00"
+                            }
+                        ]
+                    },
+                    "Fri": {
+                        "working_hours": [
+                            {
+                                "from": "10:00",
+                                "to": "18:00"
+                            }
+                        ]
+                    }
+                },
+                "type": "branch",
+                "org": {
+                    "branch_count": 1,
+                    "id": "70000001007243530",
+                    "name": "Общероссийский народный фронт, общественная организация"
+                },
+                "city_alias": "irkutsk",
+                "has_discount": false
+            },
+            {
+                "timezone_offset": 480,
+                "flags": {
+                    "photos": true
+                },
+                "context": {
+                    "stop_factors": [
+                        {
+                            "name": "Средний чек 350 ₽",
+                            "tag": "food_service_avg_price",
+                            "type": "attribute"
+                        },
+                        {
+                            "name": "Бизнес-ланч от 440 ₽",
+                            "tag": "food_service_lunch_cost",
+                            "type": "attribute"
+                        },
+                        {
+                            "name": "Пироги",
+                            "tag": "food_service_assortment_assortment_pies",
+                            "type": "attribute"
+                        },
+                        {
+                            "name": "Блины",
+                            "tag": "food_service_assortment_assortment_pancakes",
+                            "type": "attribute"
+                        },
+                        {
+                            "name": "Кофе с собой",
+                            "tag": "cocktail_bars_types_coffee_take_away",
+                            "type": "attribute"
+                        },
+                        {
+                            "name": "Чай с собой",
+                            "tag": "cocktail_bars_types_tea_take_away",
+                            "type": "attribute"
+                        },
+                        {
+                            "name": "Смузи",
+                            "tag": "cocktail_bars_types_smoo_thie",
+                            "type": "attribute"
+                        }
+                    ]
+                },
+                "stat": {
+                    "adst": 1608260400,
+                    "is_advertised": false,
+                    "match_type": 5,
+                    "source_type": 32
+                },
+                "rubrics": [
+                    {
+                        "name": "Кафе-кондитерские",
+                        "parent_id": "2",
+                        "short_id": 112658,
+                        "alias": "kafe_konditerskie",
+                        "id": "112658",
+                        "kind": "primary"
+                    },
+                    {
+                        "name": "Кондитерские изделия",
+                        "parent_id": "14",
+                        "short_id": 363,
+                        "alias": "konditerskie_izdeliya",
+                        "id": "363",
+                        "kind": "additional"
+                    },
+                    {
+                        "name": "Кафе",
+                        "parent_id": "2",
+                        "short_id": 161,
+                        "alias": "kafe",
+                        "id": "161",
+                        "kind": "additional"
+                    }
+                ],
+                "region_id": "11",
+                "adm_div": [
+                    {
+                        "id": "1",
+                        "name": "Россия",
+                        "type": "country"
+                    },
+                    {
+                        "id": "1267655302447152",
+                        "name": "Иркутская область",
+                        "type": "region"
+                    },
+                    {
+                        "id": "70030076118167127",
+                        "name": "Иркутск городской округ",
+                        "type": "district_area"
+                    },
+                    {
+                        "name": "Иркутск",
+                        "is_default": true,
+                        "flags": {
+                            "is_default": true,
+                            "is_district_area_center": true,
+                            "is_region_center": true
+                        },
+                        "id": "1548735142166607",
+                        "type": "city",
+                        "city_alias": "irkutsk"
+                    },
+                    {
+                        "id": "70030076319811653",
+                        "name": "Кировский район",
+                        "type": "district"
+                    }
+                ],
+                "locale": "ru_RU",
+                "links": {
+                    "database_entrances": [
+                        {
+                            "geometry": {
+                                "normals": [
+                                    "LINESTRING(103.605189 53.014432,104.283287 52.279461)"
+                                ],
+                                "points": [
+                                    "POINT(104.28328747530936 52.279460605255231)"
+                                ],
+                                "vectors": [
+                                    "LINESTRING(104.283215 52.279539,104.283287 52.279461)"
+                                ]
+                            },
+                            "id": "1549156048979897",
+                            "is_primary": false,
+                            "is_visible_on_map": true
+                        }
+                    ],
+                    "entrances": [
+                        {
+                            "geometry": {
+                                "normals": [
+                                    "LINESTRING(103.605189 53.014432,104.283287 52.279461)"
+                                ],
+                                "points": [
+                                    "POINT(104.28328747530936 52.279460605255231)"
+                                ],
+                                "vectors": [
+                                    "LINESTRING(104.283215 52.279539,104.283287 52.279461)"
+                                ]
+                            },
+                            "id": "1549156048979897",
+                            "is_primary": false,
+                            "is_visible_on_map": true
+                        }
+                    ],
+                    "nearest_parking": [
+                        {
+                            "id": "70030076175936536"
+                        },
+                        {
+                            "id": "70030076249951218"
+                        },
+                        {
+                            "id": "70030076163277668"
+                        },
+                        {
+                            "id": "70030076838377403"
+                        },
+                        {
+                            "id": "70030076163277422"
+                        },
+                        {
+                            "id": "70030076159816849"
+                        },
+                        {
+                            "id": "70030076163281687"
+                        },
+                        {
+                            "id": "70030076686685807"
+                        },
+                        {
+                            "id": "70030076193993809"
+                        },
+                        {
+                            "id": "70030076284439677"
+                        },
+                        {
+                            "id": "70030076163537689"
+                        },
+                        {
+                            "id": "70030076686685809"
+                        },
+                        {
+                            "id": "70030076193484396"
+                        }
+                    ],
+                    "nearest_stations": [
+                        {
+                            "distance": 240,
+                            "id": "1548898350923886",
+                            "name": "Филармония",
+                            "route_types": [
+                                "bus",
+                                "shuttle_bus"
+                            ]
+                        }
+                    ]
+                },
+                "id": "1548640653442907_D7E1k68784G23H2849IGGGG0u47tbw47G6G4134A8A652C18udcn563B1J150G6G1J3JIJ0Jmk4yuv769593741885H4H3JHH94",
+                "address_comment": "1 этаж",
+                "reviews": {
+                    "org_review_count_with_stars": 192,
+                    "is_reviewable_on_flamp": true,
+                    "general_rating": 4.1,
+                    "items": [
+                        {
+                            "is_reviewable": true,
+                            "tag": "2gis_reviews"
+                        },
+                        {
+                            "is_reviewable": true,
+                            "rating": 4.4,
+                            "recommendation_count": 1,
+                            "review_count": 10,
+                            "tag": "flamp"
+                        }
+                    ],
+                    "general_review_count_with_stars": 123,
+                    "org_review_count": 152,
+                    "review_count": 10,
+                    "recommendation_count": 1,
+                    "rating": 4.4,
+                    "org_rating": 3.2,
+                    "general_review_count": 91,
+                    "is_reviewable": true
+                },
+                "address": {
+                    "building_id": "1548748027077653",
+                    "components": [
+                        {
+                            "number": "15",
+                            "street": "улица Ленина",
+                            "street_id": "1548851106283643",
+                            "type": "street_number"
+                        }
+                    ],
+                    "postcode": "664003"
+                },
+                "address_name": "улица Ленина, 15",
+                "group": null,
+                "name": "Popcafe, кафе-кондитерская",
+                "point": {
+                    "lat": 52.279453,
+                    "lon": 104.283295
+                },
+                "name_ex": {
+                    "extension": "кафе-кондитерская",
+                    "primary": "Popcafe"
+                },
+                "external_content": [
+                    {
+                        "count": 97,
+                        "main_photo_url": "https://i1.photo.2gis.com/main/branch/11/1548640653442907/common",
+                        "subtype": "common",
+                        "type": "photo_album"
+                    },
+                    {
+                        "count": 21,
+                        "main_photo_url": "https://i3.photo.2gis.com/main/geo/11/1548748027077653/view",
+                        "subtype": "view",
+                        "type": "photo_album"
+                    }
+                ],
+                "segment_id": "0",
+                "is_deleted": false,
+                "poi_category": "food_service",
+                "schedule": {
+                    "Thu": {
+                        "working_hours": [
+                            {
+                                "from": "10:00",
+                                "to": "21:00"
+                            }
+                        ]
+                    },
+                    "Sat": {
+                        "working_hours": [
+                            {
+                                "from": "10:00",
+                                "to": "21:00"
+                            }
+                        ]
+                    },
+                    "Tue": {
+                        "working_hours": [
+                            {
+                                "from": "10:00",
+                                "to": "21:00"
+                            }
+                        ]
+                    },
+                    "Sun": {
+                        "working_hours": [
+                            {
+                                "from": "10:00",
+                                "to": "21:00"
+                            }
+                        ]
+                    },
+                    "Mon": {
+                        "working_hours": [
+                            {
+                                "from": "10:00",
+                                "to": "21:00"
+                            }
+                        ]
+                    },
+                    "Wed": {
+                        "working_hours": [
+                            {
+                                "from": "10:00",
+                                "to": "21:00"
+                            }
+                        ]
+                    },
+                    "Fri": {
+                        "working_hours": [
+                            {
+                                "from": "10:00",
+                                "to": "21:00"
+                            }
+                        ]
+                    },
+                    "comment": "до последнего гостя"
+                },
+                "type": "branch",
+                "org": {
+                    "branch_count": 3,
+                    "id": "1548649243114469",
+                    "name": "Popcafe, кафе-кондитерская"
+                },
+                "city_alias": "irkutsk",
+                "has_discount": false
+            },
+            {
+                "timezone_offset": 480,
+                "flags": {
+                    "photos": true
+                },
+                "stat": {
+                    "adst": 1608260400,
+                    "is_advertised": false,
+                    "match_type": 5,
+                    "source_type": 32
+                },
+                "rubrics": [
+                    {
+                        "name": "Турагентства",
+                        "parent_id": "8",
+                        "short_id": 272,
+                        "alias": "turagentstva",
+                        "id": "272",
+                        "kind": "primary"
+                    }
+                ],
+                "region_id": "11",
+                "adm_div": [
+                    {
+                        "id": "1",
+                        "name": "Россия",
+                        "type": "country"
+                    },
+                    {
+                        "id": "1267655302447152",
+                        "name": "Иркутская область",
+                        "type": "region"
+                    },
+                    {
+                        "id": "70030076118167127",
+                        "name": "Иркутск городской округ",
+                        "type": "district_area"
+                    },
+                    {
+                        "name": "Иркутск",
+                        "is_default": true,
+                        "flags": {
+                            "is_default": true,
+                            "is_district_area_center": true,
+                            "is_region_center": true
+                        },
+                        "id": "1548735142166607",
+                        "type": "city",
+                        "city_alias": "irkutsk"
+                    },
+                    {
+                        "id": "70030076319811653",
+                        "name": "Кировский район",
+                        "type": "district"
+                    }
+                ],
+                "locale": "ru_RU",
+                "links": {
+                    "database_entrances": [
+                        {
+                            "geometry": {
+                                "normals": [
+                                    "LINESTRING(105.228141 52.607635,104.283556 52.279369)"
+                                ],
+                                "points": [
+                                    "POINT(104.28355634107388 52.279368811007416)"
+                                ],
+                                "vectors": [
+                                    "LINESTRING(104.283684 52.279413,104.283556 52.279369)"
+                                ]
+                            },
+                            "id": "1549156048973860",
+                            "is_primary": false,
+                            "is_visible_on_map": true
+                        }
+                    ],
+                    "entrances": [
+                        {
+                            "geometry": {
+                                "normals": [
+                                    "LINESTRING(105.228141 52.607635,104.283556 52.279369)"
+                                ],
+                                "points": [
+                                    "POINT(104.28355634107388 52.279368811007416)"
+                                ],
+                                "vectors": [
+                                    "LINESTRING(104.283684 52.279413,104.283556 52.279369)"
+                                ]
+                            },
+                            "id": "1549156048973860",
+                            "is_primary": false,
+                            "is_visible_on_map": true
+                        }
+                    ],
+                    "nearest_parking": [
+                        {
+                            "id": "70030076175936536"
+                        },
+                        {
+                            "id": "70030076249951218"
+                        },
+                        {
+                            "id": "70030076163277668"
+                        },
+                        {
+                            "id": "70030076838377403"
+                        },
+                        {
+                            "id": "70030076163281687"
+                        },
+                        {
+                            "id": "70030076686685807"
+                        },
+                        {
+                            "id": "70030076193993809"
+                        },
+                        {
+                            "id": "70030076163277422"
+                        },
+                        {
+                            "id": "70030076686685809"
+                        },
+                        {
+                            "id": "70030076163276395"
+                        },
+                        {
+                            "id": "70030076388957647"
+                        },
+                        {
+                            "id": "70030076284434022"
+                        },
+                        {
+                            "id": "70030076268345982"
+                        },
+                        {
+                            "id": "70030076159816849"
+                        }
+                    ],
+                    "nearest_stations": [
+                        {
+                            "distance": 240,
+                            "id": "1548898350923886",
+                            "name": "Филармония",
+                            "route_types": [
+                                "bus",
+                                "shuttle_bus"
+                            ]
+                        }
+                    ]
+                },
+                "address_comment": "1 этаж",
+                "reviews": {
+                    "org_review_count_with_stars": 2,
+                    "is_reviewable_on_flamp": true,
+                    "general_rating": 1,
+                    "items": [
+                        {
+                            "is_reviewable": true,
+                            "tag": "2gis_reviews"
+                        },
+                        {
+                            "is_reviewable": true,
+                            "tag": "flamp"
+                        }
+                    ],
+                    "general_review_count_with_stars": 2,
+                    "org_rating": 1,
+                    "general_review_count": 2,
+                    "is_reviewable": true,
+                    "is_org_reviews": true,
+                    "org_review_count": 2
+                },
+                "address": {
+                    "building_id": "1548748027077653",
+                    "components": [
+                        {
+                            "number": "15",
+                            "street": "улица Ленина",
+                            "street_id": "1548851106283643",
+                            "type": "street_number"
+                        }
+                    ],
+                    "postcode": "664003"
+                },
+                "address_name": "улица Ленина, 15",
+                "group": null,
+                "name": "Океан, туристическое агентство",
+                "point": {
+                    "lat": 52.279364,
+                    "lon": 104.283544
+                },
+                "name_ex": {
+                    "extension": "туристическое агентство",
+                    "primary": "Океан",
+                    "short_name": "Океан"
+                },
+                "external_content": [
+                    {
+                        "count": 2,
+                        "main_photo_url": "https://i0.photo.2gis.com/main/branch/11/1548640652892386/common",
+                        "subtype": "common",
+                        "type": "photo_album"
+                    },
+                    {
+                        "count": 21,
+                        "main_photo_url": "https://i3.photo.2gis.com/main/geo/11/1548748027077653/view",
+                        "subtype": "view",
+                        "type": "photo_album"
+                    }
+                ],
+                "segment_id": "0",
+                "is_deleted": false,
+                "id": "1548640652892386_D7E1k68784G23H2849IGGGG0u47tbw47G6G4134A8AAA2697udcn563B1J150G6G1J3JIJ0Jmk4yuv769593741884H5H3JHH6f",
+                "ads": {
+                    "options": {
+                        "fmcg": [
+                            {
+                                "actions": [
+                                    {
+                                        "caption": "Оформить сим-карту",
+                                        "name": "Оформить сим-карту",
+                                        "platforms": [
+                                            "ios",
+                                            "android",
+                                            "online"
+                                        ],
+                                        "type": "link",
+                                        "value": "http://link.2gis.ru/1.2/BCC1E029/online/20250201/project11/70000001043320998/null/7E1k6mk276959375530CA99JIHIHu47tbwDG48784G6GG4J813JIJ26In5647G634A8A0G30110226838B444yuvudc3B1J1519H1H4JH15486513HBc?https://sbermobile.ru/?utm_source=2gis&utm_medium=cpc&utm_campaign=irkutsk&utm_content=dlya-raczionalnykh"
+                                    }
+                                ],
+                                "ads_id": "1213094152262551040",
+                                "branch_id": "70000001043320998",
+                                "goods_preview": [
+                                    {
+                                        "image_url": "https://ams2-cdn.2gis.com/previews/1213151259461156864/eadd4756-f1b1-410d-96bf-6311970af85f/31/ru/"
+                                    }
+                                ],
+                                "hash": "7E1k6mk276959375530CA7JJIHI3u47tbwDG48784G6GG4J810JIJ0J3n5647G634A8A0G301102255994594yuvudc3B1J1519H1H4JH5486417H3d",
+                                "images": [
+                                    {
+                                        "url": "https://ams2-cdn.2gis.com/previews/1213151259461156864/eadd4756-f1b1-410d-96bf-6311970af85f/29/ru/"
+                                    }
+                                ],
+                                "logo": [
+                                    {
+                                        "img_url": "https://ams2-cdn.2gis.com/previews/1204243802852687875/6458d67d-adad-479c-9d60-be06b4cb35f8/1/ru/image.png"
+                                    }
+                                ],
+                                "org_id": "70000001043320997",
+                                "text": "10 Гб, неограниченные звонки, соцсети, мессенджеры за 199 ₽",
+                                "text_warning": "ООО «Сбербанк-Телеком»."
+                            }
+                        ]
+                    }
+                },
+                "poi_category": "yellow",
+                "schedule": {
+                    "Thu": {
+                        "working_hours": [
+                            {
+                                "from": "14:00",
+                                "to": "19:00"
+                            }
+                        ]
+                    },
+                    "Tue": {
+                        "working_hours": [
+                            {
+                                "from": "14:00",
+                                "to": "19:00"
+                            }
+                        ]
+                    },
+                    "Mon": {
+                        "working_hours": [
+                            {
+                                "from": "14:00",
+                                "to": "19:00"
+                            }
+                        ]
+                    },
+                    "Wed": {
+                        "working_hours": [
+                            {
+                                "from": "14:00",
+                                "to": "19:00"
+                            }
+                        ]
+                    },
+                    "Fri": {
+                        "working_hours": [
+                            {
+                                "from": "14:00",
+                                "to": "19:00"
+                            }
+                        ]
+                    },
+                    "comment": "по предварительной записи"
+                },
+                "type": "branch",
+                "org": {
+                    "branch_count": 1,
+                    "id": "1548649242826007",
+                    "name": "Океан, туристическое агентство"
+                },
+                "city_alias": "irkutsk",
+                "has_discount": false
+            }
+        ],
+        "request_type": "discovery",
+        "search_attributes": {
+            "context_rubrics": [],
+            "dgis_project_id": "11",
+            "drag_bound": [
+                {
+                    "latitude": 52.333266240518824,
+                    "longitude": 104.1955531614518
+                },
+                {
+                    "latitude": 52.22510575948118,
+                    "longitude": 104.1955531614518
+                },
+                {
+                    "latitude": 52.22510575948118,
+                    "longitude": 104.37174683854819
+                },
+                {
+                    "latitude": 52.333266240518824,
+                    "longitude": 104.37174683854819
+                }
+            ],
+            "geo_restriction": false,
+            "is_partial": false,
+            "out_viewport": [
+                {
+                    "latitude": 52.28361,
+                    "longitude": 104.271634
+                },
+                {
+                    "latitude": 52.274762,
+                    "longitude": 104.271634
+                },
+                {
+                    "latitude": 52.274762,
+                    "longitude": 104.295666
+                },
+                {
+                    "latitude": 52.28361,
+                    "longitude": 104.295666
+                }
+            ],
+            "query_with_parameters": "-- 15000 aar list l {_RU} seg {11} d {gis.v4} sft {branch} s {ExpandingSearcher} obj {building 1548748027077653} V 104.271634,52.28361,104.295666,52.274762",
+            "stat": {
+                "adst": 1608260400,
+                "lang": "ru_RU"
+            }
+        },
+        "search_type": 2,
+        "total": 5
+    }
+}
