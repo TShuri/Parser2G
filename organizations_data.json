@@ -10,61 +10,61 @@
                 "banners": [
                     {
                         "name_ex": {
-                            "extension": "ресторан",
-                            "primary": "Партизан",
-                            "short_name": "Партизан"
+                            "extension": "салон цветов",
+                            "primary": "Money roses",
+                            "short_name": "Money roses"
                         },
                         "segment_id": "0",
                         "region_id": "11",
-                        "hash": "hffAAq8784G2J81301IG0GGGdop5Ag47G6G4134A8A4A6782udcn563B1J150G6GG467I3G49blxuv769593102297H1H3J2HHG5H1c",
+                        "hash": "qqwt9y8784G2J81301IG0GGGfd953u47G6G4135415862918udcn56668J157G6GG48CI3G4g2hyuv769596102273H1H3J4HHG5Hd7",
                         "ad_attributes": {
                             "algorithm_id": 14,
-                            "auction_id": "25d8eafc-e956-4d9d-b5d9-8714d2d620a3",
-                            "branch_id": "70000001065296471",
+                            "auction_id": "12ebeca9-4f11-4f4d-9256-698c49b0dbe9",
+                            "branch_id": "70000001041652607",
                             "content": {
                                 "options": {
                                     "actions": [
                                         {
-                                            "caption": "Забронировать",
-                                            "name": "Забронировать",
+                                            "caption": "Заказать доставку",
+                                            "name": "Заказать доставку",
                                             "platforms": [
                                                 "ios",
                                                 "android",
                                                 "online"
                                             ],
                                             "type": "link",
-                                            "value": "http://link.2gis.ru/1.2/B80EA0D5/online/20250201/project11/70000001065296471/null/hffAAq8784G2J81301IG23GGdop5Ag47G6G4134A8A4A6782udcn563B1J150G6GG467I3G49blxuv769593102297H1H3J2HHGJ3G76?https://partizan.rest/restaurant?utm_source=2gis&utm_medium=organic#openReMarkedWidget"
+                                            "value": "http://link.2gis.ru/1.2/DE92E964/online/20250201/project11/70000001041652607/null/qqwt9y8784G2J81301IG23GGfd953u47G6G4135415862918udcn56668J157G6GG48CI3G4g2hyuv769596102273H1H3J4HHGJ3Gch?https://stock.moneyroses.ru/?utm_source=2gis&utm_medium=poisk&utm_campaign=2gis"
                                         }
                                     ],
-                                    "color": "#2E524E",
+                                    "color": "#F6B4CE",
                                     "erid": [
-                                        "2Ranym7xVK7"
+                                        "2RanyoBu43b"
                                     ],
                                     "images": [
                                         {
-                                            "url": "https://ams2-cdn.2gis.com/previews/1170758224186441731/3c7fc5d7-3d84-46d4-9125-e94453f9178f/3/ru/"
+                                            "url": "https://ams2-cdn.2gis.com/previews/1047262610157732034/4c36fa7e-c173-440a-a6cd-3a1f1f31ea5d/3/ru/"
                                         }
                                     ],
-                                    "legal_name": "ИП Дмитриева Вера Михайловна",
+                                    "legal_name": "Общество с ограниченной ответственностью \"БАЙКАЛЬСКАЯ ТОРГОВАЯ КОМПАНИЯ\"",
                                     "logo": {
-                                        "img_url": "https://ams2-cdn.2gis.com/previews/1170758224186441731/3c7fc5d7-3d84-46d4-9125-e94453f9178f/1/ru/image.png"
+                                        "img_url": "https://ams2-cdn.2gis.com/previews/1047262610157732034/4c36fa7e-c173-440a-a6cd-3a1f1f31ea5d/1/ru/image.png"
                                     }
                                 },
-                                "text": "Ресторан сибирской кухни в историческом центре города!"
+                                "text": "Доставим бесплатно при заказе от 3590 р."
                             },
                             "erid": [
-                                "2Ranym7xVK7"
+                                "2RanyoBu43b"
                             ],
                             "is_ads": true,
-                            "legal_name": "ИП Дмитриева Вера Михайловна",
+                            "legal_name": "Общество с ограниченной ответственностью \"БАЙКАЛЬСКАЯ ТОРГОВАЯ КОМПАНИЯ\"",
                             "project_id": 11,
-                            "rubric_id": 164
+                            "rubric_id": 389
                         },
-                        "main_rubric_id": 164,
+                        "main_rubric_id": 389,
                         "org": {
-                            "branch_count": 1,
-                            "id": "70000001065296470",
-                            "name": "Партизан, ресторан"
+                            "branch_count": 16,
+                            "id": "70000001033520835",
+                            "name": "Money roses, салон цветов"
                         }
                     }
                 ]
@@ -304,11 +304,11 @@
                 ],
                 "segment_id": "0",
                 "is_deleted": false,
-                "id": "70000001091848429_D7E1k68784G23H8301IG0GGGu47tbw47G6G4134A8A394B53udcn563B1J150G6G1J684J3Jmk4yuv76959310133BAH1J4HHHG4Hf6",
+                "id": "70000001091848429_D6d2mf8784G23H8301IG0GGG8f7rhd47G6G4135415394B53udcn56668J157G6G1J684J3JDsqsuv76959610133BAH1J4HHHG4Hc2",
                 "ads": {
                     "link": {
                         "text": "Записаться",
-                        "value": "http://link.2gis.ru/1.2/A0623D7A/online/20250201/project11/70000001091848429/null/D7E1k68784G24H8301IG23GGu47tbw47G6G4134A8A394B53udcn563B1J150G6G1J684J3Jmk4yuv76959310133BAH1J4HHHGJ2G75?https://api.whatsapp.com/send/?phone=+79148981818&text&type=phone_number&app_absent=0"
+                        "value": "http://link.2gis.ru/1.2/A0623D7A/online/20250201/project11/70000001091848429/null/D6d2mf8784G24H8301IG23GG8f7rhd47G6G4135415394B53udcn56668J157G6G1J684J3JDsqsuv76959610133BAH1J4HHHGJ2GB3?https://api.whatsapp.com/send/?phone=+79148981818&text&type=phone_number&app_absent=0"
                     },
                     "options": {
                         "actions": [
@@ -321,7 +321,7 @@
                                     "online"
                                 ],
                                 "type": "link",
-                                "value": "http://link.2gis.ru/1.2/65C15131/online/20250201/project11/70000001091848429/null/D7E1k68784G24H8301IG23GGu47tbw47G6G4134A8A394B53udcn563B1J150G6G1J684J3Jmk4yuv76959310133BAH1J4HHHGJ2G75?https://api.whatsapp.com/send/?phone=79148981818&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%0A%0A%D0%9F%D0%B8%D1%88%D1%83+%D0%B8%D0%B7+%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F+2%D0%93%D0%98%D0%A1.%0A%0A&type=phone_number&app_absent=0"
+                                "value": "http://link.2gis.ru/1.2/65C15131/online/20250201/project11/70000001091848429/null/D6d2mf8784G24H8301IG23GG8f7rhd47G6G4135415394B53udcn56668J157G6G1J684J3JDsqsuv76959610133BAH1J4HHHGJ2GB3?https://api.whatsapp.com/send/?phone=79148981818&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%0A%0A%D0%9F%D0%B8%D1%88%D1%83+%D0%B8%D0%B7+%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F+2%D0%93%D0%98%D0%A1.%0A%0A&type=phone_number&app_absent=0"
                             }
                         ],
                         "branded_advertiser": true,
@@ -714,7 +714,7 @@
                 ],
                 "segment_id": "0",
                 "is_deleted": false,
-                "id": "1548640652886833_D7E1k68784G23H2849IGGGG0u47tbw47G6G4134A8AA96B44udcn563B1J150G6G1J3JIJ0Jmk4yuv769593741884H2H3JHH40",
+                "id": "1548640652886833_D6d2mf8784G23H2849IGGGG08f7rhd47G6G4135415A96B44udcn56668J157G6G1J3JIJ0JDsqsuv769596741884H2H3JHHc9",
                 "ads": {
                     "options": {
                         "buy_here": [
@@ -729,7 +729,7 @@
                                             "online"
                                         ],
                                         "type": "link",
-                                        "value": "http://link.2gis.ru/1.2/BCE6A58A/online/20250201/project11/70000001040750547/null/7E1k6mk2769593729608546JIHIHu47tbwDG48784G6GG4J813JIJ26In5647G634A8A0G30110226838A894yuvudc3B1J1518H1H4JH15486513Hfe?https://plms.adj.st/?adj_adgroup=feed&adj_campaign=%5BEDA%5DMX_UA-goal_Rest_RU-ALL-ALL_2gis_NU&adj_deeplink=eda.yandex%3A%2F%2Frestaurant%2Feterno&adj_deeplink_js=1&adj_fallback=https%3A%2F%2Feda.yandex.ru%2Firkutsk%2Fr%2Feterno%3Futm_campaign%3D%255BEDA%255DMX_UA-goal_Rest_RU-ALL-ALL_2gis_NU%26utm_content%3Dfeed%26utm_source%3D2gis&adj_redirect_macos=https%3A%2F%2Feda.yandex.ru%2Firkutsk%2Fr%2Feterno%3Futm_campaign%3D%255BEDA%255DMX_UA-goal_Rest_RU-ALL-ALL_2gis_NU%26utm_content%3Dfeed%26utm_source%3D2gis&adj_t=sz61f3b_dg7nteb"
+                                        "value": "http://link.2gis.ru/1.2/BCE6A58A/online/20250201/project11/70000001040750547/null/6d2mfDs2769596729608546JIHIH8f7rhdDG48784G6GG4J813JIJ26In5647G6354157G30110226838A89qsuvudc668J1518H1H4JH15486513HB3?https://plms.adj.st/?adj_adgroup=feed&adj_campaign=%5BEDA%5DMX_UA-goal_Rest_RU-ALL-ALL_2gis_NU&adj_deeplink=eda.yandex%3A%2F%2Frestaurant%2Feterno&adj_deeplink_js=1&adj_fallback=https%3A%2F%2Feda.yandex.ru%2Firkutsk%2Fr%2Feterno%3Futm_campaign%3D%255BEDA%255DMX_UA-goal_Rest_RU-ALL-ALL_2gis_NU%26utm_content%3Dfeed%26utm_source%3D2gis&adj_redirect_macos=https%3A%2F%2Feda.yandex.ru%2Firkutsk%2Fr%2Feterno%3Futm_campaign%3D%255BEDA%255DMX_UA-goal_Rest_RU-ALL-ALL_2gis_NU%26utm_content%3Dfeed%26utm_source%3D2gis&adj_t=sz61f3b_dg7nteb"
                                     }
                                 ],
                                 "ads_id": "1209258981098897664",
@@ -740,7 +740,7 @@
                                 "branch_id": "70000001040750547",
                                 "cta_list": true,
                                 "custom_title": "",
-                                "hash": "7E1k6mk276959372960854JJIHI3u47tbwDG48784G6GG4J810JIJ0J3n5647G634A8A0G301102255988A44yuvudc3B1J1518H1H4JH5486417H7h",
+                                "hash": "6d2mfDs276959672960854JJIHI38f7rhdDG48784G6GG4J810JIJ0J3n5647G6354157G301102255988A4qsuvudc668J1518H1H4JH5486417Hg8",
                                 "is_primary": true,
                                 "logo": {
                                     "img_url": "https://ams2-cdn.2gis.com/previews/1088574304351682563/2e74871a-2a96-4d1e-9a66-abd9ea00821d/1/image.png"
@@ -951,7 +951,7 @@
                         }
                     ]
                 },
-                "id": "70000001007243529_D7E1k68784G23H8301IGGGGGu47tbw47G6G4134A8A934663udcn563B1J150G6G1JG6IJG3mk4yuv769593101332AH3J3H1H1g",
+                "id": "70000001007243529_D6d2mf8784G23H8301IGGGGG8f7rhd47G6G4135415934663udcn56668J157G6G1JG6IJG3Dsqsuv769596101332AH3J3H1H8d",
                 "address_comment": "1 этаж",
                 "reviews": {
                     "org_review_count_with_stars": 12,
@@ -1267,7 +1267,7 @@
                         }
                     ]
                 },
-                "id": "1548640653442907_D7E1k68784G23H2849IGGGG0u47tbw47G6G4134A8A652C18udcn563B1J150G6G1J3JIJ0Jmk4yuv769593741885H4H3JHH94",
+                "id": "1548640653442907_D6d2mf8784G23H2849IGGGG08f7rhd47G6G4135415652C18udcn56668J157G6G1J3JIJ0JDsqsuv769596741885H4H3JHH2c",
                 "address_comment": "1 этаж",
                 "reviews": {
                     "org_review_count_with_stars": 192,
@@ -1615,7 +1615,7 @@
                 ],
                 "segment_id": "0",
                 "is_deleted": false,
-                "id": "1548640652892386_D7E1k68784G23H2849IGGGG0u47tbw47G6G4134A8AAA2697udcn563B1J150G6G1J3JIJ0Jmk4yuv769593741884H5H3JHH6f",
+                "id": "1548640652892386_D6d2mf8784G23H2849IGGGG08f7rhd47G6G4135415AA2697udcn56668J157G6G1J3JIJ0JDsqsuv769596741884H5H3JHH25",
                 "ads": {
                     "options": {
                         "fmcg": [
@@ -1630,7 +1630,7 @@
                                             "online"
                                         ],
                                         "type": "link",
-                                        "value": "http://link.2gis.ru/1.2/BCC1E029/online/20250201/project11/70000001043320998/null/7E1k6mk276959375530CA99JIHIHu47tbwDG48784G6GG4J813JIJ26In5647G634A8A0G30110226838B444yuvudc3B1J1519H1H4JH15486513HBc?https://sbermobile.ru/?utm_source=2gis&utm_medium=cpc&utm_campaign=irkutsk&utm_content=dlya-raczionalnykh"
+                                        "value": "http://link.2gis.ru/1.2/BCC1E029/online/20250201/project11/70000001043320998/null/6d2mfDs276959675530CA99JIHIH8f7rhdDG48784G6GG4J813JIJ26In5647G6354157G30110226838B44qsuvudc668J1519H1H4JH15486513H36?https://sbermobile.ru/?utm_source=2gis&utm_medium=cpc&utm_campaign=irkutsk&utm_content=dlya-raczionalnykh"
                                     }
                                 ],
                                 "ads_id": "1213094152262551040",
@@ -1640,7 +1640,7 @@
                                         "image_url": "https://ams2-cdn.2gis.com/previews/1213151259461156864/eadd4756-f1b1-410d-96bf-6311970af85f/31/ru/"
                                     }
                                 ],
-                                "hash": "7E1k6mk276959375530CA7JJIHI3u47tbwDG48784G6GG4J810JIJ0J3n5647G634A8A0G301102255994594yuvudc3B1J1519H1H4JH5486417H3d",
+                                "hash": "6d2mfDs276959675530CA7JJIHI38f7rhdDG48784G6GG4J810JIJ0J3n5647G6354157G30110225599459qsuvudc668J1519H1H4JH5486417HA7",
                                 "images": [
                                     {
                                         "url": "https://ams2-cdn.2gis.com/previews/1213151259461156864/eadd4756-f1b1-410d-96bf-6311970af85f/29/ru/"
@@ -1718,43 +1718,43 @@
             "dgis_project_id": "11",
             "drag_bound": [
                 {
-                    "latitude": 52.333266240518824,
-                    "longitude": 104.1955531614518
+                    "latitude": 52.995793298804756,
+                    "longitude": 103.1271589907961
                 },
                 {
-                    "latitude": 52.22510575948118,
-                    "longitude": 104.1955531614518
+                    "latitude": 51.579786701195246,
+                    "longitude": 103.1271589907961
                 },
                 {
-                    "latitude": 52.22510575948118,
-                    "longitude": 104.37174683854819
+                    "latitude": 51.579786701195246,
+                    "longitude": 105.43428500920389
                 },
                 {
-                    "latitude": 52.333266240518824,
-                    "longitude": 104.37174683854819
+                    "latitude": 52.995793298804756,
+                    "longitude": 105.43428500920389
                 }
             ],
             "geo_restriction": false,
             "is_partial": false,
             "out_viewport": [
                 {
-                    "latitude": 52.28361,
-                    "longitude": 104.271634
+                    "latitude": 52.429562,
+                    "longitude": 103.896201
                 },
                 {
-                    "latitude": 52.274762,
-                    "longitude": 104.271634
+                    "latitude": 52.146018,
+                    "longitude": 103.896201
                 },
                 {
-                    "latitude": 52.274762,
-                    "longitude": 104.295666
+                    "latitude": 52.146018,
+                    "longitude": 104.665243
                 },
                 {
-                    "latitude": 52.28361,
-                    "longitude": 104.295666
+                    "latitude": 52.429562,
+                    "longitude": 104.665243
                 }
             ],
-            "query_with_parameters": "-- 15000 aar list l {_RU} seg {11} d {gis.v4} sft {branch} s {ExpandingSearcher} obj {building 1548748027077653} V 104.271634,52.28361,104.295666,52.274762",
+            "query_with_parameters": "-- 15000 aar list l {_RU} seg {11} d {gis.v4} sft {branch} s {ExpandingSearcher} obj {building 1548748027077653} V 103.896201,52.429562,104.665243,52.146018",
             "stat": {
                 "adst": 1608260400,
                 "lang": "ru_RU"

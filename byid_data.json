@@ -74,7 +74,7 @@
                 "has_ads_model": false,
                 "has_apartments_info": false,
                 "has_realty": false,
-                "id": "1548748027140639_eE55dh8784G2J26788IG86GGA46Blg47G6G4134A8A6166AHudcn563B9J158G6GG39CBCG3fztluv7695935814A3AAACCAH1GJHGII3HAd",
+                "id": "1548748027140639_knxu7u8784G2J26788IG86GGDc3zv147G6G41354166166AHudcn56676J155G6GG39CBCG3silfuv7695965814A3AAACCAH1GJHGII3Hg9",
                 "links": {
                     "nearest_stations": [
                         {
@@ -94,7 +94,7 @@
                         "items": [
                             {
                                 "additional_info": "Почта",
-                                "id": "1548640652894469_eE55dh8784G2J267873GGGG2A46Blg47G6G4134A8AB549AHudcn563B9J158G6GG3GJI3GJfztluv76959350775A1H1JJ1H68",
+                                "id": "1548640652894469_knxu7u8784G2J267873GGGG2Dc3zv147G6G4135416B549AHudcn56676J155G6GG3GJI3GJsilfuv76959650775A1H1JJ1H99",
                                 "name": "Почта России, АО",
                                 "org_id": "70000001051048209"
                             },
@@ -109,7 +109,7 @@
                                         "value": "t.me/irbraion"
                                     }
                                 ],
-                                "id": "1548640652930339_eE55dh8784G2J267873GGGG2A46Blg47G6G4134A8A5136AHudcn563B9J158G6GG3GJI3GJfztluv76959350775B2H1JJ1H8f",
+                                "id": "1548640652930339_knxu7u8784G2J267873GGGG2Dc3zv147G6G41354165136AHudcn56676J155G6GG3GJI3GJsilfuv76959650775B2H1JJ1H33",
                                 "name": "Иркутская районная больница, ОГБУЗ",
                                 "org_id": "1548649242852658"
                             },
@@ -131,7 +131,7 @@
                                         "value": "+73952488026"
                                     }
                                 ],
-                                "id": "70000001022286644_eE55dh8784G2J81301I1GGGGA46Blg47G6G4134A8A496955udcn563B9J158G6GG30JIJ0Jfztluv769593102254H3H3JH3H39",
+                                "id": "70000001022286644_knxu7u8784G2J81301I1GGGGDc3zv147G6G4135416496955udcn56676J155G6GG30JIJ0Jsilfuv769596102254H3H3JH3H84",
                                 "name": "Детская поликлиника, ОГАУЗ Иркутская городская клиническая больница №8",
                                 "org_id": "1548649242822732"
                             }

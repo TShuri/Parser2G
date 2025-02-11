@@ -9,3 +9,5 @@ orgs_in_builds
 # Игнорировать конкретный TXT-файл (например, data.txt)
 irkutsk_addresses_sorted.txt
 *.txt
+
+*.log
