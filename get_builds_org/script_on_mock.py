@@ -1,6 +1,11 @@
 import json
+import logging
 import time
 import re
+import datetime
+import os
+import sys
+import signal
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
@@ -9,9 +14,24 @@ from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
 
 
+# Настройка логирования
+LOG_FILE = "parser.log"
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(message)s",
+    handlers=[
+        logging.FileHandler(LOG_FILE, mode="w", encoding="utf-8"),
+        logging.StreamHandler(sys.stdout)
+    ]
+)
+
 class AddressParser:
-    def __init__(self, headless=False):
+    def __init__(self, filepath, headless=False):
+        self.filepath = filepath
         self.headless = headless
+        self.addresses = []
+        self.driver = None
+
         # Общие счетчики
         self.counter = {
             "build": 0,
@@ -24,207 +44,232 @@ class AddressParser:
             "error_address_processing": 0,
             "error_intercept_network": 0,
             "error_not_found_build_id": 0,
-            "many_files_orgs_in_build": 0
-        }
-        self.driver = self.init_browser()
 
-    def init_browser(self):
-        """ Инициализация Selenium WebDriver с DevTools """
+            "start_time": datetime.datetime.now().isoformat(),
+            "end_time": 0
+        }
+        self.init_browser()
+
+    def configure_browser_options(self):
+        """ Настройка параметров браузера """
         options = webdriver.ChromeOptions()
         options.add_argument("--disable-blink-features=AutomationControlled")
-        options.add_experimental_option("excludeSwitches", ["enable-automation"])
-        options.add_experimental_option("useAutomationExtension", False)
         if self.headless:
             options.add_argument("--headless")
 
-        options.set_capability("goog:loggingPrefs", {"performance": "ALL"}) # Включаем перехват сетевых запросов
+        options.add_experimental_option("useAutomationExtension", False)
+        options.add_experimental_option("prefs", {
+            "profile.managed_default_content_settings.images": 2,
+            "profile.managed_default_content_settings.stylesheets": 2,
+            "profile.managed_default_content_settings.fonts": 2
+        })
+        options.set_capability("goog:loggingPrefs", {"performance": "INFO"})
+        return options
 
+    def init_browser(self):
+        """ Инициализация Selenium WebDriver """
+        logging.info("Start init browser")
+        options = self.configure_browser_options()
         service = Service(ChromeDriverManager().install())
-        driver = webdriver.Chrome(service=service, options=options)
-        driver.maximize_window()
+        self.driver = webdriver.Chrome(service=service, options=options)
+        self.driver.maximize_window()
+        logging.info("browser initialized")
 
-        return driver
-
-    def wait_for_page_load(self, timeout=10):
-        """Ожидание полной загрузки страницы"""
-        WebDriverWait(self.driver, timeout).until(
-            lambda driver: driver.execute_script("return document.readyState") == "complete"
-        )
-
-    def clear_cache_and_cookies(self):
-        """ Очистка кеш и куки """
+    def load_addresses_from_file(self):
+        """ Загрузка адресов из файла с адресами """
         try:
-            self.driver.execute_cdp_cmd("Network.clearBrowserCache", {})
-            self.driver.execute_cdp_cmd("Network.clearBrowserCookies", {})
-            print("🧹 Кэш и куки очищены")
+            with open(self.filepath, "r", encoding="utf-8") as file:
+                self.addresses = file.read().splitlines()
+                logging.info(f"Loaded {len(self.addresses)} addresses from {self.filepath}")
+        except FileNotFoundError:
+            print("Ошибка, файл с адресами не найден!")
+            logging.error("File with addresses not found!")
+            sys.exit(0)
 
-        except Exception as e:
-            print(f"⚠ Ошибка при очистке кэша и логов: {e}")
+    def save_json_data(self, filename, data):
+        """ Сохранение данных в JSON-файл """
+        logging.info(f"Start save_json_data to {filename}")
+        os.makedirs(os.path.dirname(filename), exist_ok=True)
+        with open(filename, "w", encoding="utf-8") as f:
+            json.dump(json.loads(data), f, ensure_ascii=False, indent=4)
+        logging.info(f"Finished save_json_data in {filename}")
+
+    def get_response_body(self, request_id):
+        """ Получение тела ответа запроса """
+        return self.driver.execute_cdp_cmd("Network.getResponseBody", {"requestId": request_id}).get("body")
 
     def intercept_network_requests(self, building_id, have_organizations):
-        """ Перехват нужного byid-запроса """
+        """Перехват сетевых запросов."""
+        logging.info("Intercept_network_requests")
         try:
-            time.sleep(3)  # Время для загрузки запросов
+            time.sleep(3)
             logs = self.driver.get_log("performance")
 
-            target_byid_request = None
-            target_byid_request_id = None
-            target_orgs_request = None
-            target_orgs_request_id = None
-
+            byid_data, orgs_data = None, None
             entry_byid = f"byid?id={building_id}"
-            # entry_orgs_pattern = re.compile(r"list\?key.*building_id=" + str(building_id))
-            entry_orgs = "list?key"
+            entry_orgs = "list?"
 
-            count_entry_list = 0
-
+            logging.info("Start cycle for log in logs")
             for log in logs:
-                log_json = json.loads(log["message"])["message"]
+                message = json.loads(log["message"])["message"]
+                if message["method"] != "Network.responseReceived":
+                    continue
 
-                if log_json["method"] == "Network.responseReceived":
-                    request_id = log_json["params"]["requestId"]
-                    response_url = log_json["params"]["response"]["url"]
+                request_id = message["params"]["requestId"]
+                url = message["params"].get("response", {}).get("url", "")
 
-                    if entry_byid in response_url: # Если URL содержит нужный "byid", сохраняем его
-                        target_byid_request = response_url
-                        target_byid_request_id = request_id
-                        self.counter["parsed_build"] += 1
+                if entry_byid in url:
+                    byid_data = self.get_response_body(request_id)
+                    self.counter["parsed_build"] += 1
 
-                    if have_organizations and (entry_orgs in response_url): # Если URL содержит нужный "list"
-                        target_orgs_request = response_url
-                        target_orgs_request_id = request_id
-                        self.counter["parsed_orgs_in_build"] += 1
-                        count_entry_list += 1
+                if have_organizations and entry_orgs in url:
+                    orgs_data = self.get_response_body(request_id)
+                    self.counter["parsed_orgs_in_build"] += 1
+            logging.info("Finish cycle for log in logs")
 
-            if count_entry_list > 1:
-                self.counter["many_files_orgs_in_build"] += 1
-
-            # print(f"Количество логов при одном перехвате: {len(logs)}")
-            # print(f"Количество лога list?key при одном перехвате: {count_entry_list}")
-
-            # Получение JSON здания и сохранение в файл
-            if target_byid_request and target_byid_request_id:
-                response = self.driver.execute_cdp_cmd("Network.getResponseBody", {"requestId": target_byid_request_id})
-                data = json.loads(response["body"])
-
-                with open("byid_data.json", "w", encoding="utf-8") as f:
-                    json.dump(data, f, ensure_ascii=False, indent=4)
-
+            if byid_data:
+                self.save_json_data(f"builds_json/byid_{building_id}.json", byid_data)
                 self.counter["saved_build_json"] += 1
-                print("✅ Данные о здании сохранены в byid_data.json")
+                print(f"✅ Данные о здании сохранены (ID: {building_id})")
 
-            # Получение JSON организаций и сохранение в файл
-            if target_orgs_request and target_orgs_request_id:
-                response = self.driver.execute_cdp_cmd("Network.getResponseBody",{"requestId": target_orgs_request_id})
-                data = json.loads(response["body"])
-
-                with open("organizations_data.json", "w", encoding="utf-8") as f:
-                    json.dump(data, f, ensure_ascii=False, indent=4)
-
-                print("✅ Данные об организациях сохранены в organizations_data.json")
+            if orgs_data:
+                self.save_json_data(f"orgs_in_builds_json/list_{building_id}.json", orgs_data)
                 self.counter["saved_orgs_in_build_json"] += 1
+                print(f"✅ Данные об организациях сохранены (ID: {building_id})")
 
         except Exception as e:
             self.counter["error_intercept_network"] += 1
             print(f"❌ Ошибка при перехвате запросов: {e}")
 
-    @staticmethod
-    def extract_building_id(href):
+    def wait_for_page_load(self, timeout=10):
+        """ Ожидание полной загрузки страницы """
+        WebDriverWait(self.driver, timeout).until(
+            lambda driver: driver.execute_script("return document.readyState") == "complete"
+        )
+
+    def extract_building_id(self, href):
         """ Извлечение ID здания из ссылки """
         match = re.search(r"/irkutsk/[^/]+/(\d+)", href)
-        if match:
-            return match.group(1)
-        return None
+        return match.group(1) if match else None
+
+    def handle_suggestions(self, address):
+        """ Ввод адреса в поле поиска и выбор подсказки """
+        logging.info("Start handle_suggestions")
+        input_box = WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.CSS_SELECTOR, "input._cu5ae4"))
+        )
+        input_box.clear()
+        input_box.send_keys(address)
+
+        suggestion = WebDriverWait(self.driver, 5).until(
+            EC.element_to_be_clickable((By.CSS_SELECTOR, "li._1914vup"))
+        )
+        suggestion.click()
+        logging.info("Finished handle_suggestions")
+
+    def handle_building_info(self):
+        """ Получение ссылки на здание """
+        logging.info("Start handle_building_info")
+        info_element = WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.XPATH, "//a[text()='Инфо']"))
+        )
+        logging.info("Finished handle_building_info")
+        return info_element.get_attribute("href")
+
+
+    def check_organizations_in_building(self):
+        """ Проверка наличия организаций в здании """
+        logging.info("Start check_organizations_in_building")
+        try:
+            WebDriverWait(self.driver, 5).until(
+                EC.presence_of_element_located((By.XPATH, "//a[text()='В здании']"))
+            ).click()
+            print("✅ Есть организации в здании")
+            return True
+        except:
+            print("⭕ Организаций нет")
+            return False
+        finally:
+            logging.info("Finished check_organizations_in_building")
 
     def process_address(self, address):
-        """ Поиск адреса в 2GIS """
+        """ Обработка адреса в 2GIS """
+        logging.info(f"{'-' * 40} Processing address {address} {'-' * 40}")
         self.driver.get("https://2gis.ru/irkutsk")
         self.wait_for_page_load()
 
         try:
-            # Элемент Поле поиска
-            input_box = WebDriverWait(self.driver, 10).until(
-                # EC.presence_of_element_located((By.CSS_SELECTOR, "input._h7eic2"))
-                EC.presence_of_element_located((By.CSS_SELECTOR, "input._cu5ae4"))
-            )
-            input_box.clear()
-            input_box.send_keys(address)
-
-            # Элемент Подсказок поиска
-            suggestion = WebDriverWait(self.driver, 5).until(
-                EC.element_to_be_clickable((By.CSS_SELECTOR, "li._1914vup"))
-            )
-            suggestion.click()
-
-            # Элемент Инфо
-            info_element = WebDriverWait(self.driver, 10).until(
-                EC.presence_of_element_located((By.XPATH, "//a[text()='Инфо']"))
-            )
-            href = info_element.get_attribute("href")
-
-            # Наличие организаций в здании
-            have_organizations = False
-            try:
-                # Элемент В здании (организации)
-                in_building = WebDriverWait(self.driver, 5).until(
-                    EC.presence_of_element_located((By.XPATH, "//a[text()='В здании']"))
-                )
-                in_building.click()
-                have_organizations = True
-                print("✅ Есть организации в данном здании")
-
-            except Exception as eOrganizationsNotFound:
-                print("⭕ Организаций в данном здании нет")
+            self.handle_suggestions(address)
+            href = self.handle_building_info()
+            have_organizations = self.check_organizations_in_building()
 
             building_id = self.extract_building_id(href)
             if building_id:
                 self.counter["build"] += 1
                 if have_organizations:
                     self.counter["orgs_in_build"] += 1
-
-                print(f"✅ Найден building_id: {building_id}")
                 self.intercept_network_requests(building_id, have_organizations)
             else:
                 self.counter["error_not_found_build_id"] += 1
-                print("❌ Не удалось найти building_id в ссылке!")
-
-            #self.clear_cache_and_cookies()
-
+                print("❌ Не удалось найти building_id!")
+                logging.warning(f"Not founded building_id for {address}")
+            return True
         except Exception as e:
+            self.counter["error_address_processing"] += 1
             print(f"❌ Ошибка обработки адреса {address}: {e}")
+            logging.error(f"Error process_address {address}: {e}")
             return False
-
-        return True
-
 
     def run(self):
         """ Запуск парсера """
         try:
-            addresses = [
-                "улица Лермонтова, 83",
-                "улица Ленина, 15",
-                "1-й Дачный переулок, 7"
-            ]
+            self.load_addresses_from_file()
 
-            for address in addresses:
-                print(f"\n🔍 Обрабатываем: {address}")
-                success = self.process_address(address)
-
-                if not success:
-                    print("⭕ Не удалось обработать адрес, повторная попытка через 10 секунд")
-                    time.sleep(10)
-                    self.process_address(address)
-
-                time.sleep(2)
+            count_addresses = len(self.addresses)
+            for num, address in enumerate(self.addresses, start=1):
+                print(f"\n🔍 Обрабатываем: {address} ({num}/{count_addresses})")
+                self.try_process_address(address)
 
         except Exception as e:
-            print(f"❌ Ошибка: {e}")
+            print(f"❌ Ошибка выполнения парсера: {e}")
 
         finally:
-            print(self.counter)
+            self.shutdown()
+
+    def try_process_address(self, address, max_attempts=2):
+        """ Пытается обработать адрес несколько раз при неудаче """
+        for attempt in range(1, max_attempts + 1):
+            if self.process_address(address):
+                return
+            print(
+                f"⭕ Попытка {attempt} не удалась. Повторная попытка..." if attempt < max_attempts else "❌ Отказ от обработки.")
+
+    def save_statistics(self):
+        """ Сохраняет статистику в JSON перед выходом """
+        self.counter["end_time"] = datetime.datetime.now().isoformat()
+        with open("parser_stats.json", "w", encoding="utf-8") as f:
+            json.dump(self.counter, f, ensure_ascii=False, indent=4)
+        print("📊 Статистика сохранена в parser_stats.json")
+
+    def shutdown(self):
+        """ Завершение работы парсера: сохранение статистики и закрытие браузера """
+        print("\n🛑 Завершение работы парсера...")
+        self.save_statistics()
+        if self.driver:
             self.driver.quit()
+        sys.exit(0)  # Завершаем программу
 
 
 if __name__ == "__main__":
-    parser = AddressParser(headless=False)
-    parser.run()
+    file_path = "test_addresses.txt"
+    parser = AddressParser(filepath=file_path, headless=False)
+
+    def handle_exit_signal(sig, frame):
+        """ Обработчик сигнала SIGINT (Ctrl+C) и SIGTERM """
+        print("\n🛑 Остановка по сигналу, завершаем работу...")
+        parser.shutdown()
+
+    signal.signal(signal.SIGINT, handle_exit_signal)
+    signal.signal(signal.SIGTERM, handle_exit_signal)
+
+    parser.run() # Запуск парсера
