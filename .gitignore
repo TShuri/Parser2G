@@ -9,5 +9,6 @@ orgs_in_builds_json
 # Игнорировать конкретный TXT-файл (например, data.txt)
 irkutsk_addresses_sorted.txt
 *.txt
+!requirements.txt
 
 *.log

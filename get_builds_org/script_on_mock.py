@@ -261,7 +261,7 @@ class AddressParser:
 
 
 if __name__ == "__main__":
-    file_path = "test_addresses.txt"
+    file_path = "../test_addresses.txt"
     parser = AddressParser(filepath=file_path, headless=False)
 
     def handle_exit_signal(sig, frame):
