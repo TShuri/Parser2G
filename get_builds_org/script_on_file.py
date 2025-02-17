@@ -26,8 +26,9 @@ logging.basicConfig(
 )
 
 class AddressParser:
-    def __init__(self, filepath, headless=False):
+    def __init__(self, filepath, out_folder, headless=False):
         self.filepath = filepath
+        self.out_folder = out_folder
         self.headless = headless
         self.addresses = []
         self.driver = None
@@ -89,10 +90,11 @@ class AddressParser:
     def save_json_data(self, filename, data):
         """ Сохранение данных в JSON-файл """
         logging.info(f"Start save_json_data to {filename}")
-        os.makedirs(os.path.dirname(filename), exist_ok=True)
-        with open(filename, "w", encoding="utf-8") as f:
+        filepath = os.path.join(self.out_folder, filename)
+        os.makedirs(os.path.dirname(filepath), exist_ok=True)
+        with open(filepath, "w", encoding="utf-8") as f:
             json.dump(json.loads(data), f, ensure_ascii=False, indent=4)
-        logging.info(f"Finished save_json_data in {filename}")
+        logging.info(f"Finished save_json_data in {filepath}")
 
     def get_response_body(self, request_id):
         """ Получение тела ответа запроса """
@@ -261,8 +263,9 @@ class AddressParser:
 
 
 if __name__ == "__main__":
-    file_path = ".txt"
-    parser = AddressParser(filepath=file_path, headless=False)
+    file_addresses = "../addresses_свердловский административный округ.txt"
+    folder_name = "Свердловский"
+    parser = AddressParser(filepath=file_addresses, out_folder=folder_name, headless=False)
 
     def handle_exit_signal(sig, frame):
         """ Обработчик сигнала SIGINT (Ctrl+C) и SIGTERM """
