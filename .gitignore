@@ -4,6 +4,7 @@
 # Игнорировать все TXT файлы, кроме requirements(список библиотек)
 *.txt
 !requirements.txt
+!tests/test_2gis_parser/test_addresses.txt
 
 # Игнорировать все логи
 *.log
@@ -13,9 +14,14 @@
 
 # Игнорировать содержимое папок:
 data_clean/export_data/*
+!data_clean/export_data/.gitkeep
 data_clean/processed_data/*
+!data_clean/processed_data/.gitkeep
 data_raw/2gis/*
 
 tests/test_2gis_parser/test_district/*
+!tests/test_2gis_parser/test_district/.gitkeep
 tests/test_clean_export_data/export_data/*
+!tests/test_clean_export_data/export_data/.gitkeep
 tests/test_clean_export_data/processed_data/*
+!tests/test_clean_export_data/processed_data/.gitkeep
