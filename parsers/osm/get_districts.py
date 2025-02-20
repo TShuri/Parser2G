@@ -32,7 +32,7 @@ for relation in root.findall(".//relation"):
 sorted_districts = sorted(set(districts))
 
 # Сохраняем в файл
-txt_filename = "irkutsk_districts.txt"
+txt_filename = "../../data_raw/osm/districts/irkutsk_districts.txt"
 with open(txt_filename, mode="w", encoding="utf-8") as txtfile:
     txtfile.write("\n".join(sorted_districts))
 

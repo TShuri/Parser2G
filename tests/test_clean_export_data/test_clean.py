@@ -9,8 +9,8 @@ logging.basicConfig(
 )
 
 # Пути к директориям
-RAW_DATA_DIR = "../test_get_builds_org"  # Папка с необработанными данными
-PROCESSED_DATA_DIR = "../data_cleanup/test_data"  # Папка куда сохраняются обработанные данные
+RAW_DATA_DIR = "../test_2gis_parser/"  # Папка с необработанными данными
+PROCESSED_DATA_DIR = "../test_clean_export_data//processed_data"  # Папка куда сохраняются обработанные данные
 
 
 def load_json(filepath):
@@ -101,13 +101,21 @@ def process_district(district):
         with open(output_file, "w", encoding="utf-8") as f:
             json.dump(orgs_data, f, ensure_ascii=False, indent=4)
 
+    # Сохранение общего JSON с очищенными данными для района
+    output_json = os.path.join(district_processed_path, "processed_data.json")
+    with open(output_json, "w", encoding="utf-8") as f:
+        json.dump({
+            "buildings": all_buildings,
+            "organizations": all_organizations,
+        }, f, ensure_ascii=False, indent=4)
+
+    logging.info(f"✅ Данные для района {district} обработаны и сохранены в {output_json}")
+
     return all_buildings, all_organizations
 
 
 def main():
     """ Основная функция обработки всех районов """
-    all_data = {}
-
     # Проход по районам
     for district in os.listdir(RAW_DATA_DIR):
         district_path = os.path.join(RAW_DATA_DIR, district)
@@ -115,19 +123,7 @@ def main():
             continue  # Пропускаем файлы, если вдруг они есть
 
         logging.info(f"Обрабатываем район: {district}")
-        buildings, organizations = process_district(district)
-
-        all_data[district] = {
-            "buildings": buildings,
-            "organizations": organizations,
-        }
-
-    # Сохранение общего JSON с очищенными данными
-    output_json = os.path.join(PROCESSED_DATA_DIR, "processed_data.json")
-    with open(output_json, "w", encoding="utf-8") as f:
-        json.dump(all_data, f, ensure_ascii=False, indent=4)
-
-    logging.info(f"✅ Все данные обработаны и сохранены в {output_json}")
+        process_district(district)
 
 
 if __name__ == "__main__":

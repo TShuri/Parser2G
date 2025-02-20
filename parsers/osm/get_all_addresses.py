@@ -2,37 +2,32 @@ import requests
 import xml.etree.ElementTree as ET
 import re
 
-# URL Overpass API
+# Define the Overpass API URL
 OVERPASS_URL = "http://overpass-api.de/api/interpreter"
 
-# Название района, который нужно спарсить
-DISTRICT_NAME = "Октябрьский административный округ"
-
-# Overpass-запрос для поиска зданий с адресами в указанном районе
-overpass_query = f"""
+# Query чтобы спарсить адреса
+overpass_query = """
 [out:xml][timeout:25];
-area[name="Иркутск"]->.cityArea;
-area[name="{DISTRICT_NAME}"](area.cityArea)->.districtArea;
+area[name="Иркутск"]->.searchArea;
 (
-  node["addr:street"](area.districtArea);
-  way["addr:street"](area.districtArea);
-  relation["addr:street"](area.districtArea);
+  node["addr:street"](area.searchArea);
+  way["addr:street"](area.searchArea);
+  relation["addr:street"](area.searchArea);
 );
 out body;
 >;
 out skel qt;
 """
 
-# Выполняем запрос к Overpass API
+# Запрос к серверу
 response = requests.get(OVERPASS_URL, params={"data": overpass_query})
 if response.status_code != 200:
-    print(f"Ошибка: не удалось получить данные (HTTP {response.status_code})")
+    print(f"Error: Failed to fetch data (HTTP {response.status_code})")
     exit()
 
-# Разбираем XML-ответ
 root = ET.fromstring(response.content)
 
-# Извлекаем адреса
+# Достаем и обрабатываем адреса
 addresses = []
 for element in root.findall(".//node") + root.findall(".//way") + root.findall(".//relation"):
     addr_street = None
@@ -47,21 +42,21 @@ for element in root.findall(".//node") + root.findall(".//way") + root.findall("
             addr_housenumber = value
 
     if addr_street and addr_housenumber:
+        # Combine street and house number into a single address
         addresses.append((addr_street, addr_housenumber))
 
-# Функция для сортировки адресов
+# Сортируем адреса
 def extract_number(house):
-    """Извлекает числовую часть из номера дома."""
+    """Extract numeric part from a house number, default to 0 if no number."""
     match = re.search(r'\d+', house)
     return int(match.group()) if match else float('inf')
 
-# Сортируем по названию улицы и номеру дома
 addresses = sorted(addresses, key=lambda x: (x[0], extract_number(x[1])))
 formatted_addresses = [f"{street}, {housenumber}" for street, housenumber in addresses]
 
 # Сохраняем в файл
-txt_filename = f"addresses_{DISTRICT_NAME.lower()}.txt"
+txt_filename = "../../data_raw/osm/all_addresses/irkutsk_addresses_sorted.txt"
 with open(txt_filename, mode="w", encoding="utf-8") as txtfile:
     txtfile.write("\n".join(formatted_addresses))
 
-print(f"Адреса в районе {DISTRICT_NAME} сохранены в {txt_filename}")
+print(f"Addresses saved to {txt_filename}")

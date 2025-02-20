@@ -1,15 +1,21 @@
 # Игнорировать все JSON-файлы
 *.json
 
-# Игнорировать папку examplesJSON и все файлы внутри нее
-examplesJSON/
-examplesJSON/builds_json
-examplesJSON/orgs_in_builds_json
-
 # Игнорировать все TXT файлы, кроме requirements(список библиотек)
-irkutsk_addresses_sorted.txt
 *.txt
 !requirements.txt
 
+# Игнорировать все логи
 *.log
+
+# Игнорировать все csv
 *.csv
+
+# Игнорировать содержимое папок:
+data_clean/export_data/*
+data_clean/processed_data/*
+data_raw/2gis/*
+
+tests/test_2gis_parser/test_district/*
+tests/test_clean_export_data/export_data/*
+tests/test_clean_export_data/processed_data/*

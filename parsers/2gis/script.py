@@ -263,8 +263,11 @@ class AddressParser:
 
 
 if __name__ == "__main__":
-    file_addresses = "../addresses_свердловский административный округ.txt"
-    folder_name = "Свердловский"
+    # Указать путь к файлу с адресами
+    file_addresses = "../../data_raw/osm/addresses_districts/октябрьский административный округ.txt"
+    # Указать путь папке с выходными файлами с данными
+    folder_name = "../../data_raw/2gis/Октябрьский"
+
     parser = AddressParser(filepath=file_addresses, out_folder=folder_name, headless=False)
 
     def handle_exit_signal(sig, frame):
