@@ -42,10 +42,22 @@ source venv/bin/activate  # для Linux/macOS
 venv\Scripts\activate  # для Windows
 ```
 
-Установите зависимости:
+Установите зависимости для windows:
 ```sh
 pip install -r requirements.txt
 ```
+
+Установите зависимости для mac:
+```sh
+brew install chromedriver
+
+pip install webdriver-manager
+
+pip install selenium-wire
+
+pip uninstall pywin32 pypiwin32 # если установлены, необходимо удалить
+
+````
 
 ## 🔍 Ознакомление (использовать папку tests/)
 📂 tests/ – тесты скриптов
