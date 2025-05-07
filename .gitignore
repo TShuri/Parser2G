@@ -4,7 +4,7 @@
 # Игнорировать все TXT файлы, кроме requirements(список библиотек)
 *.txt
 !requirements.txt
-!tests/test_2gis_parser/test_addresses.txt
+!other/test_addresses.txt
 
 # Игнорировать все логи
 *.log
