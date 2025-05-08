@@ -90,7 +90,7 @@ python parsers/osm/get_addresses_for_district.py
 
 ### Работа с 2ГИС (файл с адресами)
 ```sh
-python parsers/2gis/script.py
+python parsers/2gis/2gis_parser.py
 ```
 
 ## 🛠 Требования
