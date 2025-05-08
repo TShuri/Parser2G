@@ -15,7 +15,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 # Настройка логирования
 # Создание абсолютного пути к лог-файлу рядом со скриптом
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-LOG_FILE = os.path.join(BASE_DIR, "2gis_parser.log")
+LOG_FILE = os.path.join(BASE_DIR, "twogis_parser.log")
 
 # Убедимся, что директория для лога существует
 os.makedirs(os.path.dirname(LOG_FILE), exist_ok=True)
@@ -30,8 +30,8 @@ logging.basicConfig(
     ]
 )
 
-class AddressParser:
-    def __init__(self, address, headless=False):
+class TwoGisParser:
+    def __init__(self, address=None, headless=False):
         self.address = address
         self.build = False
         self.organizations = False
@@ -61,6 +61,15 @@ class AddressParser:
         self.driver = webdriver.Chrome(service=service, options=options)
         self.driver.maximize_window()
         logging.info("Browser initialized")
+
+    def set_address(self, address):
+        self.address = address
+
+    def get_build(self):
+        return self.build
+
+    def get_organizations(self):
+        return self.organizations
 
     def get_response_body(self, request_id):
         return self.driver.execute_cdp_cmd("Network.getResponseBody", {"requestId": request_id}).get("body")
@@ -125,7 +134,6 @@ class AddressParser:
         logging.info("Start check_organizations_in_building")
         try:
             WebDriverWait(self.driver, 5).until(EC.presence_of_element_located((By.XPATH, "//a[text()='В здании']"))).click()
-            print("Organizations found in the building")
             return True
         except:
             print("No organizations in the building")
@@ -146,32 +154,31 @@ class AddressParser:
             if building_id:
                 self.intercept_network_requests(building_id, have_organizations)
             else:
-                print("Failed to extract building ID")
                 logging.warning(f"Not found building_id for {address}")
             return True
         except Exception as e:
-            print(f"Error processing address {address}: {e}")
             logging.error(f"Error process_address {address}: {e}")
             return False
 
-    def try_process_address(self, address, max_attempts=2):
+    def run(self, address=None, max_attempts=2):
+        if address:
+            self.set_address(address)
+
         for attempt in range(1, max_attempts + 1):
             if self.process_address(address):
                 return
-            print(
-                f"Attempt {attempt} failed. Retrying..." if attempt < max_attempts else "Failed to process address.")
 
-    def run(self):
-        try:
-            self.try_process_address(self.address)
-        except Exception as e:
-            print(f"Error running parser: {e}")
+    def close(self):
+        if self.driver:
+            self.driver.quit()
 
-if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print("No address provided. Usage: python script.py \"address\"")
-        sys.exit(1)
 
-    input_address = sys.argv[1]
-    parser = AddressParser(address=input_address, headless=False)
-    parser.run()
+# if __name__ == "__main__":
+#     if len(sys.argv) < 2:
+#         print("No address provided. Usage: python script.py \"address\"")
+#         sys.exit(1)
+#
+#     input_address = sys.argv[1]
+#     parser = AddressParser(address=input_address, headless=False)
+#     parser.run()
+
