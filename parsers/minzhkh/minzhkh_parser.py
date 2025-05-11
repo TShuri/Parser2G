@@ -55,21 +55,21 @@ class MinzhkhParser:
     def set_address(self, address):
         self.address = address
 
-    def get_build(self):
+    def get_build(self): # Возвращает полученную информацию о здании
         return self.info
 
-    def open_site(self):  # Заменить на актуальный URL МинЖКХ
+    def open_site(self):  # Открытие сайта
         url = "https://dom.mingkh.ru/irkutskaya-oblast/irkutsk/"
         logging.info(f"Открытие сайта: {url}")
         self.driver.get(url)
-        self.wait_for_page_load(timeout=20)
+        self.wait_for_page_load(timeout=30)
 
     def wait_for_page_load(self, timeout=10):
         WebDriverWait(self.driver, timeout).until(
             lambda driver: driver.execute_script("return document.readyState") == "complete"
         )
 
-    def input_address(self):
+    def input_address(self): # Ввод адреса в поле поиска
         logging.info(f"Ввод адреса: {self.address}")
         input_box = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.ID, "address")))
         input_box.clear()
@@ -78,63 +78,66 @@ class MinzhkhParser:
         self.wait_for_page_load()
 
     def search_address(self): # Поиск адреса в таблице
+        logging.info(f"Поиск адреса из таблицы:")
+        rows = WebDriverWait(self.driver, timeout=10).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "table tbody tr")))
+        #rows = self.driver.find_elements(By.CSS_SELECTOR, 'table tbody tr')
+
         self.dadata.set_address(self.address)
         self.dadata.process_address()
-        target_street = self.dadata.get_street() # Искомое название улицы
-        target_city = self.dadata.get_city() # Искомое название города
         target_value = self.dadata.get_value() # Полное название улицы
-
-        """Проход по таблице и поиск вхождения street в строки столбца Адрес"""
-        # Находим все строки в теле таблицы
-        rows = self.driver.find_elements(By.CSS_SELECTOR, 'table tbody tr')
+        target_city = self.dadata.get_city() # Искомое название города
+        target_street = self.dadata.get_street() # Искомое название улицы
+        target_house = self.dadata.get_house() # Искомый дом
 
         # Проходим по каждой строке и достаем адрес (3-я колонка, индекс 2)
-        print("Начало цикла прохода по строкам")
         for row in rows:
             cells = row.find_elements(By.TAG_NAME, 'td')
-            if len(cells) >= 3:
-                td_address = cells[2].text.strip()
-                if target_street.lower() in td_address.lower():
-                    td_city_address = target_city + ', ' + td_address
-                    self.dadata.set_address(td_city_address)
-                    self.dadata.process_address()
-                    value = self.dadata.get_value()
-                    print(value)
-                    if target_value == value:
-                        link = row.find_element(By.TAG_NAME, "a")
-                        self.driver.execute_script("arguments[0].scrollIntoView(true);", link)
-                        time.sleep(0.5)
-                        link.click()
-                        break
+            if len(cells) >= 3: # Проверка наличия 3 и более ячеек в таблице
+                city_cell = cells[1].text.strip()
+                address_cell = cells[2].text.strip()
+                if target_city.lower() in city_cell.lower(): # Проверка соответствия города
+                    if target_street.lower() in address_cell.lower() and target_house in address_cell: # Проверка вхождения адреса и дома
+                        td_city_address = f"{target_city}, {address_cell}"
+                        self.dadata.set_address(td_city_address)
+                        self.dadata.process_address()
+                        value = self.dadata.get_value()
+                        if target_value == value: # Сравниваем найденный адрес с целевым
+                            try:
+                                link = row.find_element(By.TAG_NAME, "a")
+                                self.driver.execute_script("arguments[0].scrollIntoView(true);", link)
+                                time.sleep(0.5)
+                                link.click()
+                                return True
+                            except Exception as e:
+                                logging.error(f"Ошибка при клике на адрес, {e}")
+        return False
 
     def parse_page(self):
         logging.info("Парсинг данных")
         soup = BeautifulSoup(self.driver.page_source, "html.parser")
         data = {}
 
-        # Пример парсинга
-        house_year = soup.find("div", class_="year-built")  # заменить на реальный класс
-        uk_name = soup.find("div", class_="management-company")  # заменить на реальный класс
+        # Ищем все строки таблиц
+        table_rows = soup.select("table.table.table-striped tr")
 
-        data["year_built"] = house_year.text.strip() if house_year else "N/A"
-        data["management_company"] = uk_name.text.strip() if uk_name else "N/A"
+        for row in table_rows:
+            cells = row.find_all("td")
+            if len(cells) == 3:
+                key = cells[0].get_text(strip=True)
+                value = cells[2].get_text(strip=True)
+                data[key] = value
 
+        logging.info(f"Извлечённые данные: {data}")
         return data
 
-    def run(self, address):
+    def run(self):
         try:
-            self.set_address(address)
             self.open_site()
             self.input_address()
-            time.sleep(3)
-            self.search_address()
-            time.sleep(10)
-            # return self.parse_page()
+            if self.search_address():
+                self.info = self.parse_page()
         except Exception as e:
             logging.error(f"Ошибка при обработке адреса {address}: {e}")
-            return {}
-        finally:
-            self.close()
 
     def close(self):
         if self.driver:
@@ -144,5 +147,6 @@ class MinzhkhParser:
 if __name__ == "__main__":
     address = "Иркутск, Ленина, 15"
     parser = MinzhkhParser(headless=False)
-    parser.run(address)
+    parser.set_address(address)
+    parser.run()
 
