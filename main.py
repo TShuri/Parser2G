@@ -35,7 +35,7 @@ def parse_2gis(addresses):
     #     "end_time": 0
     # }
 
-    parser = TwoGisParser(headless=False)  # headless=False для отладки
+    parser = TwoGisParser()  # headless=False для отладки
 
     for num, address in enumerate(addresses, start=1):
         print(f"\n🔍 Обрабатываем: {address} ({num}/{len(addresses)})")
@@ -81,15 +81,14 @@ def parse_minzhkh(addresses):
         build_info = parser.get_build()
 
         # Пропуск если не нашли данные
-        if not build_info:
+        if build_info is None:
             print("❌ Здание не найдено.")
             continue
 
         # Сохраняем здание
         try:
-            build_data = json.loads(build_info)
             build_filename = f"data/output/minzhkh/build_{num}.json"
-            save_json(build_data, build_filename)
+            save_json(build_info, build_filename)
             print(f"✅ Сохранено здание: {build_filename}")
         except Exception as e:
             print(f"⚠️ Ошибка при сохранении здания: {e}")
@@ -103,6 +102,6 @@ if __name__ == "__main__":
     addresses = load_addresses_from_file(path_addresses)
 
     if addresses:
-        parse_minzhkh(addresses)
+        parse_2gis(addresses)
     else:
         print("❌ Нет адресов для обработки.")

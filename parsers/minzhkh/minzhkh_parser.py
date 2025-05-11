@@ -80,11 +80,10 @@ class MinzhkhParser:
         rows = WebDriverWait(self.driver, timeout=10).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "table tbody tr")))
         #rows = self.driver.find_elements(By.CSS_SELECTOR, 'table tbody tr')
 
-        self.dadata.set_address(self.address)
-        self.dadata.process_address()
+        self.dadata.process_address(self.address)
         target_value = self.dadata.get_value() # Полное название улицы
         target_city = self.dadata.get_city() # Искомое название города
-        target_street = self.dadata.get_street() # Искомое название улицы
+        target_street = self.dadata.get_name_street() # Искомое название улицы
         target_house = self.dadata.get_house() # Искомый дом
 
         # Проходим по каждой строке и достаем адрес (3-я колонка, индекс 2)
@@ -96,8 +95,7 @@ class MinzhkhParser:
                 if target_city.lower() in city_cell.lower(): # Проверка соответствия города
                     if target_street.lower() in address_cell.lower() and target_house in address_cell: # Проверка вхождения адреса и дома
                         td_city_address = f"{target_city}, {address_cell}"
-                        self.dadata.set_address(td_city_address)
-                        self.dadata.process_address()
+                        self.dadata.process_address(td_city_address)
                         value = self.dadata.get_value()
                         if target_value == value: # Сравниваем найденный адрес с целевым
                             try:
@@ -131,12 +129,11 @@ class MinzhkhParser:
     def run(self, address):
         try:
             self.address = address
-            time.sleep(5)
+            self.info = None
             self.input_address()
-            time.sleep(5)
             if self.search_address():
                 self.info = self.parse_page()
-                time.sleep(5)
+                self.driver.back()
         except Exception as e:
             logging.error(f"Ошибка при обработке адреса {address}: {e}")
 

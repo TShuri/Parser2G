@@ -25,17 +25,35 @@ class DadataStandardization:
     def get_full_address(self):
         return self.data.get("result") if self.data else None
 
-    def get_street(self):
-        return self.data.get("street") if self.data else None
-
-    def get_house(self):
-        return self.data.get("house") if self.data else None
-
     def get_city(self):
         return self.data.get("city") if self.data else None
 
     def get_city_district(self):
         return self.data.get("city_district") if self.data else None
+
+    def get_settlement(self):
+        return self.data.get("settlement") if self.data else None
+
+    def get_street(self):
+        return self.data.get("street") if self.data else None
+
+    def get_stead(self):
+        return self.data.get("stead") if self.data else None
+
+    def get_name_street(self):
+        seettlement = self.get_settlement()
+        street = self.get_street()
+        stead = self.get_stead()
+
+        if seettlement:
+            return seettlement
+        if street:
+            return street
+        if stead:
+            return stead
+
+    def get_house(self):
+        return self.data.get("house") if self.data else None
 
     def get_coords(self):
         if not self.data:

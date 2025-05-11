@@ -7,6 +7,8 @@ import sys
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
@@ -31,13 +33,12 @@ logging.basicConfig(
 )
 
 class TwoGisParser:
-    def __init__(self, address=None, headless=False):
-        self.address = address
-        self.build = False
-        self.organizations = False
+    def __init__(self, headless=False):
         self.headless = headless
+        self.address = None
+        self.build = None
+        self.organizations = None
         self.driver = None
-
         self.init_browser()
 
     def configure_browser_options(self):
@@ -60,10 +61,8 @@ class TwoGisParser:
         service = Service(ChromeDriverManager().install())
         self.driver = webdriver.Chrome(service=service, options=options)
         self.driver.maximize_window()
+        self.open_site()
         logging.info("Browser initialized")
-
-    def set_address(self, address):
-        self.address = address
 
     def get_build(self):
         return self.build
@@ -83,7 +82,6 @@ class TwoGisParser:
             entry_byid = f"byid?id={building_id}"
             entry_orgs = "list?"
 
-            logging.info("Start cycle for log in logs")
             for log in logs:
                 message = json.loads(log["message"])["message"]
                 if message["method"] != "Network.responseReceived":
@@ -100,10 +98,9 @@ class TwoGisParser:
                     orgs_data = self.get_response_body(request_id)
                     self.organizations = orgs_data
 
-            logging.info("Finish cycle for log in logs")
-
+            logging.info("Data extracted success")
         except Exception as e:
-            print(f"Error while intercepting requests: {e}")
+            logging.error(f"Error while intercepting requests: {e}")
 
     def wait_for_page_load(self, timeout=10):
         WebDriverWait(self.driver, timeout).until(
@@ -114,40 +111,59 @@ class TwoGisParser:
         match = re.search(r"/irkutsk/[^/]+/(\d+)", href)
         return match.group(1) if match else None
 
-    def handle_suggestions(self, address):
-        logging.info("Start handle_suggestions")
-        input_box = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, "input._cu5ae4")))
-        input_box.clear()
-        input_box.send_keys(address)
+    def open_site(self):
+        self.driver.get("https://2gis.ru/irkutsk")
+        self.wait_for_page_load()
 
-        suggestion = WebDriverWait(self.driver, 5).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "li._1914vup")))
+    def handle_input(self, address):
+        logging.info("handle_input")
+        input_box = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.XPATH, "//input[@placeholder='Поиск в 2ГИС']")))
+        input_box.send_keys(Keys.CONTROL + "a")
+        input_box.send_keys(Keys.BACKSPACE)
+        input_box.send_keys(address)
+        input_box.send_keys(Keys.ENTER)
+
+    def handle_not_match(self):
+        logging.info("handle_not_match")
+        try:
+            WebDriverWait(self.driver, 2).until(EC.presence_of_element_located((By.XPATH, "/html/body/div[2]/div/div/div[1]/div[1]/div[3]/div/div/div[2]/div/div/div/div[2]/div[2]/div[1]/div/div/div/div[1][text()='Точных совпадений нет. Посмотрите похожие места или измените запрос.']")))
+            return True
+        except TimeoutException:
+            return False
+
+    def handle_count_found(self):
+        logging.info("handle_count_found")
+        element = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.XPATH, "/html/body/div[2]/div/div/div[1]/div[1]/div[3]/div/div/div[2]/div/div/div/div[1]/header/div[3]/div/div[1]/div/h2/a/span")))
+        count = int(element.text.strip())
+        return count
+
+    def handle_suggestions(self):
+        logging.info("handle_suggestions")
+        suggestion = WebDriverWait(self.driver, 5).until(EC.presence_of_element_located((By.XPATH, "/html/body/div[2]/div/div/div[1]/div[1]/div[3]/div/div/div[2]/div/div/div/div[2]/div[2]/div[1]/div/div/div/div[2]/div/div[1]/div")))
         suggestion.click()
-        logging.info("Finished handle_suggestions")
 
     def handle_building_info(self):
-        logging.info("Start handle_building_info")
+        logging.info("handle_building_info")
         info_element = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.XPATH, "//a[text()='Инфо']")))
-        logging.info("Finished handle_building_info")
         return info_element.get_attribute("href")
 
     def check_organizations_in_building(self):
-        logging.info("Start check_organizations_in_building")
+        logging.info("check_organizations_in_building")
         try:
             WebDriverWait(self.driver, 5).until(EC.presence_of_element_located((By.XPATH, "//a[text()='В здании']"))).click()
             return True
         except:
-            print("No organizations in the building")
             return False
-        finally:
-            logging.info("Finished check_organizations_in_building")
 
     def process_address(self, address):
         logging.info(f"{'-' * 40} Processing address {address} {'-' * 40}")
-        self.driver.get("https://2gis.ru/irkutsk")
-        self.wait_for_page_load()
-
         try:
-            self.handle_suggestions(address)
+            self.handle_input(address)
+            if self.handle_not_match():
+                logging.info("Not founded address in 2gis")
+                return True
+            if self.handle_count_found() > 1:
+                self.handle_suggestions()
             href = self.handle_building_info()
             have_organizations = self.check_organizations_in_building()
             building_id = self.extract_building_id(href)
@@ -160,10 +176,10 @@ class TwoGisParser:
             logging.error(f"Error process_address {address}: {e}")
             return False
 
-    def run(self, address=None, max_attempts=2):
-        if address:
-            self.set_address(address)
-
+    def run(self, address, max_attempts=2):
+        self.address = address
+        self.build = None
+        self.organizations = None
         for attempt in range(1, max_attempts + 1):
             if self.process_address(address):
                 return
@@ -173,12 +189,8 @@ class TwoGisParser:
             self.driver.quit()
 
 
-# if __name__ == "__main__":
-#     if len(sys.argv) < 2:
-#         print("No address provided. Usage: python script.py \"address\"")
-#         sys.exit(1)
-#
-#     input_address = sys.argv[1]
-#     parser = AddressParser(address=input_address, headless=False)
-#     parser.run()
+if __name__ == "__main__":
+    address = 'Иркутск, Ленина, 815'
+    parser = TwoGisParser()
+    parser.run(address)
 
