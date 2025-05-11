@@ -1,10 +1,13 @@
 from dadata import Dadata
+from dotenv import load_dotenv
+import os
 
 class DadataStandardization:
-    def __init__(self, token, secret, address=None):
-        self.token = token
-        self.secret = secret
-        self.dadata = Dadata(token, secret)
+    def __init__(self, address=None):
+        load_dotenv()
+        self.token = os.getenv("DADATA_TOKEN")
+        self.secret = os.getenv("DADATA_SECRET")
+        self.dadata = Dadata(self.token, self.secret)
         self.address = address
         self.data = None
 
@@ -45,10 +48,7 @@ class DadataStandardization:
         }
 
 if __name__ == "__main__":
-    token = "80219668a6c5cf96def06462f6e05fd147e0223b"
-    secret = "3091ba0b3524603295189105effb34c0ba675af3"
-
-    dadata_parser = DadataStandardization(token, secret)
+    dadata_parser = DadataStandardization()
     dadata_parser.process_address("Иркутск, крылатый, 4")
 
     print("Полный адрес:", dadata_parser.get_full_address())

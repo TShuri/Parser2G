@@ -33,9 +33,7 @@ class MinzhkhParser:
         self.driver = None
         self.address = address
         self.info = None
-        self.token = "80219668a6c5cf96def06462f6e05fd147e0223b"
-        self.secret = "3091ba0b3524603295189105effb34c0ba675af3"
-        self.dadata = DadataSuggestion(self.token, self.secret)
+        self.dadata = DadataSuggestion()
         self.init_browser()
 
     def configure_browser_options(self):

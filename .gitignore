@@ -12,6 +12,9 @@
 # Игнорировать все csv
 *.csv
 
+# Игнорировать переменную окружения
+.env
+
 # Игнорировать содержимое папок:
 data_clean/export_data/*
 data_clean/processed_data/*
@@ -26,11 +29,3 @@ data_raw/osm/districts/*
 !data_raw/osm/addresses_districts/.gitkeep
 !data_raw/osm/all_addresses/.gitkeep
 !data_raw/osm/districts/.gitkeep
-
-tests/test_2gis_parser/test_district/*
-tests/test_clean_export_data/export_data/*
-tests/test_clean_export_data/processed_data/*
-
-!tests/test_2gis_parser/test_district/.gitkeep
-!tests/test_clean_export_data/export_data/.gitkeep
-!tests/test_clean_export_data/processed_data/.gitkeep
