@@ -28,10 +28,10 @@ logging.basicConfig(
 )
 
 class MinzhkhParser:
-    def __init__(self, address=None, headless=False):
+    def __init__(self, headless=False):
         self.headless = headless
         self.driver = None
-        self.address = address
+        self.address = None
         self.info = None
         self.dadata = DadataSuggestion()
         self.init_browser()
@@ -51,9 +51,7 @@ class MinzhkhParser:
         service = Service(ChromeDriverManager().install())
         self.driver = webdriver.Chrome(service=service, options=options)
         self.driver.maximize_window()
-
-    def set_address(self, address):
-        self.address = address
+        self.open_site()
 
     def get_build(self): # Возвращает полученную информацию о здании
         return self.info
@@ -130,12 +128,15 @@ class MinzhkhParser:
         logging.info(f"Извлечённые данные: {data}")
         return data
 
-    def run(self):
+    def run(self, address):
         try:
-            self.open_site()
+            self.address = address
+            time.sleep(5)
             self.input_address()
+            time.sleep(5)
             if self.search_address():
                 self.info = self.parse_page()
+                time.sleep(5)
         except Exception as e:
             logging.error(f"Ошибка при обработке адреса {address}: {e}")
 
@@ -147,6 +148,5 @@ class MinzhkhParser:
 if __name__ == "__main__":
     address = "Иркутск, Ленина, 15"
     parser = MinzhkhParser(headless=False)
-    parser.set_address(address)
-    parser.run()
+    parser.run(address)
 

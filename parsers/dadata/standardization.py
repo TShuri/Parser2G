@@ -3,16 +3,17 @@ from dotenv import load_dotenv
 import os
 
 class DadataStandardization:
-    def __init__(self, address=None):
+    def __init__(self):
         load_dotenv()
         self.token = os.getenv("DADATA_TOKEN")
         self.secret = os.getenv("DADATA_SECRET")
         self.dadata = Dadata(self.token, self.secret)
-        self.address = address
+        self.address = None
         self.data = None
 
-    def process_address(self):
+    def process_address(self, address):
         try:
+            self.address = address
             result = self.dadata.clean("address", self.address)
             self.data = result
             return result
@@ -20,9 +21,6 @@ class DadataStandardization:
             print(f"Ошибка при обработке адреса: {e}")
             self.data = None
             return None
-
-    def set_address(self, address):
-        self.address = address
 
     def get_full_address(self):
         return self.data.get("result") if self.data else None
