@@ -1,6 +1,6 @@
 from dadata import Dadata
 
-class DadataAddress:
+class DadataStandardization:
     def __init__(self, token, secret, address=None):
         self.token = token
         self.secret = secret
@@ -8,9 +8,9 @@ class DadataAddress:
         self.address = address
         self.data = None
 
-    def process_address(self, raw_address: str):
+    def process_address(self):
         try:
-            result = self.dadata.clean("address", raw_address)
+            result = self.dadata.clean("address", self.address)
             self.data = result
             return result
         except Exception as e:
@@ -48,8 +48,8 @@ if __name__ == "__main__":
     token = "80219668a6c5cf96def06462f6e05fd147e0223b"
     secret = "3091ba0b3524603295189105effb34c0ba675af3"
 
-    dadata_parser = DadataAddress(token, secret)
-    dadata_parser.process_address("Иркутск, Ленина, 15")
+    dadata_parser = DadataStandardization(token, secret)
+    dadata_parser.process_address("Иркутск, крылатый, 4")
 
     print("Полный адрес:", dadata_parser.get_full_address())
     print("Улица:", dadata_parser.get_street())
