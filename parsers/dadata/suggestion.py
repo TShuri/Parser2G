@@ -16,7 +16,7 @@ class DadataSuggestion:
             self.address = address
             result = self.dadata.suggest("address", self.address)
             self.data = result[0]
-            return result
+            return self.data
         except Exception as e:
             print(f"Ошибка при обработке адреса: {e}")
             self.data = None

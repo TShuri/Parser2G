@@ -34,6 +34,12 @@ class MinzhkhParser:
         self.address = None
         self.info = None
         self.dadata = DadataSuggestion()
+        self.stats = {
+            "total": 0,
+            "found_buildings": 0,
+            "not_found": 0,
+            "errors": 0,
+        }
         self.init_browser()
 
     def configure_browser_options(self):
@@ -106,6 +112,7 @@ class MinzhkhParser:
                                 return True
                             except Exception as e:
                                 logging.error(f"Ошибка при клике на адрес, {e}")
+        self.stats["not_found"] += 1
         return False
 
     def parse_page(self):
@@ -123,19 +130,22 @@ class MinzhkhParser:
                 value = cells[2].get_text(strip=True)
                 data[key] = value
 
-        logging.info(f"Извлечённые данные: {data}")
         return data
 
     def run(self, address):
         try:
+            self.stats["total"] += 1
             self.address = address
             self.info = None
             self.input_address()
             if self.search_address():
                 self.info = self.parse_page()
+                self.stats["found_buildings"] += 1
+                logging.info("Данные извлечены")
                 self.driver.back()
         except Exception as e:
             logging.error(f"Ошибка при обработке адреса {address}: {e}")
+            self.stats["errors"] += 1
 
     def close(self):
         if self.driver:

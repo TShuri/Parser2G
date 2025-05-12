@@ -39,6 +39,14 @@ class TwoGisParser:
         self.build = None
         self.organizations = None
         self.driver = None
+        self.stats = {
+            "total": 0,
+            "not_match:": 0,
+            "found_buildings": 0,
+            "found_organizations": 0,
+            "not_found_id": 0,
+            "errors": 0,
+        }
         self.init_browser()
 
     def configure_browser_options(self):
@@ -93,10 +101,12 @@ class TwoGisParser:
                 if entry_byid in url:
                     byid_data = self.get_response_body(request_id)
                     self.build = byid_data
+                    self.stats["found_buildings"] += 1
 
                 if have_organizations and entry_orgs in url:
                     orgs_data = self.get_response_body(request_id)
                     self.organizations = orgs_data
+                    self.stats["found_organizations"] += 1
 
             logging.info("Data extracted success")
         except Exception as e:
@@ -157,10 +167,12 @@ class TwoGisParser:
 
     def process_address(self, address):
         logging.info(f"{'-' * 40} Processing address {address} {'-' * 40}")
+        self.stats["total"] += 1
         try:
             self.handle_input(address)
             if self.handle_not_match():
                 logging.info("Not founded address in 2gis")
+                self.stats["not_match"] += 1
                 return True
             if self.handle_count_found() > 1:
                 self.handle_suggestions()
@@ -174,6 +186,7 @@ class TwoGisParser:
             return True
         except Exception as e:
             logging.error(f"Error process_address {address}: {e}")
+            self.stats["errors"] += 1
             return False
 
     def run(self, address, max_attempts=2):
