@@ -46,6 +46,8 @@ def extract_build_data(build_raw):
         "purpose_name": building_info.get("purpose_name"),
         "floors_ground": building_info.get("floors", {}).get("ground_count"),
         "entity_count": sum(1 for e in building_info.get("links", {}).get("database_entrances", []) if e.get("entity_number")),
+        "nearest_stations_name": building_info.get("links", {}).get("nearest_stations", [{}])[0].get("name"),
+        "nearest_stations_distance": building_info.get("links", {}).get("nearest_stations", [{}])[0].get("distance"),
         "branches": building_info.get("links", {}).get("branches", {}).get("count"),
         "servicing": building_info.get("links", {}).get("servicing", {}).get("count"),
         "providers": building_info.get("links", {}).get("providers", {}).get("count"),
@@ -65,11 +67,20 @@ def extract_orgs_data(orgs_raw):
     for org in orgs_raw.get("result", {}).get("items", []):
         orgs.append({
             "id": org.get("org", {}).get("id"),
-            "name": org.get("name_ex", {}).get("primary"),
-            "category": [rubric.get("name") for rubric in org.get("rubrics", [])],
-            "schedule": org.get("schedule"),
+            "name": org.get("name"),
+            "name_ex": org.get("name_ex", {}).get("primary"),
+            "rubric_primary": next((rubric["name"] for rubric in org.get("rubrics", []) if rubric["kind"] == "primary"), None),
+            "rubric_id_primary": next((rubric["id"] for rubric in org.get("rubrics", []) if rubric["kind"] == "primary"), None),
+            "rubrics": [rubric.get("name") for rubric in org.get("rubrics", [])],
+            "rubrics_id": [rubric.get("id") for rubric in org.get("rubrics", [])],
+            "general_rating": org.get("reviews", {}).get("general_rating"),
+            "general_review_count": org.get("reviews", {}).get("general_review_count"),
+            "general_review_count_with_stars": org.get("reviews", {}).get("general_review_count_with_stars"),
+            "poi_category": org.get("poi_category"),
+            "type": org.get("type"),
             "lat": org.get("point", {}).get("lat"),
             "lon": org.get("point", {}).get("lon"),
+            "schedule": org.get("schedule"),
         })
     return orgs
 
@@ -91,11 +102,13 @@ def preprocess(address_raw=None, build_raw=None, orgs_raw=None, minzhkh_raw=None
 
 
 if __name__ == "__main__":
-    input_file = "../data/output/buildings/build_2.json"
+    input_file_build = "../data/output/buildings/build_2.json"
+    input_file_orgs = "../data/output/organizations/orgs_2.json"
     output_file = "../data/ready/extract_build.json"
 
-    build_file = load_json(input_file)
-    build_data = preprocess(build_raw=build_file)
+    build_file = load_json(input_file_build)
+    orgs_file = load_json(input_file_orgs)
+    build_data = preprocess(build_raw=build_file, orgs_raw=orgs_file)
 
     with open(output_file, "w", encoding="utf-8") as out_f:
         json.dump(build_data, out_f, ensure_ascii=False, indent=2)
