@@ -1,7 +1,6 @@
-import datetime
-import subprocess
 import json
 import os
+import concurrent.futures
 
 from parsers.dadata.suggestion import DadataSuggestion
 from parsers.twogis.twogis_parser import TwoGisParser
@@ -53,7 +52,19 @@ if __name__ == "__main__":
 
     for num, address in enumerate(addresses, start=1):
         print(f"\n🔍 Обрабатываем: {address} ({num}/{len(addresses)})")
-        address_info = parse_dadata(address, dadata)
+        address_data = parse_dadata(address, dadata)
+        address_value = dadata.get_value()
+        address_city = dadata.get_city()
+        address_street = dadata.get_name_street()
+        address_house = dadata.get_house()
 
-        build, orgs = parse_2gis(address, parserTwogis)
-        build_info = parse_minzhkh(address, parserMinzhkh)
+        # Запускаем два парсера в отдельных потоках
+        with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
+            future_2gis = executor.submit(parse_2gis, address_value, parserTwogis)
+            future_minzhkh = executor.submit(parse_minzhkh, address, parserMinzhkh)
+
+            # Ждём, пока оба завершатся
+            build_data, orgs_data = future_2gis.result()
+            build_info = future_minzhkh.result()
+
+
