@@ -66,7 +66,8 @@ class DadataSuggestion:
 if __name__ == "__main__":
     dadata_parser = DadataSuggestion()
     address = "Иркутск, Ленина, 15"
-    dadata_parser.process_address(address)
+    file = dadata_parser.process_address(address)
+    print(file.get("value"))
 
     print("Значение адреса:", dadata_parser.get_value())
     print("Полное значение адреса:", dadata_parser.get_unrestricted_value())

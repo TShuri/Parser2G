@@ -5,6 +5,7 @@ import concurrent.futures
 from parsers.dadata.suggestion import DadataSuggestion
 from parsers.twogis.twogis_parser import TwoGisParser
 from parsers.minzhkh.minzhkh_parser import MinzhkhParser
+from scripts.preprocessing import preprocess
 
 def load_addresses_from_file(filepath):
     """ Загрузка адресов из файла с адресами """
@@ -43,8 +44,10 @@ def parse_dadata(address, parser: DadataSuggestion):
     return address_info
 
 if __name__ == "__main__":
-    path_addresses = "other/test_addresses.txt"
+    path_addresses = "../other/test_addresses.txt"
     addresses = load_addresses_from_file(path_addresses)
+
+    output_path = "../data/ready"
 
     dadata = DadataSuggestion()
     parserMinzhkh = MinzhkhParser()
@@ -64,7 +67,11 @@ if __name__ == "__main__":
             future_minzhkh = executor.submit(parse_minzhkh, address, parserMinzhkh)
 
             # Ждём, пока оба завершатся
-            build_data, orgs_data = future_2gis.result()
-            build_info = future_minzhkh.result()
+            build_raw, orgs_raw = future_2gis.result()
+            minzhkh_raw = future_minzhkh.result()
 
+        output_file = preprocess(address_raw=address_data, build_raw=build_raw, orgs_raw=orgs_raw, minzhkh_raw=minzhkh_raw)
+        save_json(output_file, f"{output_path}/file_{num}.json")
 
+    print(parserMinzhkh.stats)
+    print(parserTwogis.stats)

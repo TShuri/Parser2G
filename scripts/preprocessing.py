@@ -10,24 +10,24 @@ def load_json(path):
 
 def extract_address(address_raw):
     return {
-        "value": address_raw.data.get("value"),
-        "unrestricted_value": address_raw.data.get("unrestricted_value"),
-        "postal_code": address_raw.data.get("data").get("postal_code"),
-        "federal_district": address_raw.data.get("data").get("federal_district"),
-        "region_type_full": address_raw.data.get("data").get("region_type_full"),
-        "region": address_raw.data.get("data").get("region"),
-        "city_type_full": address_raw.data.get("data").get("city_type_full"),
-        "city": address_raw.data.get("data").get("city"),
-        "settlement_type_full": address_raw.data.get("data").get("settlement_type_full"),
-        "settlement": address_raw.data.get("data").get("settlement"),
-        "street_type_full": address_raw.data.get("data").get("street_type_full"),
-        "street": address_raw.data.get("data").get("street"),
-        "stead_type_full": address_raw.data.get("data").get("stead_type_full"),
-        "stead": address_raw.data.get("data").get("stead"),
-        "house_type_full": address_raw.data.get("data").get("house_type_full"),
-        "house": address_raw.data.get("data").get("street"),
-        "lat": address_raw.data.get("data").get("geo_lat"),
-        "lon": address_raw.data.get("data").get("geo_lon")
+        "value": address_raw.get("value"),
+        "unrestricted_value": address_raw.get("unrestricted_value"),
+        "postal_code": address_raw.get("data").get("postal_code"),
+        "federal_district": address_raw.get("data").get("federal_district"),
+        "region_type_full": address_raw.get("data").get("region_type_full"),
+        "region": address_raw.get("data").get("region"),
+        "city_type_full": address_raw.get("data").get("city_type_full"),
+        "city": address_raw.get("data").get("city"),
+        "settlement_type_full": address_raw.get("data").get("settlement_type_full"),
+        "settlement": address_raw.get("data").get("settlement"),
+        "street_type_full": address_raw.get("data").get("street_type_full"),
+        "street": address_raw.get("data").get("street"),
+        "stead_type_full": address_raw.get("data").get("stead_type_full"),
+        "stead": address_raw.get("data").get("stead"),
+        "house_type_full": address_raw.get("data").get("house_type_full"),
+        "house": address_raw.get("data").get("street"),
+        "lat": address_raw.get("data").get("geo_lat"),
+        "lon": address_raw.get("data").get("geo_lon")
     }
 
 def extract_build_data(build_raw):
@@ -93,10 +93,10 @@ def preprocess(address_raw=None, build_raw=None, orgs_raw=None, minzhkh_raw=None
         data["address"] = extract_address(address_raw)
     if build_raw:
         data["build"] = extract_build_data(build_raw)
+    if minzhkh_raw:
+        data["minzhkh"] = minzhkh_raw
     if orgs_raw:
         data["orgs"] = extract_orgs_data(orgs_raw)
-    if minzhkh_raw:
-        data["minzhkh"] = extract_minzhkh(minzhkh_raw)
 
     return data
 
@@ -104,11 +104,13 @@ def preprocess(address_raw=None, build_raw=None, orgs_raw=None, minzhkh_raw=None
 if __name__ == "__main__":
     input_file_build = "../data/output/buildings/build_2.json"
     input_file_orgs = "../data/output/organizations/orgs_2.json"
-    output_file = "../data/ready/extract_build.json"
+    input_file_minzhkh = "../data/output/minzhkh/build_2.json"
+    output_file = "../data/preprocessing/extract_build.json"
 
     build_file = load_json(input_file_build)
     orgs_file = load_json(input_file_orgs)
-    build_data = preprocess(build_raw=build_file, orgs_raw=orgs_file)
+    minzhkh_file = load_json(input_file_minzhkh)
+    build_data = preprocess(build_raw=build_file, orgs_raw=orgs_file, minzhkh_raw=minzhkh_file)
 
     with open(output_file, "w", encoding="utf-8") as out_f:
         json.dump(build_data, out_f, ensure_ascii=False, indent=2)

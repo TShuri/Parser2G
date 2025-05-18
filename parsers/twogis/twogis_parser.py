@@ -41,7 +41,7 @@ class TwoGisParser:
         self.driver = None
         self.stats = {
             "total": 0,
-            "not_match:": 0,
+            "not_match": 0,
             "found_buildings": 0,
             "found_organizations": 0,
             "not_found_id": 0,
@@ -174,8 +174,8 @@ class TwoGisParser:
                 logging.info("Not founded address in 2gis")
                 self.stats["not_match"] += 1
                 return True
-            if self.handle_count_found() > 1:
-                self.handle_suggestions()
+            # if self.handle_count_found() > 1:
+            self.handle_suggestions()
             href = self.handle_building_info()
             have_organizations = self.check_organizations_in_building()
             building_id = self.extract_building_id(href)
@@ -203,7 +203,9 @@ class TwoGisParser:
 
 
 if __name__ == "__main__":
-    address = 'Иркутск, Ленина, 815'
+    address = 'г Иркутск, 1-й Дачный пер, д 7'
+    address2 = 'Иркутск, крылатый, 4'
     parser = TwoGisParser()
     parser.run(address)
+    parser.run(address2)
 
