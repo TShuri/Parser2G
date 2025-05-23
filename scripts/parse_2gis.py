@@ -47,7 +47,7 @@ def parse_dadata(address, parser: DadataSuggestion):
     return address_info
 
 if __name__ == "__main__":
-    path_addresses = "../data_raw/osm/addresses_districts/октябрьский административный округ.txt"
+    path_addresses = "../data/osm/addresses_districts/октябрьский административный округ.txt"
     addresses = load_addresses_from_file(path_addresses)
 
     output_path = "../data/district"

@@ -4,7 +4,6 @@
 # Игнорировать все TXT файлы, кроме requirements(список библиотек)
 *.txt
 !requirements.txt
-!other/test_addresses.txt
 
 # Игнорировать все логи
 *.log
@@ -16,16 +15,11 @@
 .env
 
 # Игнорировать содержимое папок:
-data_clean/export_data/*
-data_clean/processed_data/*
-data_raw/2gis/*
-data_raw/osm/addresses_districts/*
-data_raw/osm/all_addresses/*
-data_raw/osm/districts/*
+data/*
 
-!data_clean/processed_data/.gitkeep
-!data_clean/export_data/.gitkeep
-!data_raw/2gis/.gitkeep
-!data_raw/osm/addresses_districts/.gitkeep
-!data_raw/osm/all_addresses/.gitkeep
-!data_raw/osm/districts/.gitkeep
+#!data_clean/processed_data/.gitkeep
+#!data_clean/export_data/.gitkeep
+#!data/2gis/.gitkeep
+#!data/osm/addresses_districts/.gitkeep
+#!data/osm/all_addresses/.gitkeep
+#!data/osm/districts/.gitkeep

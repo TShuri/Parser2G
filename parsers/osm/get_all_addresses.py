@@ -55,7 +55,7 @@ addresses = sorted(addresses, key=lambda x: (x[0], extract_number(x[1])))
 formatted_addresses = [f"{street}, {housenumber}" for street, housenumber in addresses]
 
 # Сохраняем в файл
-txt_filename = "../../data_raw/osm/all_addresses/irkutsk_addresses_sorted.txt"
+txt_filename = "../../data/osm/all_addresses/irkutsk_addresses_sorted.txt"
 with open(txt_filename, mode="w", encoding="utf-8") as txtfile:
     txtfile.write("\n".join(formatted_addresses))
 
