@@ -88,6 +88,8 @@ def extract_minzhkh(minzhkh_raw):
     pass
 
 def preprocess(address_raw=None, build_raw=None, orgs_raw=None, minzhkh_raw=None):
+    if address_raw is None and build_raw is None and orgs_raw is None and minzhkh_raw is None:
+        return None
     data = {}
     if address_raw:
         data["address"] = extract_address(address_raw)
