@@ -1,3 +1,5 @@
+import csv
+
 import psycopg2
 import json
 import os
@@ -116,8 +118,33 @@ def save_to_json(data, filename):
     with open(filename, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=4)
 
+def save_to_csv(data, filename):
+    # Формируем строки: одна строка = одно здание, организации — как JSON внутри поля
+    rows = []
+    for b in data:
+        address = b["address_info"]
+        build = b["build_info"]
+        orgs = b["organizations"]
+
+        row = {
+            **address,
+            **build,
+            "organizations": json.dumps(orgs, ensure_ascii=False)  # сериализация списка организаций
+        }
+
+        rows.append(row)
+
+    # Сохраняем в CSV
+    if rows:
+        fieldnames = rows[0].keys()
+        with open(filename, "w", newline='', encoding="utf-8") as f:
+            writer = csv.DictWriter(f, fieldnames=fieldnames)
+            writer.writeheader()
+            writer.writerows(rows)
+
 
 if __name__ == "__main__":
     merged_data = fetch_buildings_and_organizations()
     save_to_json(merged_data, "../data/buildings_with_organizations.json")
-    print("✅ Объединённые данные сохранены в buildings_with_organizations.json")
+    save_to_csv(merged_data, "../data/buildings_with_organizations.csv")
+    print("✅ Данные сохранены в JSON и CSV.")
