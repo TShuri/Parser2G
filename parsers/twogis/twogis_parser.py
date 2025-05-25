@@ -40,6 +40,7 @@ class TwoGisParser:
         self.build = None
         self.organizations = None
         self.driver = None
+        self.restart_counter = 0
         self.stats = {
             "start_time": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
             "end_time": None,
@@ -76,6 +77,16 @@ class TwoGisParser:
         self.driver.maximize_window()
         self.open_site()
         logging.info("Browser initialized")
+
+    def restart_browser(self):
+        try:
+            if self.driver:
+                self.driver.quit()
+            logging.info("Перезапуск браузера...")
+            self.init_browser()
+            self.restart_counter = 0  # сбрасываем счётчик
+        except Exception as e:
+            logging.error(f"Ошибка при перезапуске браузера: {e}")
 
     def get_build(self):
         return self.build
@@ -196,6 +207,17 @@ class TwoGisParser:
             self.stats["error_process"] += 1
             return False
 
+    def save_stats_to_json(self, filename=None):
+        try:
+            self.stats["end_time"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            if not filename:
+                timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+                filename = f"twogis_stats.json"
+            with open(filename, "w", encoding="utf-8") as f:
+                json.dump(self.stats, f, indent=4, ensure_ascii=False)
+        except Exception as e:
+            pass
+
     def run(self, address, max_attempts=2):
         self.address = address
         self.build = None
@@ -204,24 +226,16 @@ class TwoGisParser:
             if self.process_address(address):
                 return
 
+        self.save_stats_to_json()
+        self.restart_counter += 1
+        if self.restart_counter >= 300:
+            logging.info("Достигнут лимит в 300 адресов — перезапуск браузера")
+            self.restart_browser()
+
     def close(self):
         if self.driver:
             self.driver.quit()
 
-    def save_stats_to_json(self, filename=None):
-        try:
-            self.stats["end_time"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-
-            if not filename:
-                timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-                filename = f"parser_stats_{timestamp}.json"
-
-            with open(filename, "w", encoding="utf-8") as f:
-                json.dump(self.stats, f, indent=4, ensure_ascii=False)
-
-            logging.info(f"Статистика сохранена в файл: {filename}")
-        except Exception as e:
-            logging.error(f"Ошибка при сохранении статистики: {e}")
 
 if __name__ == "__main__":
     address = 'Иркутск, Ленина, 15'

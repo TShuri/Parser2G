@@ -28,7 +28,7 @@ def check_keys_build(build):
 
 def check_keys_org(org):
     REQUIRED_KEYS = [
-        "id", "name", "primary_rubric_id", "general_rating", "general_review_count",
+        "name", "primary_rubric_id", "general_rating", "general_review_count",
         "general_review_count_with_stars", "poi_category", "type", "lat", "lon", "schedule"
     ]
 
@@ -45,6 +45,8 @@ def update_coords_address(cur, build):
     """, build)
 
 def insert_building(cur, build):
+    params = dict(build)
+    params['schedule'] = Json(params['schedule'])
     cur.execute("""
         INSERT INTO buildings (
             address_id, build_name, full_name, type_build, purpose_code, purpose_name,
@@ -59,8 +61,14 @@ def insert_building(cur, build):
         )
         ON CONFLICT (address_id) DO NOTHING
         RETURNING id
-    """, build)
-    return cur.fetchone()[0]
+    """, params)
+    result = cur.fetchone()
+    if result:
+        return result[0]
+    else:
+        # Получаем id уже существующего здания по address_id
+        cur.execute("SELECT id FROM buildings WHERE address_id = %s", (build['address_id'],))
+        return cur.fetchone()[0]
 
 def insert_rubrics(cur, rubric_ids, rubric_names):
     for rubric_id, rubric_name in zip(rubric_ids, rubric_names):
@@ -70,21 +78,19 @@ def insert_rubrics(cur, rubric_ids, rubric_names):
             ON CONFLICT (id) DO NOTHING
         """, (rubric_id, rubric_name))
 
-def insert_organization(cur, org, build_id):
+def insert_organization(cur, org):
+    params = dict(org)
+    params['schedule'] = Json(params['schedule'])
     cur.execute("""
         INSERT INTO organizations (
             name, primary_rubric_id, general_rating, general_review_count,
-            general_review_count_with_stars, poi_category, type, lat, lon, schedule, build_id
+            general_review_count_with_stars, poi_category, type, lat, lon, build_id, schedule
         ) VALUES (
             %(name)s, %(rubric_id_primary)s, %(general_rating)s, %(general_review_count)s,
-            %(general_review_count_with_stars)s, %(poi_category)s, %(type)s, %(lat)s, %(lon)s, %(schedule_json)s, %(build_id)s
+            %(general_review_count_with_stars)s, %(poi_category)s, %(type)s, %(lat)s, %(lon)s, %(build_id)s, %(schedule)s
         )
         RETURNING id
-    """, {
-        **org,
-        'schedule_json': Json(org['schedule']),
-        'build_id': build_id
-    })
+    """, params)
     return cur.fetchone()[0]
 
 def insert_organization_rubrics(cur, org_id, rubrics_id):
@@ -112,11 +118,12 @@ def save_data_to_db(data):
         if data.get('orgs') and (build_id is not None):
             for org_d in data['orgs']:
                 org = check_keys_org(org_d)
+                org["build_id"] = build_id
                 if org.get('rubrics_id') and org.get('rubrics'):
                     insert_rubrics(cur, org['rubrics_id'], org['rubrics'])
-                org_id = insert_organization(cur, org, build_id)
+                org_id = insert_organization(cur, org)
                 if org_id and org.get('rubrics_id'):
-                    insert_organization_rubrics(cur, org['id'], org['rubrics_id'])
+                    insert_organization_rubrics(cur, org_id, org['rubrics_id'])
 
         conn.commit()
         print("Data saved in DataBase successfully")

@@ -45,6 +45,10 @@ def save_json(data, filename):
     with open(filename, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
 
+def save_counters_to_json(counters, filename="parser_counters.json"):
+    with open(filename, "w", encoding="utf-8") as f:
+        json.dump(counters, f, ensure_ascii=False, indent=2)
+
 
 if __name__ == "__main__":
     counters = {
@@ -54,13 +58,13 @@ if __name__ == "__main__":
         'error_processing': 0
     }
     district_name = 'Свердловский'
-    # addresses = [(2224, 'Улица Бородина, д. 1'), (2225, 'Улица Бородина, д. 2')]
-    addresses = get_addresses_by_district(district_name)
-    #print(addresses)
+    start_address = 3521
+    addresses = get_addresses_by_district(district_name)[start_address:]
+    # addresses = [(4397, 'Улица Лермонтова, д. 83'), (1495, 'Улица Автомобильная, д. 1')]
 
     parser = TwoGisParser()
     total = len(addresses)
-    for num, address in enumerate(addresses, start=1):
+    for num, address in enumerate(addresses, start=start_address):
         logging.info(f"🔍 ({num}/{total}) Обработка адреса: {address[1]}")
 
         try:
@@ -84,6 +88,8 @@ if __name__ == "__main__":
             counters['error_processing'] += 1
             logging.error(f"❌ Ошибка при обработке адреса: {address[1]}")
             logging.error(traceback.format_exc())
+        finally:
+            save_counters_to_json(counters)
 
     logging.info("🎯 Обработка завершена")
     logging.info(f"Всего адресов: {total}")
