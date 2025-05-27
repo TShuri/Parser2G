@@ -34,8 +34,9 @@ logging.basicConfig(
 )
 
 class TwoGisParser:
-    def __init__(self, headless=False):
+    def __init__(self, headless=False, limit_restart=300):
         self.headless = headless
+        self.limit_restart = limit_restart
         self.address = None
         self.build = None
         self.organizations = None
@@ -224,12 +225,12 @@ class TwoGisParser:
         self.organizations = None
         for attempt in range(1, max_attempts + 1):
             if self.process_address(address):
-                return
+                break
 
         self.save_stats_to_json()
         self.restart_counter += 1
-        if self.restart_counter >= 300:
-            logging.info("Достигнут лимит в 300 адресов — перезапуск браузера")
+        if self.restart_counter >= self.limit_restart:
+            logging.info(f"Достигнут лимит в {self.limit_restart} адресов — перезапуск браузера")
             self.restart_browser()
 
     def close(self):
@@ -238,13 +239,8 @@ class TwoGisParser:
 
 
 if __name__ == "__main__":
-    address = 'Иркутск, Ленина, 15'
-    address2 = 'Иркутск, крылатый, 4'
-    parser = TwoGisParser()
-    try:
+    addresses = ['Иркутск, Ленина, 15', 'Иркутск, крылатый, 4', 'Иркутск, Лермонтова 83, ', 'Иркутск, Советская 33']
+    parser = TwoGisParser(limit_restart=2)
+    for address in addresses:
         parser.run(address)
-        parser.run(address2)
-    finally:
-        parser.save_stats_to_json("parser_stats.json")
-        parser.close()
 

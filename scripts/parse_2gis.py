@@ -58,13 +58,13 @@ if __name__ == "__main__":
         'error_processing': 0
     }
     district_name = 'Октябрьский'
-    # start_address = 4509
-    addresses = get_addresses_by_district(district_name)
+    start_address = 2510
+    addresses = get_addresses_by_district(district_name)[start_address:]
     # addresses = [(4397, 'Улица Лермонтова, д. 83'), (1495, 'Улица Автомобильная, д. 1')]
 
     parser = TwoGisParser()
-    total = len(addresses)
-    for num, address in enumerate(addresses, start=1):
+    total = len(addresses) + start_address
+    for num, address in enumerate(addresses, start=start_address):
         logging.info(f"🔍 ({num}/{total}) Обработка адреса: {address[1]}")
 
         try:

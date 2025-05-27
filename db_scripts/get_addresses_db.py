@@ -18,7 +18,8 @@ def get_addresses_by_district(district):
             SELECT a.id, a.full_address
             FROM addresses a
             JOIN streets s ON a.street_id = s.id
-            WHERE s.district = %s;
+            WHERE s.district = %s
+            ORDER BY a.id;
         """, (district,))
 
         addresses = cursor.fetchall()
