@@ -4,6 +4,7 @@ import os
 import time
 import re
 import sys
+from datetime import datetime
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
@@ -33,19 +34,25 @@ logging.basicConfig(
 )
 
 class TwoGisParser:
-    def __init__(self, headless=False):
+    def __init__(self, headless=False, limit_restart=300):
         self.headless = headless
+        self.limit_restart = limit_restart
         self.address = None
         self.build = None
         self.organizations = None
         self.driver = None
+        self.restart_counter = 0
         self.stats = {
+            "start_time": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "end_time": None,
             "total": 0,
-            "not_match": 0,
+            "extracted_success": 0,
             "found_buildings": 0,
             "found_organizations": 0,
+            "not_match_address": 0,
+            "error_intercepting": 0,
             "not_found_id": 0,
-            "errors": 0,
+            "error_process": 0,
         }
         self.init_browser()
 
@@ -72,6 +79,16 @@ class TwoGisParser:
         self.open_site()
         logging.info("Browser initialized")
 
+    def restart_browser(self):
+        try:
+            if self.driver:
+                self.driver.quit()
+            logging.info("Перезапуск браузера...")
+            self.init_browser()
+            self.restart_counter = 0  # сбрасываем счётчик
+        except Exception as e:
+            logging.error(f"Ошибка при перезапуске браузера: {e}")
+
     def get_build(self):
         return self.build
 
@@ -84,7 +101,7 @@ class TwoGisParser:
     def intercept_network_requests(self, building_id, have_organizations):
         logging.info("Intercept_network_requests")
         try:
-            time.sleep(3)
+            time.sleep(2)
             logs = self.driver.get_log("performance")
 
             entry_byid = f"byid?id={building_id}"
@@ -109,8 +126,10 @@ class TwoGisParser:
                     self.stats["found_organizations"] += 1
 
             logging.info("Data extracted success")
+            self.stats["extracted_success"] += 1
         except Exception as e:
             logging.error(f"Error while intercepting requests: {e}")
+            self.stats["error_intercepting"] += 1
 
     def wait_for_page_load(self, timeout=10):
         WebDriverWait(self.driver, timeout).until(
@@ -154,13 +173,13 @@ class TwoGisParser:
 
     def handle_building_info(self):
         logging.info("handle_building_info")
-        info_element = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.XPATH, "//a[text()='Инфо']")))
+        info_element = WebDriverWait(self.driver, 5).until(EC.presence_of_element_located((By.XPATH, "//a[text()='Инфо']")))
         return info_element.get_attribute("href")
 
     def check_organizations_in_building(self):
         logging.info("check_organizations_in_building")
         try:
-            WebDriverWait(self.driver, 5).until(EC.presence_of_element_located((By.XPATH, "//a[text()='В здании']"))).click()
+            WebDriverWait(self.driver, 2).until(EC.presence_of_element_located((By.XPATH, "//a[text()='В здании']"))).click()
             return True
         except:
             return False
@@ -172,7 +191,7 @@ class TwoGisParser:
             self.handle_input(address)
             if self.handle_not_match():
                 logging.info("Not founded address in 2gis")
-                self.stats["not_match"] += 1
+                self.stats["not_match_address"] += 1
                 return True
             # if self.handle_count_found() > 1:
             self.handle_suggestions()
@@ -186,8 +205,19 @@ class TwoGisParser:
             return True
         except Exception as e:
             logging.error(f"Error process_address {address}: {e}")
-            self.stats["errors"] += 1
+            self.stats["error_process"] += 1
             return False
+
+    def save_stats_to_json(self, filename=None):
+        try:
+            self.stats["end_time"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            if not filename:
+                timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+                filename = f"twogis_stats.json"
+            with open(filename, "w", encoding="utf-8") as f:
+                json.dump(self.stats, f, indent=4, ensure_ascii=False)
+        except Exception as e:
+            pass
 
     def run(self, address, max_attempts=2):
         self.address = address
@@ -195,7 +225,13 @@ class TwoGisParser:
         self.organizations = None
         for attempt in range(1, max_attempts + 1):
             if self.process_address(address):
-                return
+                break
+
+        self.save_stats_to_json()
+        self.restart_counter += 1
+        if self.restart_counter >= self.limit_restart:
+            logging.info(f"Достигнут лимит в {self.limit_restart} адресов — перезапуск браузера")
+            self.restart_browser()
 
     def close(self):
         if self.driver:
@@ -203,9 +239,8 @@ class TwoGisParser:
 
 
 if __name__ == "__main__":
-    address = 'г Иркутск, 1-й Дачный пер, д 7'
-    address2 = 'Иркутск, крылатый, 4'
-    parser = TwoGisParser()
-    parser.run(address)
-    parser.run(address2)
+    addresses = ['Иркутск, Ленина, 15', 'Иркутск, крылатый, 4', 'Иркутск, Лермонтова 83, ', 'Иркутск, Советская 33']
+    parser = TwoGisParser(limit_restart=2)
+    for address in addresses:
+        parser.run(address)
 
