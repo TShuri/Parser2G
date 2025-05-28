@@ -142,6 +142,25 @@ def save_to_csv(data, filename):
             writer.writeheader()
             writer.writerows(rows)
 
+def export_data(filepath, format):
+    """
+    Экспортирует данные о зданиях и организациях в указанный файл.
+
+    :param filepath: путь к файлу для сохранения
+    :param format: формат экспорта — 'json' или 'csv'
+    :return: количество зданий
+    """
+    data = fetch_buildings_and_organizations()
+
+    if format == "json":
+        save_to_json(data, filepath)
+    elif format == "csv":
+        save_to_csv(data, filepath)
+    else:
+        raise ValueError(f"Неподдерживаемый формат: {format}")
+
+    return len(data)
+
 
 if __name__ == "__main__":
     merged_data = fetch_buildings_and_organizations()
