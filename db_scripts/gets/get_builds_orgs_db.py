@@ -145,6 +145,6 @@ def save_to_csv(data, filename):
 
 if __name__ == "__main__":
     merged_data = fetch_buildings_and_organizations()
-    save_to_json(merged_data, "../data/buildings_with_organizations.json")
-    save_to_csv(merged_data, "../data/buildings_with_organizations.csv")
+    save_to_json(merged_data, "../../data/buildings_with_organizations.json")
+    save_to_csv(merged_data, "../../data/buildings_with_organizations.csv")
     print("✅ Данные сохранены в JSON и CSV.")
