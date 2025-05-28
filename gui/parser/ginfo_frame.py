@@ -3,6 +3,7 @@ import tkinter as tk
 from parsers.ginfo.get_districts import get_districts
 from parsers.ginfo.get_streets_district import get_street_links
 from parsers.ginfo.get_houses_coords_district import get_addresses
+from scripts.parse_2gis import get_build_orgs
 
 class GinfoFrame(tk.LabelFrame):
     def __init__(self, parent, log_func):
@@ -33,6 +34,9 @@ class GinfoFrame(tk.LabelFrame):
         self.streets_button.pack(side="left", padx=5)
 
         self.addresses_button = tk.Button(self, text="🏠 Получить адреса", command=self.run_addresses, state="disabled")
+        self.addresses_button.pack(side="left", padx=5)
+
+        self.addresses_button = tk.Button(self, text="🏢 Парсинг зданий и организаций", command=self.run_addresses, state="disabled")
         self.addresses_button.pack(side="left", padx=5)
 
     def _on_district_selected(self, name):
@@ -138,5 +142,16 @@ class GinfoFrame(tk.LabelFrame):
                     self.log("⚠️ Функция парсинга адресов не задана.")
             except Exception as e:
                 self.log(f"❌ Ошибка при парсинге адресов: {e}")
+
+        threading.Thread(target=task, daemon=True).start()
+
+    def run_builds_orgs(self):
+        def task():
+            try:
+                get_build_orgs(self.log)
+                self.log(f"✅ Парсинг завершён")
+
+            except Exception as e:
+                self.log(f"❌ Ошибка при парсинге зданий и организаций: {e}")
 
         threading.Thread(target=task, daemon=True).start()

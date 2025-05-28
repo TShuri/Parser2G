@@ -50,7 +50,7 @@ def save_counters_to_json(counters, filename="parser_counters.json"):
         json.dump(counters, f, ensure_ascii=False, indent=2)
 
 
-if __name__ == "__main__":
+def get_build_orgs(log_func=None):
     counters = {
         'success_save': 0,
         'error_save': 0,
@@ -66,6 +66,7 @@ if __name__ == "__main__":
     total = len(addresses) + start_address
     for num, address in enumerate(addresses, start=start_address):
         logging.info(f"🔍 ({num}/{total}) Обработка адреса: {address[1]}")
+        log_func(f"🔍 ({num}/{total}) Обработка адреса: {address[1]}")
 
         try:
             build_raw, orgs_raw = parse_2gis(address[1], parser)
@@ -76,14 +77,17 @@ if __name__ == "__main__":
                 if save_to_db(output_data) is True:
                     counters['success_save'] += 1
                     logging.info(f"✅ Успешно сохранено для адреса: {address[1]}")
+                    log_func(f"✅ Успешно сохранено для адреса: {address[1]}")
                 else:
                     counters['error_save'] += 1
                     logging.error(f"❌ Не сохранено для адреса: {address[1]}")
                     logging.error(traceback.format_exc())
-
+                    log_func(f"❌ Не сохранено для адреса: {address[1]}")
             else:
                 counters['not_data_on_address'] += 1
                 logging.warning(f"⚠️ Нет данных для адреса: {address[1]}")
+                log_func(f"⚠️ Нет данных для адреса: {address[1]}")
+
         except Exception as e:
             counters['error_processing'] += 1
             logging.error(f"❌ Ошибка при обработке адреса: {address[1]}")
@@ -96,3 +100,6 @@ if __name__ == "__main__":
     logging.info(f"Успешно: {counters}")
 
     logging.info(f"Статистика парсера: {parser.stats}")
+
+if __name__ == "__main__":
+    pass

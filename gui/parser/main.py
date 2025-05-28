@@ -1,8 +1,8 @@
 import tkinter as tk
 from tkinter import scrolledtext
-from gui.ginfo_frame import GinfoFrame
-from gui.fias_frame import FiasFrame
-from gui.gis_frame import GisFrame
+from gui.parser.ginfo_frame import GinfoFrame
+from gui.parser.fias_frame import FiasFrame
+
 
 def run_in_thread(func):
     import threading
