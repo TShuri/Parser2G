@@ -55,12 +55,11 @@ def get_houses(street_name, street_type, street_url):
         print(f"Ошибка при обработке {street_name} ({street_url}): {e}")
     return houses
 
-def main():
-    with open(INPUT_FILE, "r", encoding="utf-8") as f:
-        streets = json.load(f)
+def get_addresses(streets, log_func):
+    # with open(INPUT_FILE, "r", encoding="utf-8") as f:
+    #     streets = json.load(f)
 
     streets = streets[:3]
-
     all_data = []
 
     for i, street in enumerate(streets, 1):
@@ -73,17 +72,18 @@ def main():
         else:
             street_url = BASE_URL + street["url"]
 
-        print(f"[{i}/{len(streets)}] Обрабатываем: {street_name}")
+        log_func(f"[{i}/{len(streets)}] Обрабатываем: {street_name}")
         street_data = get_houses(street_name, street_type, street_url)
         all_data.extend(street_data)
 
-        # Сохраняем прогресс
-        with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-            json.dump(all_data, f, ensure_ascii=False, indent=2)
+        # # Сохраняем прогресс
+        # with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
+        #     json.dump(all_data, f, ensure_ascii=False, indent=2)
 
         time.sleep(0.5)
-
-    print(f"Готово! Сохранено {len(all_data)} адресов с координатами в {OUTPUT_FILE}")
+    return all_data
+    # print(f"Готово! Сохранено {len(all_data)} адресов с координатами в {OUTPUT_FILE}")
 
 if __name__ == "__main__":
-    main()
+    pass
+    # main()

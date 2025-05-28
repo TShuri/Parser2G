@@ -55,11 +55,11 @@ def get_street_links(district_url, log_func):
         streets = []
 
         for idx, link in enumerate(street_links, start=1):
-            log_func(f"Обработка: {idx}/{len(street_links)}")
             href = link.get("href", "").strip()
             street_url = BASE_URL+href
             if href:
                 name, type = get_name_type_street(street_url)
+                log_func(f"[{idx}/{len(street_links)}] Найдено: {name}")
                 street_obj = {
                     "name": name,
                     "type": type,

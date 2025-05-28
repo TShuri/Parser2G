@@ -4,12 +4,6 @@ from gui.ginfo_frame import GinfoFrame
 from gui.fias_frame import FiasFrame
 from gui.gis_frame import GisFrame
 
-# Заглушки
-from parsers.ginfo.get_districts import get_districts
-# from parsers.ginfo import parse_streets, parse_addresses
-# from parsers.fias import parse_fias_addresses
-# from parsers.dgist import parse_buildings
-
 def run_in_thread(func):
     import threading
     def wrapper():
@@ -22,33 +16,51 @@ class App:
         self.root.title("Парсинг данных")
         self.root.geometry("800x600")
 
-        # Рамки
-        GinfoFrame(root, self.log).pack(padx=10, pady=5, fill="x")
-        FiasFrame(root, self.log, run_in_thread(self.parse_fias)).pack(padx=10, pady=5, fill="x")
-        GisFrame(root, self.log, run_in_thread(self.parse_2gis)).pack(padx=10, pady=5, fill="x")
+        # Выбор источника адресов
+        self.source_var = tk.StringVar(value="GINFO")  # По умолчанию выбрано GINFO
 
-        # Лог
+        self.radio_frame = tk.Frame(root)
+        self.radio_frame.grid(row=0, column=0, padx=10, pady=5, sticky="w")  # Размещение в первой строке
+
+        self.ginfo_checkbox = tk.Radiobutton(self.radio_frame, text="GINFO", variable=self.source_var, value="GINFO", command=self.update_source)
+        self.ginfo_checkbox.pack(side="left", padx=5)
+
+        self.fias_checkbox = tk.Radiobutton(self.radio_frame, text="ФИАС", variable=self.source_var, value="FIAS", command=self.update_source)
+        self.fias_checkbox.pack(side="left", padx=5)
+
+        # Контейнер для рамок (GinfoFrame и FiasFrame)
+        self.frames_container = tk.Frame(root)
+        self.frames_container.grid(row=1, column=0, padx=10, pady=5, sticky="ew")  # Размещение во второй строке
+
+        # Рамки
+        self.ginfo_frame = GinfoFrame(self.frames_container, self.log)
+        self.fias_frame = FiasFrame(self.frames_container, self.log)
+
+        # Изначально показываем только GINFO
+        self.ginfo_frame.pack(fill="x")
+        self.fias_frame.pack_forget()  # Скрываем ФИАС
+
+        # Окно логов
         self.log_box = scrolledtext.ScrolledText(root, wrap=tk.WORD, width=90, height=20)
-        self.log_box.pack(padx=10, pady=10)
+        self.log_box.grid(row=2, column=0, padx=10, pady=10)  # Размещение в третьей строке
 
     def log(self, message):
         self.log_box.insert(tk.END, message + "\n")
         self.log_box.see(tk.END)
 
-    def parse_districts(self):
-        pass
+    def update_source(self):
+        """Обновление выбранного источника и переключение видимости рамок."""
+        source = self.source_var.get()
+        self.log(f"📍 Выбран источник данных: {source}")
 
-    def parse_streets(self):
-        print("GINFO streets parsing...")
+        # Скрываем и показываем нужные рамки
+        if source == "GINFO":
+            self.ginfo_frame.pack(fill="x")
+            self.fias_frame.pack_forget()  # Скрываем ФИАС
+        elif source == "FIAS":
+            self.fias_frame.pack(fill="x")
+            self.ginfo_frame.pack_forget()  # Скрываем GINFO
 
-    def parse_addresses(self):
-        print("GINFO address parsing...")
-
-    def parse_fias(self):
-        print("FIAS parsing...")
-
-    def parse_2gis(self):
-        print("2GIS parsing...")
 
 if __name__ == "__main__":
     root = tk.Tk()
