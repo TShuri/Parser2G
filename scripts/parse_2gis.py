@@ -66,7 +66,7 @@ def get_build_orgs(log_func=None):
     total = len(addresses) + start_address
     for num, address in enumerate(addresses, start=start_address):
         logging.info(f"🔍 ({num}/{total}) Обработка адреса: {address[1]}")
-        log_func(f"🔍 ({num}/{total}) Обработка адреса: {address[1]}")
+        if log_func: log_func(f"🔍 ({num}/{total}) Обработка адреса: {address[1]}")
 
         try:
             build_raw, orgs_raw = parse_2gis(address[1], parser)
@@ -77,16 +77,16 @@ def get_build_orgs(log_func=None):
                 if save_to_db(output_data) is True:
                     counters['success_save'] += 1
                     logging.info(f"✅ Успешно сохранено для адреса: {address[1]}")
-                    log_func(f"✅ Успешно сохранено для адреса: {address[1]}")
+                    if log_func:log_func(f"✅ Успешно сохранено для адреса: {address[1]}")
                 else:
                     counters['error_save'] += 1
                     logging.error(f"❌ Не сохранено для адреса: {address[1]}")
                     logging.error(traceback.format_exc())
-                    log_func(f"❌ Не сохранено для адреса: {address[1]}")
+                    if log_func: log_func(f"❌ Не сохранено для адреса: {address[1]}")
             else:
                 counters['not_data_on_address'] += 1
                 logging.warning(f"⚠️ Нет данных для адреса: {address[1]}")
-                log_func(f"⚠️ Нет данных для адреса: {address[1]}")
+                if log_func: log_func(f"⚠️ Нет данных для адреса: {address[1]}")
 
         except Exception as e:
             counters['error_processing'] += 1
