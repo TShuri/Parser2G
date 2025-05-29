@@ -58,7 +58,7 @@ if __name__ == "__main__":
         'error_processing': 0
     }
     district_name = 'Октябрьский'
-    start_address = 3721
+    start_address = 4621
     addresses = get_addresses_by_district(district_name)[start_address:]
     # addresses = [(4397, 'Улица Лермонтова, д. 83'), (1495, 'Улица Автомобильная, д. 1')]
 
@@ -68,7 +68,8 @@ if __name__ == "__main__":
         logging.info(f"🔍 ({num}/{total}) Обработка адреса: {address[1]}")
 
         try:
-            build_raw, orgs_raw = parse_2gis(address[1], parser)
+            full_address_city = f'Иркутск, {address[1]}'
+            build_raw, orgs_raw = parse_2gis(full_address_city, parser)
             output_data = preprocess(build_raw=build_raw, orgs_raw=orgs_raw)
 
             if output_data:
