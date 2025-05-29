@@ -55,9 +55,11 @@ def get_houses(street_name, street_type, street_url):
         print(f"Ошибка при обработке {street_name} ({street_url}): {e}")
     return houses
 
-def get_addresses(streets, log_func):
+def get_addresses(streets, log_func, mock=False):
     # with open(INPUT_FILE, "r", encoding="utf-8") as f:
     #     streets = json.load(f)
+    if mock:
+        return get_addresses_mock(log_func)
 
     streets = streets[:3]
     all_data = []
@@ -83,6 +85,22 @@ def get_addresses(streets, log_func):
         time.sleep(0.5)
     return all_data
     # print(f"Готово! Сохранено {len(all_data)} адресов с координатами в {OUTPUT_FILE}")
+
+def get_addresses_mock(log_func):
+    try:
+        addresses = []
+        with open("../../data/ginfo/irkutsk_houses_coords_октябрьский.json", "r", encoding="utf-8") as f:
+            addresses = json.load(f)
+
+        for i, address in enumerate(addresses, 1):
+            log_func(f"[{i}/{len(addresses)}] Обрабатываем: {address['street']}")
+
+        return addresses
+
+    except Exception as e:
+        print(f"Ошибка при получении списка улиц: {e}")
+        return []
+
 
 if __name__ == "__main__":
     pass

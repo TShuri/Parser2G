@@ -44,7 +44,9 @@ def get_href(url):
         return None
 
 
-def get_street_links(district_url, log_func):
+def get_street_links(district_url, log_func, mock=False):
+    if mock:
+        return get_streets_mock(log_func)
     try:
         URL = f"{BASE_URL}{get_href(district_url)}"
         response = requests.get(URL, headers=headers, timeout=10)
@@ -73,6 +75,20 @@ def get_street_links(district_url, log_func):
         print(f"Ошибка при получении списка улиц: {e}")
         return []
 
+def get_streets_mock(log_func):
+    try:
+        streets = []
+        with open("../../data/ginfo/irkutsk_streets_октябрьский.json", "r", encoding="utf-8") as f:
+            streets = json.load(f)
+
+        for idx, street in enumerate(streets, start=1):
+            log_func(f"[{idx}/{len(streets)}] Найдено: {street['name']}")
+
+        return streets
+
+    except Exception as e:
+        print(f"Ошибка при получении списка улиц: {e}")
+        return []
 
 def main():
     streets = get_street_links()

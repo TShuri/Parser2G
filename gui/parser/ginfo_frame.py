@@ -36,8 +36,8 @@ class GinfoFrame(tk.LabelFrame):
         self.addresses_button = tk.Button(self, text="🏠 Получить адреса", command=self.run_addresses, state="disabled")
         self.addresses_button.pack(side="left", padx=5)
 
-        self.addresses_button = tk.Button(self, text="🏢 Парсинг зданий и организаций", command=self.run_addresses, state="disabled")
-        self.addresses_button.pack(side="left", padx=5)
+        self.builds_orgs_button = tk.Button(self, text="🏢 Парсинг зданий и организаций", command=self.run_addresses, state="disabled")
+        self.builds_orgs_button.pack(side="left", padx=5)
 
     def _on_district_selected(self, name):
         self.selected_district.set(name)
@@ -114,7 +114,7 @@ class GinfoFrame(tk.LabelFrame):
         def task():
             try:
                 if self.parse_streets_func:
-                    self.streets = self.parse_streets_func(self.url_selected_district, self.log)
+                    self.streets = self.parse_streets_func(self.url_selected_district, self.log, mock=True)
                     self.log(f"✅ Парсинг завершён. Найдено улиц: {len(self.streets)}")
                     self.log(f"✅ {len(self.streets)} улиц записано в базу данных")
                     self.addresses_button.config(state="normal")
@@ -135,9 +135,10 @@ class GinfoFrame(tk.LabelFrame):
         def task():
             try:
                 if self.parse_addresses_func:
-                    self.addresses = self.parse_addresses_func(self.streets, self.log)
+                    self.addresses = self.parse_addresses_func(self.streets, self.log, mock=True)
                     self.log(f"✅ Парсинг завершён. Найдено адресов: {len(self.addresses)}")
                     self.log(f"✅ {len(self.addresses)} адресов записано в базу данных")
+                    self.builds_orgs_button.config(state="normal")
                 else:
                     self.log("⚠️ Функция парсинга адресов не задана.")
             except Exception as e:
