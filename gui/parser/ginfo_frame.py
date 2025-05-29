@@ -36,7 +36,7 @@ class GinfoFrame(tk.LabelFrame):
         self.addresses_button = tk.Button(self, text="🏠 Получить адреса", command=self.run_addresses, state="disabled")
         self.addresses_button.pack(side="left", padx=5)
 
-        self.builds_orgs_button = tk.Button(self, text="🏢 Парсинг зданий и организаций", command=self.run_addresses, state="disabled")
+        self.builds_orgs_button = tk.Button(self, text="🏢 Парсинг зданий и организаций", command=self.run_builds_orgs, state="disabled")
         self.builds_orgs_button.pack(side="left", padx=5)
 
     def _on_district_selected(self, name):

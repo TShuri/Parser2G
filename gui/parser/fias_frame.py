@@ -38,7 +38,7 @@ class FiasFrame(tk.LabelFrame):
     def run_streets(self):
         url = self.url_entry.get().strip()
         if not url:
-            self.log("⚠️ Пожалуйста, введите ссылку из Fias-alta улиц.")
+            self.log("⚠️ Пожалуйста, введите ссылку из Fias-alta.")
             return
         self.log(f"🔄 GINFO: Запуск парсинга улиц: ")
 
