@@ -3,49 +3,57 @@ from bs4 import BeautifulSoup
 import json
 
 BASE_URL = "https://irkutsk.ginfo.ru"
-START_URL = f"{BASE_URL}/ulicy/?okrug=32"
-OUTPUT_FILE = "../../data/irk_ginfo/irkutsk_streets_ленинский.json"
+START_URL = f"{BASE_URL}"
+OUTPUT_FILE = "../../data/ginfo/irkutsk_districts.json"
 
 headers = {
     "User-Agent": "Mozilla/5.0"
 }
 
-def get_streets_with_links():
+def get_districts():
     try:
         response = requests.get(START_URL, headers=headers, timeout=10)
         response.raise_for_status()
         soup = BeautifulSoup(response.text, "html.parser")
 
-        street_links = soup.select("a.ulica_link")
-        streets = []
+        # Ищем div с классом main_block, в котором есть ссылки на районы
+        main_block = soup.find("div", class_="main_block")
+        if not main_block:
+            #print("Не найден основной блок с районами")
+            return []
 
-        for a in street_links:
-            span = a.find("span")
-            if span and span.next_sibling:
-                street_name = span.next_sibling.strip()
-                href = a.get("href", "").strip()
-                if href:
-                    street_url = BASE_URL + href
-                    streets.append({
-                        "name": street_name,
-                        "url": street_url
-                    })
+        # Обычно ссылки на районы — внутри div после заголовка, либо просто в main_block
+        # На всякий случай собираем все ссылки в main_block с href, содержащим '/rayoni/'
+        district_links = []
+        for a in main_block.find_all("a", href=True):
+            href = a["href"]
+            if href.startswith("/rayoni/") and href != "/rayoni/":
+                district_links.append(a)
 
-        return streets
+        districts = []
+        for a in district_links:
+            name = a.text.strip()
+            url = BASE_URL + a["href"]
+            districts.append({"name": name, "url": url})
+
+        return districts
 
     except Exception as e:
-        print(f"Ошибка при получении списка улиц: {e}")
+        #print(f"Ошибка при получении районов: {e}")
         return []
 
 def main():
-    streets = get_streets_with_links()
+    districts = get_districts()
 
-    if streets:
+    if districts:
         with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-            json.dump(streets, f, ensure_ascii=False, indent=2)
-        print(f"Сохранено {len(streets)} улиц в файл {OUTPUT_FILE}")
+            json.dump(districts, f, ensure_ascii=False, indent=2)
+        #print(f"Сохранено {len(districts)} районов в файл {OUTPUT_FILE}")
     else:
-        print("Не удалось получить список улиц.")
+        pass
+        #print("Не удалось получить список районов.")
+
+    return districts
 
 if __name__ == "__main__":
     main()

@@ -13,6 +13,22 @@ DB_CONFIG = {
     'host': os.getenv("DB_HOST"),
     'port': os.getenv("DB_PORT")
 }
+
+def fetch_all_addresses():
+    try:
+        conn = psycopg2.connect(**DB_CONFIG)
+        cursor = conn.cursor()
+        cursor.execute("""SELECT * FROM addresses""")
+        addresses = cursor.fetchall()
+        return addresses
+    except Exception as e:
+        print("Ошибка при выполнении запроса:", e)
+        return []
+    finally:
+        if conn:
+            cursor.close()
+            conn.close()
+
 def fetch_buildings_and_organizations():
     conn = psycopg2.connect(**DB_CONFIG)
     cur = conn.cursor()
@@ -142,9 +158,38 @@ def save_to_csv(data, filename):
             writer.writeheader()
             writer.writerows(rows)
 
+def save_addresses_to_csv(data, filename):
+    with open(filename, mode="w", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        writer.writerow(["id", "street_id", "house", "full_address", "lat", "lon", "postcode"])  # Заголовки
+        writer.writerows(data)
+
+def export_data(filepath, format):
+    """
+    Экспортирует данные о зданиях и организациях в указанный файл.
+
+    :param filepath: путь к файлу для сохранения
+    :param format: формат экспорта — 'json' или 'csv'
+    :return: количество зданий
+    """
+    data = fetch_buildings_and_organizations()
+
+    if format == "json":
+        save_to_json(data, filepath)
+    elif format == "csv":
+        save_to_csv(data, filepath)
+    else:
+        raise ValueError(f"Неподдерживаемый формат: {format}")
+
+    return len(data)
+
 
 if __name__ == "__main__":
-    merged_data = fetch_buildings_and_organizations()
-    save_to_json(merged_data, "../data/buildings_with_organizations.json")
-    save_to_csv(merged_data, "../data/buildings_with_organizations.csv")
-    print("✅ Данные сохранены в JSON и CSV.")
+    data = fetch_all_addresses()
+    print(data[:3])
+    save_addresses_to_csv(data, "../../data/all_addresses.csv")
+
+    # merged_data = fetch_buildings_and_organizations()
+    # save_to_json(merged_data, "../../data/buildings_with_organizations.json")
+    # save_to_csv(merged_data, "../../data/buildings_with_organizations.csv")
+    # print("✅ Данные сохранены в JSON и CSV.")
