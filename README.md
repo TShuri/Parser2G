@@ -48,9 +48,6 @@ source .venv/bin/activate  # для Linux/macOS
 pip install -r requirements.txt
 ```
 
-## 🧪 Тестирование
-
-### Запуск тестов
 ```sh
 # Активация виртуального окружения
 .venv\Scripts\activate  # для Windows
