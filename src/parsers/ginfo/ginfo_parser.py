@@ -39,7 +39,7 @@ class GinfoParser:
             self.log(f"Ошибка при получении районов: {e}")
 
     # --- Извлечение url улиц ---
-    def get_streets_links(self, district_url):
+    def get_streets(self, district_url):
         """
         Args:
             district_url (str): URL страницы района, для которого нужно получить список url улиц
@@ -65,8 +65,9 @@ class GinfoParser:
 
             streets_links = []
             for idx, a in enumerate(soup.find_all("a", class_="ulica_link"), start=1):
-                url = self.BAse_URL + a["href"]
+                url = self.BASE_URL + a["href"]
                 streets_links.append(url)
+                self.log(f"[{idx}] Найдена улица: {url}")
             return streets_links
 
         except Exception as e:
